@@ -1,0 +1,103 @@
+"""
+KanoonRAG — Central Configuration
+
+All configurable values are defined here. Environment variables override defaults.
+"""
+
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# ── Paths ──────────────────────────────────────────────────────────────────────
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+UPLOAD_DIR = Path(os.getenv("UPLOAD_DIR", str(DATA_DIR / "uploads")))
+KANOON_CACHE_DIR = Path(os.getenv("KANOON_CACHE_DIR", str(DATA_DIR / "kanoon_cache")))
+CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", str(DATA_DIR / "chroma_db"))
+
+# ── Database ───────────────────────────────────────────────────────────────────
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite+aiosqlite:///{DATA_DIR / 'kanoonrag.db'}")
+
+# ── Auth ───────────────────────────────────────────────────────────────────────
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "dev-secret-change-in-production")
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRY_HOURS = 24
+
+# ── Groq LLM ──────────────────────────────────────────────────────────────────
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_TEMPERATURE = 0.3
+GROQ_MAX_TOKENS = 4096
+
+# ── Ollama Fallback LLM ───────────────────────────────────────────────────────
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "mistral:7b")
+OLLAMA_TEMPERATURE = 0.3
+OLLAMA_MAX_TOKENS = 4096
+
+# ── Embeddings ─────────────────────────────────────────────────────────────────
+EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+EMBEDDING_DIMENSION = 384
+
+# ── Chunking ──────────────────────────────────────────────────────────────────
+CHUNK_SIZE = 800
+CHUNK_OVERLAP = 150
+
+# ── Vector Store ──────────────────────────────────────────────────────────────
+KANOON_COLLECTION = "kanoon_matrimonial"
+USER_UPLOADS_COLLECTION = "user_uploads"
+TOP_K_KANOON = 8
+TOP_K_UPLOADS = 4
+
+# ── Kanoon API (offline seed only) ────────────────────────────────────────────
+KANOON_API_TOKEN = os.getenv("KANOON_API_TOKEN", "")
+KANOON_API_BASE = "https://api.indiankanoon.org"
+KANOON_RATE_LIMIT_DELAY = 1.0  # seconds between API calls
+
+# ── Kanoon Seed Queries ──────────────────────────────────────────────────────
+KANOON_SEED_QUERIES = [
+    {
+        "category": "divorce_cruelty",
+        "query": '"cruelty" "divorce" "Hindu Marriage Act"',
+        "doctypes": "supremecourt,highcourts",
+        "max_results": 100,
+    },
+    {
+        "category": "maintenance",
+        "query": '"maintenance" "section 125" wife husband',
+        "doctypes": "supremecourt,highcourts",
+        "max_results": 100,
+    },
+    {
+        "category": "child_custody",
+        "query": '"child custody" "welfare of child" guardian',
+        "doctypes": "supremecourt,highcourts",
+        "max_results": 100,
+    },
+    {
+        "category": "domestic_violence",
+        "query": '"domestic violence" "protection" women',
+        "doctypes": "supremecourt,highcourts",
+        "max_results": 100,
+    },
+    {
+        "category": "dowry_498a",
+        "query": '"dowry" "498A" "harassment"',
+        "doctypes": "supremecourt,highcourts",
+        "max_results": 100,
+    },
+]
+
+# ── Legal Query Enhancement ──────────────────────────────────────────────────
+LEGAL_SYNONYMS = {
+    "divorce": ["dissolution of marriage", "Section 13 HMA", "Hindu Marriage Act", "matrimonial relief"],
+    "cruelty": ["mental cruelty", "physical cruelty", "Section 13(1)(ia)", "matrimonial cruelty"],
+    "maintenance": ["Section 125 CrPC", "Section 24 HMA", "Section 25 HMA", "interim maintenance", "alimony", "permanent alimony"],
+    "custody": ["child custody", "welfare of child", "Section 6 GWA", "Section 26 HMA", "visitation rights", "guardian"],
+    "domestic violence": ["DV Act 2005", "protection order", "shared household", "Protection of Women from Domestic Violence"],
+    "dowry": ["Section 498A IPC", "dowry prohibition", "dowry harassment", "cruelty by husband", "Dowry Prohibition Act"],
+    "498a": ["Section 498A", "dowry harassment", "cruelty by husband or relatives"],
+    "alimony": ["maintenance", "Section 25 HMA", "permanent alimony", "interim maintenance"],
+}

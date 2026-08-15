@@ -1,0 +1,30 @@
+.signup-page-wrapper {
+  background-color: #080808;
+  color: #F2F2F2;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F5E6BE 0%, #D4AF37 50%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.obsidian-card {
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.input-gold-focus:focus {
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 1px #D4AF37;
+  outline: none;
+}
+
+.glass-overlay {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+
+.signup-container input {
+  color: #e3e2e2;
+}
