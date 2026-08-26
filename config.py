@@ -2,6 +2,16 @@
 KanoonRAG — Central Configuration
 
 All configurable values are defined here. Environment variables override defaults.
+Models:
+mixtral:8x22b
+mistral:7b
+gpt-oss:20b
+
+Base URL
+http://localhost:11434/
+
+for RunPod:
+http://localhost:11435/
 """
 
 import os
@@ -13,23 +23,45 @@ load_dotenv()
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
-UPLOAD_DIR = Path(os.getenv("UPLOAD_DIR", str(DATA_DIR / "uploads")))
-KANOON_CACHE_DIR = Path(os.getenv("KANOON_CACHE_DIR", str(DATA_DIR / "kanoon_cache")))
-CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", str(DATA_DIR / "chroma_db"))
+
+# Helper to resolve relative env paths to absolute paths
+def _resolve_path(env_val, default_path):
+    if not env_val:
+        return str(default_path)
+    p = Path(env_val)
+    return str(p.resolve()) if p.is_absolute() else str((BASE_DIR / p).resolve())
+
+UPLOAD_DIR = Path(_resolve_path(os.getenv("UPLOAD_DIR"), DATA_DIR / "uploads"))
+KANOON_CACHE_DIR = Path(_resolve_path(os.getenv("KANOON_CACHE_DIR"), DATA_DIR / "kanoon_cache"))
+CHROMA_PERSIST_DIR = _resolve_path(os.getenv("CHROMA_PERSIST_DIR"), DATA_DIR / "chroma_db")
 
 # ── Database ───────────────────────────────────────────────────────────────────
-DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite+aiosqlite:///{DATA_DIR / 'kanoonrag.db'}")
+env_db_url = os.getenv("DATABASE_URL")
+if env_db_url and env_db_url.startswith("sqlite+aiosqlite:///./"):
+    # Fix relative sqlite paths
+    DATABASE_URL = f"sqlite+aiosqlite:///{BASE_DIR}/{env_db_url.split('sqlite+aiosqlite:///./')[1]}"
+else:
+    DATABASE_URL = env_db_url or f"sqlite+aiosqlite:///{DATA_DIR / 'kanoonrag.db'}"
 
 # ── Auth ───────────────────────────────────────────────────────────────────────
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "dev-secret-change-in-production")
 JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_HOURS = 24
 
+# ── LLM Configuration ─────────────────────────────────────────────────────────
+PRIMARY_LLM = os.getenv("PRIMARY_LLM", "ollama")  # Options: 'ollama', 'groq', 'sarvam'
+
+# ── Sarvam AI LLM ─────────────────────────────────────────────────────────────
+SARVAM_API_KEY = os.getenv("SARVAM_API_KEY", "")
+SARVAM_MODEL = os.getenv("SARVAM_MODEL", "sarvam-105b")
+SARVAM_BASE_URL = os.getenv("SARVAM_BASE_URL", "https://api.sarvam.ai/v1/chat/completions")
+
 # ── Groq LLM ──────────────────────────────────────────────────────────────────
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_MODEL = "openai/gpt-oss-120b"
 GROQ_TEMPERATURE = 0.3
 GROQ_MAX_TOKENS = 4096
+
 
 # ── Ollama Fallback LLM ───────────────────────────────────────────────────────
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
@@ -42,8 +74,8 @@ EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 EMBEDDING_DIMENSION = 384
 
 # ── Chunking ──────────────────────────────────────────────────────────────────
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 150
+CHUNK_SIZE = 2000
+CHUNK_OVERLAP = 300
 
 # ── Vector Store ──────────────────────────────────────────────────────────────
 KANOON_COLLECTION = "kanoon_matrimonial"
