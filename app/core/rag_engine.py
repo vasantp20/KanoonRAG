@@ -1,20 +1,21 @@
 import os
 import re
 from typing import Dict, Any, List, Optional
-import httpx
-from groq import AsyncGroq
 
 import config
 from app.core.embeddings import EmbeddingService
 from app.core.vector_store import VectorStore
+from app.core.llm_provider import LLMProvider
 
 LEGAL_SYSTEM_PROMPT = """You are a senior Indian family law expert and legal assistant.
-Your task is to provide accurate, professional, and empathetic legal answers based on the provided context.
-When you use information from the context, you MUST cite the source precisely as follows:
-- For Kanoon documents (legal cases): [Case: <Title> | <Citation> | <Court>, <Year>]
-- For user uploaded documents: [Client File: <filename>, Page <n>]
+Your task is to provide accurate, professional, and empathetic legal answers based EXCLUSIVELY on the provided context.
 
-Base your answer ONLY on the provided context. If the context does not contain sufficient information, state that clearly.
+CRITICAL INSTRUCTIONS:
+1. Base your answer ONLY on the provided context. Do NOT use any outside or parametric knowledge to answer the question.
+2. If the provided context does not contain sufficient information to answer the question, you MUST reply exactly with: "I don't know based on the provided documents." Do not attempt to guess or extrapolate.
+3. When you use information from the context, you MUST cite the source precisely as follows:
+   - For Kanoon documents (legal cases): [Case: <Title> | <Citation> | <Court>, <Year>]
+   - For user uploaded documents: [Client File: <filename>, Page <n>]
 """
 
 class RAGEngine:
@@ -22,43 +23,17 @@ class RAGEngine:
     def __init__(self):
         self.embedding_service = EmbeddingService()
         self.vector_store = VectorStore()
-        self.groq_client = AsyncGroq(api_key=config.GROQ_API_KEY)
-        self.http_client = httpx.AsyncClient(timeout=60.0)
+        self.llm_provider = LLMProvider()
 
     async def _call_llm(self, messages: List[Dict[str, str]]) -> str:
-        """Call Groq LLM, fallback to local Ollama if it fails."""
+        """Call the primary LLM with graceful fallback."""
         try:
-            response = await self.groq_client.chat.completions.create(
-                messages=messages,
-                model=config.GROQ_MODEL,
-                temperature=config.GROQ_TEMPERATURE,
-                max_tokens=config.GROQ_MAX_TOKENS,
-            )
-            return response.choices[0].message.content
+            return await self.llm_provider.generate_async(messages)
         except Exception as e:
-            print(f"Groq API failed: {e}. Falling back to Ollama ({config.OLLAMA_MODEL})...")
-            
-            payload = {
-                "model": config.OLLAMA_MODEL,
-                "messages": messages,
-                "stream": False,
-                "options": {
-                    "temperature": config.OLLAMA_TEMPERATURE,
-                    "num_predict": config.OLLAMA_MAX_TOKENS
-                }
-            }
-            
-            try:
-                response = await self.http_client.post(
-                    f"{config.OLLAMA_BASE_URL.rstrip('/')}/api/chat",
-                    json=payload
-                )
-                response.raise_for_status()
-                data = response.json()
-                return data["message"]["content"]
-            except Exception as ollama_e:
-                print(f"Ollama fallback failed: {ollama_e}")
-                raise Exception(f"Both Groq and Ollama failed. Groq error: {e}. Ollama error: {ollama_e}")
+            print(f"Primary LLM ({self.llm_provider.provider}) failed: {e}. Falling back to Ollama...")
+            # Fallback to local Ollama if primary fails
+            fallback_provider = LLMProvider(provider="ollama")
+            return await fallback_provider.generate_async(messages)
 
     def _enhance_query(self, query: str) -> str:
         """Enhance query with legal synonyms."""
@@ -118,9 +93,14 @@ class RAGEngine:
             meta = chunk.get('metadata', {})
             source_type = meta.get('source_type', 'unknown')
             
+            if 'rrf_score' in chunk:
+                relevance_score = chunk['rrf_score'] * 100  # Scale up RRF for readability
+            else:
+                relevance_score = 1.0 - chunk.get('distance', 0.0)
+                
             source = {
                 "source_type": source_type,
-                "relevance_score": 1.0 - chunk.get('distance', 0.0),  # Convert distance to score
+                "relevance_score": relevance_score,
                 "snippet": chunk['text'][:200] + "..." if len(chunk['text']) > 200 else chunk['text']
             }
             
@@ -154,11 +134,12 @@ class RAGEngine:
         query_embedding = self.embedding_service.embed_query(enhanced_query)
         
         # Step 3: Search collections
-        retrieved_chunks = self.vector_store.search_all(query_embedding, user_id, case_id)
+        retrieved_chunks = self.vector_store.search_all(enhanced_query, query_embedding, user_id, case_id)
         
         # Step 4: Assemble context
         context = self._format_context(retrieved_chunks)
-        
+        print("Context:")
+        print(context)
         # Step 5: Build prompt
         messages = [
             {"role": "system", "content": LEGAL_SYSTEM_PROMPT}

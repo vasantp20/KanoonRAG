@@ -3,6 +3,10 @@ import argparse
 import sys
 import os
 
+print("DEPRECATION WARNING: seed_kanoon.py is deprecated and should not be used by agents or users.")
+print("Please use seed_kaggle.py instead.")
+sys.exit(1)
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 

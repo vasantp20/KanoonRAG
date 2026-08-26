@@ -29,7 +29,7 @@ KanoonRAG is a Retrieval-Augmented Generation (RAG) system that helps lawyers cr
 |---|---|
 | Backend | FastAPI (Python) |
 | Frontend | Streamlit |
-| LLM | Groq (LLaMA 3.3 70B, free tier) |
+| LLM | Sarvam AI, Groq (LLaMA 3.3), or Local Ollama |
 | Embeddings | sentence-transformers (BAAI/bge-small-en-v1.5, local) |
 | Vector Store | ChromaDB |
 | Database | SQLite (async via aiosqlite) |
@@ -58,13 +58,36 @@ cp .env.example .env
 # - JWT_SECRET_KEY (any random string)
 ```
 
-### 3. Initialize Database
+### 3. Switching LLM Providers
+
+KanoonRAG now features a central LLM Provider that supports switching seamlessly between cloud and local models. You can configure your provider using environment variables:
+
+**To use Groq (Fast Cloud Inference):**
+```bash
+export PRIMARY_LLM="groq"
+export GROQ_API_KEY="your_key"
+```
+
+**To use Sarvam AI (Specialized Indic/Legal LLM):**
+```bash
+export PRIMARY_LLM="sarvam"
+export SARVAM_API_KEY="your_key"
+```
+
+**To use Ollama (Local Privacy-First):**
+*Ensure you have Ollama running locally with a model downloaded (e.g., `ollama run qwen3.6:35b`)*
+```bash
+export PRIMARY_LLM="ollama"
+export OLLAMA_MODEL="qwen3.6:35b"
+```
+
+### 4. Initialize Database
 
 ```bash
 python scripts/init_db.py
 ```
 
-### 4. Seed Case Law Corpus (One-Time)
+### 5. Seed Case Law Corpus (One-Time)
 
 ```bash
 python scripts/seed_kaggle.py
@@ -76,7 +99,7 @@ This will:
 - Generate embeddings locally (takes ~10-15 min on CPU for 500 cases)
 - Store everything in ChromaDB + SQLite
 
-### 5. Run the Application
+### 6. Run the Application
 
 In two separate terminals:
 

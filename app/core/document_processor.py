@@ -3,6 +3,7 @@ from typing import List, Dict, Any
 import fitz  # PyMuPDF
 import docx
 from bs4 import BeautifulSoup
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 import config
 
@@ -25,7 +26,7 @@ def extract_text_from_kanoon_html(html: str) -> str:
     return soup.get_text(separator="\n", strip=True)
 
 def legal_aware_chunk(text: str, metadata: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Chunk text using legal section headings, paragraphs, and recursive character split."""
+    """Chunk text using legal section headings and semantic recursive text splitter."""
     chunks = []
     
     # Primary split on legal section headings
@@ -50,47 +51,32 @@ def legal_aware_chunk(text: str, metadata: Dict[str, Any]) -> List[Dict[str, Any
         
     chunk_index = 0
     
+    # Legal-aware splitter prioritizing paragraphs, sentences, and clauses
+    text_splitter = RecursiveCharacterTextSplitter(
+        separators=["\n\n", "\n", "Section", "Rule", "Article", "(1)", "(2)", "(a)", "(b)", ". ", ", ", " "],
+        chunk_size=config.CHUNK_SIZE,
+        chunk_overlap=config.CHUNK_OVERLAP,
+        length_function=len,
+    )
+    
     # Process each section
     for section_type, section_text in sections:
         if not section_text:
             continue
             
-        # Secondary split on paragraphs
-        paragraphs = re.split(r'\n\s*\n', section_text)
+        split_texts = text_splitter.split_text(section_text)
         
-        current_chunk = ""
-        for para in paragraphs:
-            para = para.strip()
-            if not para:
+        for chunk_text in split_texts:
+            if not chunk_text.strip():
                 continue
-                
-            if len(current_chunk) + len(para) + 2 <= config.CHUNK_SIZE:
-                current_chunk += ("\n\n" if current_chunk else "") + para
-            else:
-                if current_chunk:
-                    chunk_meta = metadata.copy()
-                    chunk_meta.update({"chunk_index": chunk_index, "section_type": section_type})
-                    chunks.append({"text": current_chunk, "metadata": chunk_meta})
-                    chunk_index += 1
-                
-                # Fallback recursive character split if a single paragraph is too large
-                if len(para) > config.CHUNK_SIZE:
-                    idx = 0
-                    while idx < len(para):
-                        end_idx = min(idx + config.CHUNK_SIZE, len(para))
-                        chunk_meta = metadata.copy()
-                        chunk_meta.update({"chunk_index": chunk_index, "section_type": section_type})
-                        chunks.append({"text": para[idx:end_idx], "metadata": chunk_meta})
-                        chunk_index += 1
-                        idx += config.CHUNK_SIZE - config.CHUNK_OVERLAP
-                    current_chunk = ""
-                else:
-                    current_chunk = para
-                    
-        if current_chunk:
             chunk_meta = metadata.copy()
             chunk_meta.update({"chunk_index": chunk_index, "section_type": section_type})
-            chunks.append({"text": current_chunk, "metadata": chunk_meta})
+            
+            # Setup Parent-Child linking metadata
+            doc_id = metadata.get('kanoon_doc_id') or metadata.get('filename', 'doc')
+            chunk_meta.update({"parent_id": f"{doc_id}_{section_type}"})
+            
+            chunks.append({"text": chunk_text, "metadata": chunk_meta})
             chunk_index += 1
             
     return chunks

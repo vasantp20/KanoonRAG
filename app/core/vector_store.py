@@ -1,11 +1,12 @@
 import os
+import re
 from typing import List, Dict, Any, Optional
 import chromadb
 
 import config
 
 class VectorStore:
-    """ChromaDB operations for RAG pipeline (singleton)."""
+    """ChromaDB and BM25 operations for RAG pipeline (singleton)."""
     _instance = None
 
     def __new__(cls):
@@ -26,10 +27,46 @@ class VectorStore:
                 metadata={"hnsw:space": "cosine"}
             )
             
+            # Initialize BM25 state
+            cls._instance.kanoon_bm25 = None
+            cls._instance.kanoon_bm25_docs = []
+            cls._instance.kanoon_bm25_meta = []
+            cls._instance._build_bm25()
+            
+            # Initialize Cross-Encoder
+            try:
+                from sentence_transformers import CrossEncoder
+                print("Loading BAAI/bge-reranker-base...")
+                cls._instance.reranker = CrossEncoder('BAAI/bge-reranker-base')
+                print("Reranker loaded successfully!")
+            except Exception as e:
+                print(f"Error loading reranker: {e}")
+                cls._instance.reranker = None
+                
         return cls._instance
 
+    def _tokenize(self, text: str) -> List[str]:
+        """Simple tokenizer for BM25."""
+        if not text:
+            return []
+        return re.findall(r'\w+', text.lower())
+
+    def _build_bm25(self):
+        """Build the in-memory BM25 index from Chroma documents."""
+        try:
+            from rank_bm25 import BM25Okapi
+            
+            data = self.kanoon_collection.get(include=['documents', 'metadatas'])
+            if data and data['documents']:
+                self.kanoon_bm25_docs = data['documents']
+                self.kanoon_bm25_meta = data['metadatas']
+                tokenized_corpus = [self._tokenize(doc) for doc in self.kanoon_bm25_docs]
+                self.kanoon_bm25 = BM25Okapi(tokenized_corpus)
+        except Exception as e:
+            print(f"Error building BM25 index: {e}")
+
     def add_kanoon_chunks(self, chunks: List[Dict[str, Any]]):
-        """Add chunks to the kanoon collection."""
+        """Add chunks to the kanoon collection and rebuild BM25."""
         if not chunks:
             return
             
@@ -50,6 +87,9 @@ class VectorStore:
             self.kanoon_collection.upsert(ids=ids, embeddings=embeddings, metadatas=metadatas, documents=documents)
         else:
             self.kanoon_collection.upsert(ids=ids, metadatas=metadatas, documents=documents)
+            
+        # Rebuild BM25 index after adding new chunks
+        self._build_bm25()
 
     def add_upload_chunks(self, chunks: List[Dict[str, Any]]):
         """Add chunks to the uploads collection."""
@@ -84,8 +124,8 @@ class VectorStore:
         else:
             self.uploads_collection.upsert(ids=ids, metadatas=metadatas, documents=documents)
 
-    def search_kanoon(self, query_embedding: List[float], top_k: int, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
-        """Search kanoon collection."""
+    def search_kanoon_dense(self, query_embedding: List[float], top_k: int, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+        """Search kanoon collection using Dense Vectors."""
         results = self.kanoon_collection.query(
             query_embeddings=[query_embedding],
             n_results=top_k,
@@ -99,10 +139,32 @@ class VectorStore:
                 formatted_results.append({
                     "text": results['documents'][0][i],
                     "metadata": results['metadatas'][0][i],
-                    "distance": results['distances'][0][i] if 'distances' in results and results['distances'] else 0.0
+                    "dense_distance": results['distances'][0][i] if 'distances' in results and results['distances'] else 0.0
                 })
                 
         return formatted_results
+
+    def search_kanoon_sparse(self, query: str, top_k: int) -> List[Dict[str, Any]]:
+        """Search kanoon collection using Sparse BM25."""
+        if not self.kanoon_bm25:
+            return []
+            
+        tokenized_query = self._tokenize(query)
+        scores = self.kanoon_bm25.get_scores(tokenized_query)
+        
+        scored_docs = [(idx, score) for idx, score in enumerate(scores) if score > 0]
+        scored_docs.sort(key=lambda x: x[1], reverse=True)
+        
+        top_n = [idx for idx, score in scored_docs[:top_k]]
+        
+        results = []
+        for idx in top_n:
+            results.append({
+                "text": self.kanoon_bm25_docs[idx],
+                "metadata": self.kanoon_bm25_meta[idx],
+                "bm25_score": scores[idx]
+            })
+        return results
 
     def search_uploads(self, query_embedding: List[float], user_id: int, case_id: Optional[int] = None, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
         """Search uploads collection."""
@@ -113,7 +175,6 @@ class VectorStore:
         if case_id is not None:
             where_filter["case_id"] = case_id
             
-        # Handle case where collection might be empty
         try:
             results = self.uploads_collection.query(
                 query_embeddings=[query_embedding],
@@ -135,16 +196,58 @@ class VectorStore:
                 
         return formatted_results
 
-    def search_all(self, query_embedding: List[float], user_id: int, case_id: Optional[int] = None) -> List[Dict[str, Any]]:
-        """Search both collections and merge results."""
-        kanoon_results = self.search_kanoon(query_embedding, config.TOP_K_KANOON)
-        upload_results = self.search_uploads(query_embedding, user_id, case_id, config.TOP_K_UPLOADS)
+    def reciprocal_rank_fusion(self, dense_results: List[Dict], sparse_results: List[Dict], k=60) -> List[Dict]:
+        """Fuse dense and sparse results using RRF."""
+        fused_scores = {}
+        chunk_map = {}
         
-        # Combine and sort by distance (lower is better for cosine distance)
+        def get_key(res):
+            meta = res.get('metadata', {})
+            return meta.get('parent_id') or meta.get('kanoon_doc_id') or hash(res['text'])
+
+        for rank, res in enumerate(dense_results):
+            key = get_key(res)
+            chunk_map[key] = res
+            fused_scores[key] = fused_scores.get(key, 0.0) + (1.0 / (k + rank))
+            
+        for rank, res in enumerate(sparse_results):
+            key = get_key(res)
+            if key not in chunk_map:
+                chunk_map[key] = res
+            fused_scores[key] = fused_scores.get(key, 0.0) + (1.0 / (k + rank))
+            
+        ranked_keys = sorted(fused_scores.keys(), key=lambda x: fused_scores[x], reverse=True)
+        
+        final_results = []
+        for key in ranked_keys:
+            res = chunk_map[key]
+            res['rrf_score'] = fused_scores[key]
+            final_results.append(res)
+            
+        return final_results
+
+    def search_all(self, query: str, query_embedding: List[float], user_id: int, case_id: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Search both collections using Hybrid Search, RRF, and Cross-Encoder Reranking."""
+        fusion_k = config.TOP_K_KANOON * 3 
+        
+        dense_results = self.search_kanoon_dense(query_embedding, fusion_k)
+        sparse_results = self.search_kanoon_sparse(query, fusion_k)
+        
+        kanoon_results = self.reciprocal_rank_fusion(dense_results, sparse_results)
+        
+        upload_results = self.search_uploads(query_embedding, user_id, case_id, config.TOP_K_UPLOADS * 3)
+        
         combined = kanoon_results + upload_results
-        combined.sort(key=lambda x: x['distance'])
         
-        return combined
+        if getattr(self, 'reranker', None) and combined:
+            pairs = [[query, res['text']] for res in combined]
+            scores = self.reranker.predict(pairs)
+            for res, score in zip(combined, scores):
+                res['rerank_score'] = float(score)
+            combined.sort(key=lambda x: x['rerank_score'], reverse=True)
+            
+        final_limit = config.TOP_K_KANOON + config.TOP_K_UPLOADS
+        return combined[:final_limit]
 
     def delete_upload_chunks(self, user_id: int, case_id: Optional[int] = None):
         """Delete chunks from uploads collection."""

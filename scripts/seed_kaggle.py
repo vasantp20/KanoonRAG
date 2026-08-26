@@ -21,22 +21,31 @@ CSV_PATH = KAGGLE_DIR / "judgments.csv"
 PDF_DIR = KAGGLE_DIR / "pdfs"
 
 TARGET_CASES = 500
-PAGES_TO_SCAN = 3  # Scan first 3 pages for keywords
+PAGES_TO_SCAN = 20  # Scan first 20 pages for keywords
 
 KEYWORDS_MAP = {
     "divorce": CaseType.DIVORCE,
     "hindu marriage act": CaseType.DIVORCE,
     "special marriage act": CaseType.DIVORCE,
+    "christian marriage act": CaseType.DIVORCE,
+    "dissolution of muslim marriages": CaseType.DIVORCE,
+    "restitution of conjugal rights": CaseType.DIVORCE,
+    "judicial separation": CaseType.DIVORCE,
+    "family court": CaseType.DIVORCE,
+    "matrimonial": CaseType.DIVORCE,
     "cruelty": CaseType.DIVORCE,
     "maintenance": CaseType.MAINTENANCE,
     "alimony": CaseType.MAINTENANCE,
     "125 crpc": CaseType.MAINTENANCE,
+    "section 125": CaseType.MAINTENANCE,
     "child custody": CaseType.CUSTODY,
     "guardian": CaseType.CUSTODY,
     "domestic violence": CaseType.DOMESTIC_VIOLENCE,
     "pwdva": CaseType.DOMESTIC_VIOLENCE,
     "dowry": CaseType.DOWRY,
-    "498a": CaseType.DOWRY
+    "498a": CaseType.DOWRY,
+    "498-a": CaseType.DOWRY,
+    "498 a": CaseType.DOWRY
 }
 
 def init_sync_db():
@@ -46,18 +55,48 @@ def init_sync_db():
     Session = sessionmaker(bind=engine)
     return Session()
 
-def check_matrimonial(pdf_path: Path):
-    """Scan first few pages of PDF for matrimonial keywords. Returns matched CaseType or None."""
+async def verify_matrimonial_llm(text: str) -> bool:
+    """Uses LLMProvider to verify if a text is truly a matrimonial case."""
+    prompt = f"""You are a legal classification system. Determine if the following legal document excerpt involves ANY Family Law or Matrimonial dispute. 
+This includes: divorce, child custody, alimony, maintenance, domestic violence, 498A cruelty, dowry death, marital property disputes, restitution of conjugal rights, or disputes between husband and wife/in-laws.
+If the case involves ANY of these elements as a central or related theme, reply with exactly one word: 'YES'. 
+If it is purely a corporate, tax, service, or unrelated criminal matter, reply with 'NO'. 
+Do not provide any explanation.
+
+Excerpt:
+{text[:12000]}"""
+    
+    messages = [{"role": "user", "content": prompt}]
+    
     try:
+        # Hardcoding provider="ollama" because it's a local classification task, but it could be dynamic
+        llm = LLMProvider(provider="ollama")
+        answer = await llm.generate_async(messages)
+        return "YES" in answer.strip().upper()
+    except Exception as e:
+        print(f"LLM Classification failed: {e}. Defaulting to keyword match.")
+        return True # Fallback to keyword if LLM fails
+
+def calculate_matrimonial_score(pdf_path: Path):
+    """Scan first few pages of PDF and return a score based on unique matrimonial keywords, and the primary CaseType."""
+    try:
+        extracted_text = ""
         with fitz.open(pdf_path) as doc:
             for i in range(min(PAGES_TO_SCAN, len(doc))):
-                text = doc[i].get_text().lower()
-                for kw, case_type in KEYWORDS_MAP.items():
-                    if kw in text:
-                        return case_type
+                extracted_text += doc[i].get_text().lower() + "\n"
+                
+        matched_keywords = []
+        primary_case_type = None
+        
+        for kw, case_type in KEYWORDS_MAP.items():
+            if kw in extracted_text:
+                matched_keywords.append(kw)
+                if not primary_case_type:
+                    primary_case_type = case_type
+                    
+        return len(matched_keywords), primary_case_type, matched_keywords
     except Exception:
-        pass
-    return None
+        return 0, None, []
 
 def extract_full_text(pdf_path: Path):
     text = ""
@@ -68,6 +107,13 @@ def extract_full_text(pdf_path: Path):
     except Exception as e:
         print(f"Error reading PDF {pdf_path.name}: {e}")
     return text
+
+async def score_case(case):
+    score, case_type, keywords = await asyncio.to_thread(calculate_matrimonial_score, case["pdf_path"])
+    case["score"] = score
+    case["case_type"] = case_type
+    case["keywords"] = keywords
+    return case
 
 async def seed_kaggle():
     print("Initializing components...")
@@ -111,25 +157,33 @@ async def seed_kaggle():
     processed_count = 0
     total_chunks_added = 0
     
-    for idx, case in enumerate(cases_to_process):
-        if processed_count >= TARGET_CASES:
-            break
+    # Filter out existing cases synchronously first
+    new_cases = []
+    for case in cases_to_process:
+        pdf_filename = case["pdf_path"].name
+        existing = db_session.query(KanoonDocument).filter(KanoonDocument.kanoon_doc_id == pdf_filename).first()
+        if not existing:
+            new_cases.append(case)
             
+    print(f"{len(new_cases)} new cases require processing. Scanning all cases for keyword scoring...")
+    
+    # Concurrently score all cases
+    tasks = [score_case(case) for case in new_cases]
+    scored_results = await asyncio.gather(*tasks)
+    
+    # Filter cases with at least 1 keyword and sort by score descending
+    valid_cases = [c for c in scored_results if c["score"] > 0]
+    valid_cases.sort(key=lambda x: x["score"], reverse=True)
+    
+    print(f"Found {len(valid_cases)} potential matrimonial cases. Processing top {TARGET_CASES}...")
+    
+    for case in valid_cases[:TARGET_CASES]:
+        case_type = case["case_type"]
+        print(f"  [+] Processing case (Score: {case['score']}) ({case_type.value}): {case['pet']} vs {case['res']}")
+        print(f"      Keywords found: {case['keywords']}")
+        
         pdf_path = case["pdf_path"]
         pdf_filename = pdf_path.name
-        
-        # Check if already processed
-        existing = db_session.query(KanoonDocument).filter(KanoonDocument.kanoon_doc_id == pdf_filename).first()
-        if existing:
-            print(f"  [{idx}] Skipping {pdf_filename} (already in DB)")
-            continue
-            
-        # Fast filter
-        case_type = check_matrimonial(pdf_path)
-        if not case_type:
-            continue
-            
-        print(f"  [{idx}] Found matrimonial case! ({case_type.value}): {case['pet']} vs {case['res']}")
         
         # Process the case
         text = extract_full_text(pdf_path)
@@ -139,7 +193,7 @@ async def seed_kaggle():
         title = f"{case['pet'][:100]} vs {case['res'][:100]}"
         
         chunk_metadata = {
-            "source_type": "kanoon", # Keeping 'kanoon' as source_type to avoid changing frontend filters
+            "source_type": "kanoon", 
             "kanoon_doc_id": pdf_filename,
             "title": title,
             "court": case["court"],

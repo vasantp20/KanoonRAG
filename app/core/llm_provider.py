@@ -1,0 +1,235 @@
+import json
+import httpx
+import asyncio
+from typing import List, Dict, Optional, Any
+
+import config
+
+class LLMProvider:
+    """Factory and Base Class for LLM API Providers."""
+    
+    def __new__(cls, provider: Optional[str] = None, model: Optional[str] = None):
+        if cls is not LLMProvider:
+            return super().__new__(cls)
+            
+        provider_name = provider or getattr(config, "PRIMARY_LLM", "ollama")
+        
+        if provider_name == "groq":
+            return super().__new__(GroqProvider)
+        elif provider_name == "ollama":
+            return super().__new__(OllamaProvider)
+        elif provider_name == "sarvam":
+            return super().__new__(SarvamProvider)
+        else:
+            raise ValueError(f"Unsupported LLM provider: {provider_name}")
+
+    def __init__(self, provider: Optional[str] = None, model: Optional[str] = None):
+        pass
+
+    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+        raise NotImplementedError
+
+    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+        raise NotImplementedError
+
+    def get_langchain_model(self):
+        raise NotImplementedError
+
+
+class GroqProvider(LLMProvider):
+    def __init__(self, provider: Optional[str] = None, model: Optional[str] = None):
+        self.provider = "groq"
+        self.model = model or config.GROQ_MODEL
+        from groq import AsyncGroq
+        self.client = AsyncGroq(api_key=config.GROQ_API_KEY)
+
+    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+        params = {
+            "messages": messages,
+            "model": self.model,
+            "temperature": config.GROQ_TEMPERATURE,
+            "max_tokens": config.GROQ_MAX_TOKENS,
+        }
+        response = await self.client.chat.completions.create(**params)
+        return response.choices[0].message.content
+
+    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+        params = {
+            "messages": messages,
+            "model": self.model,
+            "temperature": config.GROQ_TEMPERATURE,
+            "max_tokens": config.GROQ_MAX_TOKENS,
+            "response_format": {"type": "json_object"}
+        }
+        try:
+            response = await self.client.chat.completions.create(**params)
+            content = response.choices[0].message.content
+            content = content.replace("```json", "").replace("```", "").strip()
+            return json.loads(content)
+        except Exception as e:
+            print(f"Error parsing JSON from groq: {e}")
+            return {}
+
+    def get_langchain_model(self):
+        try:
+            from langchain_groq import ChatGroq
+            return ChatGroq(
+                model=self.model,
+                api_key=config.GROQ_API_KEY,
+                temperature=0
+            )
+        except ImportError:
+            raise ImportError("Please install langchain-groq (`pip install langchain-groq`) to use Groq with Ragas.")
+
+
+class OllamaProvider(LLMProvider):
+    def __init__(self, provider: Optional[str] = None, model: Optional[str] = None):
+        self.provider = "ollama"
+        self.model = model or config.OLLAMA_MODEL
+        self.http_client = httpx.AsyncClient(timeout=120.0)
+
+    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+        payload = {
+            "model": self.model,
+            "messages": messages,
+            "stream": False,
+            "options": {
+                "temperature": config.OLLAMA_TEMPERATURE,
+                "num_predict": config.OLLAMA_MAX_TOKENS
+            }
+        }
+        response = await self.http_client.post(
+            f"{config.OLLAMA_BASE_URL.rstrip('/')}/api/chat",
+            json=payload
+        )
+        response.raise_for_status()
+        return response.json()["message"]["content"]
+
+    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+        payload = {
+            "model": self.model,
+            "messages": messages,
+            "stream": False,
+            "options": {
+                "temperature": config.OLLAMA_TEMPERATURE,
+                "num_predict": config.OLLAMA_MAX_TOKENS
+            }
+        }
+        try:
+            response = await self.http_client.post(
+                f"{config.OLLAMA_BASE_URL.rstrip('/')}/api/chat",
+                json=payload
+            )
+            response.raise_for_status()
+            content = response.json()["message"]["content"]
+            content = content.replace("```json", "").replace("```", "").strip()
+            return json.loads(content)
+        except Exception as e:
+            print(f"Error parsing JSON from ollama: {e}")
+            print(f"Raw output: {content[:500] if 'content' in locals() else 'None'}")
+            return {}
+
+    def get_langchain_model(self):
+        from langchain_community.chat_models import ChatOllama
+        return ChatOllama(
+            model=self.model,
+            base_url=config.OLLAMA_BASE_URL,
+            temperature=0
+        )
+
+
+class SarvamProvider(LLMProvider):
+    def __init__(self, provider: Optional[str] = None, model: Optional[str] = None):
+        self.provider = "sarvam"
+        self.model = model or config.SARVAM_MODEL
+        from sarvamai import SarvamAI
+        # Initialize standard client
+        self.client = SarvamAI(api_subscription_key=config.SARVAM_API_KEY)
+
+    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+        def _call():
+            response = self.client.chat.completions(
+                messages=messages,
+                model=self.model,
+                max_tokens=4096,
+            )
+            if hasattr(response, 'choices'):
+                content = response.choices[0].message.content
+                return content if content is not None else ""
+            elif isinstance(response, dict) and 'choices' in response:
+                content = response['choices'][0]['message'].get('content', '')
+                if isinstance(content, dict):
+                    content = content.get('content', '')
+                return content if content is not None else ""
+            return str(response)
+
+        return await asyncio.to_thread(_call)
+
+    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+        def _call_json():
+            try:
+                response = self.client.chat.completions(
+                    messages=messages,
+                    model=self.model,
+                    max_tokens=4096,
+                )
+                print(f"DEBUG SARVAM RAW RESPONSE: {response}")
+                if hasattr(response, 'choices'):
+                    content = response.choices[0].message.content
+                    if content is None:
+                        print("DEBUG SARVAM CONTENT IS EXPLICITLY None!")
+                        return ""
+                    return content
+                elif isinstance(response, dict) and 'choices' in response:
+                    content = response['choices'][0]['message'].get('content', '')
+                    if content is None:
+                        return ""
+                    return content
+                return str(response)
+            except Exception as e:
+                print(f"DEBUG SARVAM EXCEPTION: {e}")
+                return ""
+
+        content = await asyncio.to_thread(_call_json)
+        if not content:
+            print("Error: Sarvam returned empty content.")
+            return {}
+        try:
+            content = content.replace("```json", "").replace("```", "").strip()
+            return json.loads(content)
+        except Exception as e:
+            print(f"Error parsing JSON from sarvam: {e}")
+            print(f"Raw output: {content[:500]}")
+            return {}
+
+    def get_langchain_model(self):
+        try:
+            from langchain_openai import ChatOpenAI
+            
+            class PatchedChatOpenAI(ChatOpenAI):
+                def _generate(self, *args, **kwargs):
+                    result = super()._generate(*args, **kwargs)
+                    for gen in result.generations:
+                        if gen.generation_info is None:
+                            gen.generation_info = {}
+                        gen.generation_info["finish_reason"] = "stop"
+                    return result
+
+                async def _agenerate(self, *args, **kwargs):
+                    result = await super()._agenerate(*args, **kwargs)
+                    for gen in result.generations:
+                        if gen.generation_info is None:
+                            gen.generation_info = {}
+                        gen.generation_info["finish_reason"] = "stop"
+                    return result
+
+            return PatchedChatOpenAI(
+                model=self.model,
+                api_key=config.SARVAM_API_KEY,
+                base_url=config.SARVAM_BASE_URL.replace("/chat/completions", ""),
+                default_headers={"api-subscription-key": config.SARVAM_API_KEY},
+                temperature=0,
+                max_tokens=4096
+            )
+        except ImportError:
+            raise ImportError("Please install langchain-openai to use Sarvam API with Ragas.")
