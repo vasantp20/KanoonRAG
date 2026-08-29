@@ -17,7 +17,7 @@ from app.db.models import GeneratedDocument, Case, Client, User, DocType
 from app.api.schemas import DocumentGenerateRequest, DocumentGenerateResponse
 from app.api.dependencies import get_current_user
 from app.core.document_generator import DocumentGenerator
-from app.core.rag_engine import RAGEngine
+from app.core.rag_engine.rag_engine import RAGEngine
 from app.core.vector_store import VectorStore
 from app.core.embeddings import EmbeddingService
 

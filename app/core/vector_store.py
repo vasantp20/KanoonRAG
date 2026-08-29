@@ -144,7 +144,7 @@ class VectorStore:
                 
         return formatted_results
 
-    def search_kanoon_sparse(self, query: str, top_k: int) -> List[Dict[str, Any]]:
+    def search_kanoon_sparse(self, query: str, top_k: int, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
         """Search kanoon collection using Sparse BM25."""
         if not self.kanoon_bm25:
             return []
@@ -155,15 +155,33 @@ class VectorStore:
         scored_docs = [(idx, score) for idx, score in enumerate(scores) if score > 0]
         scored_docs.sort(key=lambda x: x[1], reverse=True)
         
-        top_n = [idx for idx, score in scored_docs[:top_k]]
-        
         results = []
-        for idx in top_n:
+        for idx, score in scored_docs:
+            meta = self.kanoon_bm25_meta[idx]
+            
+            # Apply filters
+            if filters:
+                match = True
+                for k, v in filters.items():
+                    if isinstance(v, dict) and "$contains" in v:
+                        if v["$contains"].lower() not in str(meta.get(k, "")).lower():
+                            match = False
+                            break
+                    elif meta.get(k) != v:
+                        match = False
+                        break
+                if not match:
+                    continue
+                    
             results.append({
                 "text": self.kanoon_bm25_docs[idx],
-                "metadata": self.kanoon_bm25_meta[idx],
-                "bm25_score": scores[idx]
+                "metadata": meta,
+                "bm25_score": score
             })
+            
+            if len(results) >= top_k:
+                break
+                
         return results
 
     def search_uploads(self, query_embedding: List[float], user_id: int, case_id: Optional[int] = None, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
@@ -226,12 +244,12 @@ class VectorStore:
             
         return final_results
 
-    def search_all(self, query: str, query_embedding: List[float], user_id: int, case_id: Optional[int] = None) -> List[Dict[str, Any]]:
+    def search_all(self, query: str, query_embedding: List[float], user_id: int, case_id: Optional[int] = None, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
         """Search both collections using Hybrid Search, RRF, and Cross-Encoder Reranking."""
         fusion_k = config.TOP_K_KANOON * 3 
         
-        dense_results = self.search_kanoon_dense(query_embedding, fusion_k)
-        sparse_results = self.search_kanoon_sparse(query, fusion_k)
+        dense_results = self.search_kanoon_dense(query_embedding, fusion_k, filters=filters)
+        sparse_results = self.search_kanoon_sparse(query, fusion_k, filters=filters)
         
         kanoon_results = self.reciprocal_rank_fusion(dense_results, sparse_results)
         
@@ -248,6 +266,31 @@ class VectorStore:
             
         final_limit = config.TOP_K_KANOON + config.TOP_K_UPLOADS
         return combined[:final_limit]
+
+    def get_complete_documents(self, doc_ids: List[str]) -> List[Dict[str, Any]]:
+        """Fetch all chunks for given kanoon_doc_ids and stitch them together."""
+        completed_docs = []
+        for doc_id in doc_ids:
+            try:
+                results = self.kanoon_collection.get(
+                    where={"kanoon_doc_id": doc_id},
+                    include=['documents', 'metadatas']
+                )
+                if not results['documents']:
+                    continue
+                
+                chunks_with_meta = list(zip(results['documents'], results['metadatas']))
+                sorted_chunks = sorted(chunks_with_meta, key=lambda x: x[1].get('chunk_index', 0))
+                
+                full_text = "\n\n".join([chunk[0] for chunk in sorted_chunks])
+                completed_docs.append({
+                    "text": full_text,
+                    "metadata": sorted_chunks[0][1] if sorted_chunks else {}
+                })
+            except Exception as e:
+                print(f"Error fetching complete doc {doc_id}: {e}")
+                
+        return completed_docs
 
     def delete_upload_chunks(self, user_id: int, case_id: Optional[int] = None):
         """Delete chunks from uploads collection."""

@@ -49,7 +49,7 @@ JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_HOURS = 24
 
 # ── LLM Configuration ─────────────────────────────────────────────────────────
-PRIMARY_LLM = os.getenv("PRIMARY_LLM", "ollama")  # Options: 'ollama', 'groq', 'sarvam'
+PRIMARY_LLM = os.getenv("PRIMARY_LLM", "sarvam")  # Options: 'ollama', 'groq', 'sarvam'
 
 # ── Sarvam AI LLM ─────────────────────────────────────────────────────────────
 SARVAM_API_KEY = os.getenv("SARVAM_API_KEY", "")

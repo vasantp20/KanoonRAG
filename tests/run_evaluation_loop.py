@@ -49,7 +49,7 @@ async def fetch_answer_and_contexts(client, query, token):
                 f"{API_URL}/query/", 
                 json=payload, 
                 headers=headers, 
-                timeout=120.0
+                timeout=240.0
             )
             
             if response.status_code == 429:

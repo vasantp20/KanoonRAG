@@ -17,7 +17,7 @@ from app.db.database import get_db
 from app.db.models import QueryLog, Case, Client, User
 from app.api.schemas import QueryRequest, QueryResponse, SourceReference, SessionSummaryResponse, SessionHistoryItem
 from app.api.dependencies import get_current_user
-from app.core.rag_engine import RAGEngine
+from app.core.rag_engine.rag_engine import RAGEngine
 
 router = APIRouter(prefix="/query", tags=["query"])
 
