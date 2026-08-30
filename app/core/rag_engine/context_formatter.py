@@ -14,6 +14,7 @@ def format_context(chunks: List[Dict[str, Any]]) -> str:
             citation = meta.get('citation', 'No Citation')
             court = meta.get('court', 'Unknown Court')
             date = meta.get('date', 'Unknown Date')
+            filename = meta.get('kanoon_doc_id', '')
             
             # Try to extract year from date
             year = "Unknown Year"
@@ -21,8 +22,11 @@ def format_context(chunks: List[Dict[str, Any]]) -> str:
                 year_match = re.search(r'\b(19|20)\d{2}\b', str(date))
                 if year_match:
                     year = year_match.group(0)
-                    
-            header = f"--- Document {i+1} [Case: {title} | {citation} | {court}, {year}] ---"
+            
+            if filename:
+                header = f"--- Document {i+1} [Case: {title} | {citation} | {court}, {year} | File: {filename}] ---"
+            else:
+                header = f"--- Document {i+1} [Case: {title} | {citation} | {court}, {year}] ---"
             
         elif source_type == 'upload':
             filename = meta.get('filename', 'unknown_file')

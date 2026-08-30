@@ -49,7 +49,7 @@ JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_HOURS = 24
 
 # ── LLM Configuration ─────────────────────────────────────────────────────────
-PRIMARY_LLM = os.getenv("PRIMARY_LLM", "sarvam")  # Options: 'ollama', 'groq', 'sarvam'
+PRIMARY_LLM = os.getenv("PRIMARY_LLM", "ollama")  # Options: 'ollama', 'groq', 'sarvam'
 
 # ── Sarvam AI LLM ─────────────────────────────────────────────────────────────
 SARVAM_API_KEY = os.getenv("SARVAM_API_KEY", "")
@@ -64,8 +64,8 @@ GROQ_MAX_TOKENS = 4096
 
 
 # ── Ollama Fallback LLM ───────────────────────────────────────────────────────
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "mistral:7b")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11435")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "mixtral:8x22b")
 OLLAMA_TEMPERATURE = 0.3
 OLLAMA_MAX_TOKENS = 4096
 

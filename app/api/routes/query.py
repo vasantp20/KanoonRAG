@@ -126,6 +126,7 @@ async def process_query(
                 page_num=src.get("page_num"),
                 relevance_score=src.get("relevance_score", 0.0),
                 snippet=src.get("snippet", ""),
+                full_text=src.get("full_text"),
             )
         )
 

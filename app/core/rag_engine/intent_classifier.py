@@ -9,8 +9,8 @@ Your task is to analyze the user's query and classify it into one of two intents
 2. "broad_thematic": The user is asking a general legal question or looking for precedents on a topic (e.g., "Find cases where mother was denied custody").
 
 If the intent is "specific_case":
-- Extract the case citation or name to be used as a title filter. 
-- Output format: {"intent": "specific_case", "metadata": {"title": "<extracted citation/name>"}}
+- Extract the most unique, distinct keywords from the case citation or name (e.g., unique surnames, specific numbers). Omit common legal words (like "v.", "vs", "State", "of").
+- Output format: {"intent": "specific_case", "metadata": {"keywords": ["<keyword1>", "<keyword2>"]}}
 
 If the intent is "broad_thematic":
 - Perform an "Affirmative Query Expansion". Rewrite the query using positive affirmations and applicable legal terminology to improve vector retrieval.

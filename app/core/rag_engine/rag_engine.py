@@ -1,4 +1,15 @@
 from typing import Dict, Any, List, Optional
+import logging
+import json
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler('rag_engine.log')
+file_handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+if not logger.handlers:
+    logger.addHandler(file_handler)
 
 from app.core.embeddings import EmbeddingService
 from app.core.vector_store import VectorStore
@@ -18,6 +29,7 @@ CRITICAL INSTRUCTIONS:
 3. When you use information from the context, you MUST cite the source precisely as follows:
    - For Kanoon documents (legal cases): [Case: <Title> | <Citation> | <Court>, <Year>]
    - For user uploaded documents: [Client File: <filename>, Page <n>]
+4. If multiple cases are present in the context, ALWAYS prioritize and base your primary answer on the most recent judgment (using the Year/Date provided in the document headers). Use older cases only to show historical context if relevant, but clearly state which ruling is the latest.
 """
 
 class RAGEngine:
@@ -31,20 +43,24 @@ class RAGEngine:
         """Process user query and return RAG response."""
         # Step 1: Classify Intent
         from .intent_classifier import classify_intent
-        intent_data = await classify_intent(user_query, self.llm_provider)
+        intent_llm = LLMProvider(provider="groq")
+        intent_data = await classify_intent(user_query, intent_llm)
         intent = intent_data.get("intent", "broad_thematic")
         
         filters = None
         search_query = user_query
         
         if intent == "specific_case":
-            extracted_title = intent_data.get("metadata", {}).get("title", "")
-            if extracted_title:
-                filters = {"title": {"$contains": extracted_title}}
-                print(f"Specific Case Query Detected. Applying filter: {filters}")
+            keywords = intent_data.get("metadata", {}).get("keywords", [])
+            if keywords:
+                # Construct an $and filter requiring all unique keywords to be present
+                filters = {"$and": [{"title": {"$contains": kw}} for kw in keywords]}
+                print(f"Specific Case Query Detected. Applying keyword filter: {filters}")
+                # Also boost the search_query with the exact keywords
+                search_query = " ".join(keywords) + " " + user_query
         else:
             search_query = intent_data.get("expanded_query", user_query)
-            print(f"Broad Thematic Query Detected. Expanded query: {search_query}")
+            logger.info(f"Broad Thematic Query Detected. Expanded query: {search_query}")
             
         # Step 2: Embed query
         query_embedding = self.embedding_service.embed_query(search_query)
@@ -54,7 +70,7 @@ class RAGEngine:
         
         # Fallback for specific case if exact filter misses
         if intent == "specific_case" and not retrieved_chunks:
-            print("Specific case filter yielded no results, falling back to broad search.")
+            logger.warning("Specific case filter yielded no results, falling back to broad search.")
             retrieved_chunks = self.vector_store.search_all(search_query, query_embedding, user_id, case_id)
             
         # Step 3.5: Fetch complete documents for specific case intent
@@ -73,8 +89,8 @@ class RAGEngine:
         
         # Step 4: Assemble context
         context = format_context(retrieved_chunks)
-        # print("Context:")
-        # print(context)
+        logger.debug(f"Retrieved Context:\n{context}")
+        
         # Step 5: Build prompt
         messages = [
             {"role": "system", "content": LEGAL_SYSTEM_PROMPT}
@@ -93,6 +109,8 @@ class RAGEngine:
         user_message = f"Context information is below.\n\n{context}\n\nGiven the context information and not prior knowledge, answer the user's query: {user_query}"
         messages.append({"role": "user", "content": user_message})
         
+        logger.debug(f"LLM Prompt Messages:\n{json.dumps(messages, indent=2)}")
+        
         # Step 6: Call LLM
         answer = await call_llm(messages, self.llm_provider)
         
@@ -108,7 +126,11 @@ class RAGEngine:
         """Generate a specific section of a legal document."""
         context = format_context(context_chunks)
         
-        system_prompt = f"You are a legal document drafter for an Indian family court case. You are writing the '{section_name}' section."
+        system_prompt = (
+            f"You are a legal document drafter for an Indian family court case. You are writing the '{section_name}' section. "
+            "If the context documents contain multiple legal precedents, give precedence to the most recent judgments "
+            "when drafting your arguments."
+        )
         
         user_prompt = f"Case Information: {case_info}\n\nContext Documents:\n{context}\n\nPlease draft the '{section_name}' section based on this information."
         

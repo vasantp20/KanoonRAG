@@ -63,7 +63,7 @@ async def fetch_answer_and_contexts(client, query, token):
             
             answer = data.get("answer", "")
             # Extract actual chunks from sources
-            contexts = [source.get("snippet", "") for source in data.get("sources", [])]
+            contexts = [source.get("full_text") or source.get("snippet", "") for source in data.get("sources", [])]
             
             return answer, contexts
         except httpx.HTTPStatusError as e:

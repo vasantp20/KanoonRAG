@@ -15,7 +15,8 @@ def extract_sources(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         source = {
             "source_type": source_type,
             "relevance_score": relevance_score,
-            "snippet": chunk['text'][:200] + "..." if len(chunk['text']) > 200 else chunk['text']
+            "snippet": chunk['text'][:200] + "..." if len(chunk['text']) > 200 else chunk['text'],
+            "full_text": chunk['text']
         }
         
         if source_type == 'kanoon':

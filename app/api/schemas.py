@@ -151,6 +151,7 @@ class SourceReference(BaseModel):
     page_num: Optional[int] = None
     relevance_score: float
     snippet: str
+    full_text: Optional[str] = None
 
 
 class QueryResponse(BaseModel):

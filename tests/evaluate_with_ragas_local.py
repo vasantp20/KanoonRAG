@@ -81,7 +81,7 @@ def main():
     # 4. Execute Evaluation
     # We severely restrict concurrency (max_workers=1) and increase the timeout 
     # so that the local Ollama instance doesn't get overwhelmed and timeout.
-    run_config = RunConfig(timeout=600, max_workers=4)
+    run_config = RunConfig(timeout=600, max_workers=10)
 
     try:
         # In ragas >= 0.1.0, you pass llm and embeddings to evaluate()

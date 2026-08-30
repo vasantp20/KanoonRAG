@@ -161,16 +161,22 @@ class VectorStore:
             
             # Apply filters
             if filters:
-                match = True
-                for k, v in filters.items():
-                    if isinstance(v, dict) and "$contains" in v:
-                        if v["$contains"].lower() not in str(meta.get(k, "")).lower():
-                            match = False
-                            break
-                    elif meta.get(k) != v:
-                        match = False
-                        break
-                if not match:
+                def _evaluate_filter(f_dict, metadata):
+                    if "$or" in f_dict:
+                        return any(_evaluate_filter(sub_f, metadata) for sub_f in f_dict["$or"])
+                    if "$and" in f_dict:
+                        return all(_evaluate_filter(sub_f, metadata) for sub_f in f_dict["$and"])
+                    
+                    for k, v in f_dict.items():
+                        if isinstance(v, dict):
+                            if "$contains" in v:
+                                if v["$contains"].lower() not in str(metadata.get(k, "")).lower():
+                                    return False
+                        elif metadata.get(k) != v:
+                            return False
+                    return True
+
+                if not _evaluate_filter(filters, meta):
                     continue
                     
             results.append({
