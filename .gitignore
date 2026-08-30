@@ -32,3 +32,5 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+data/kaggle/
+data/kaggle/
