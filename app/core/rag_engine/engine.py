@@ -1,15 +1,8 @@
 from typing import Dict, Any, List, Optional
-import logging
 import json
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler('rag_engine.log')
-file_handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
-if not logger.handlers:
-    logger.addHandler(file_handler)
+from app.core.logger import setup_logger
+logger = setup_logger(__name__)
 
 from app.core.embeddings import EmbeddingService
 from app.core.vector_store import VectorStore
@@ -34,17 +27,17 @@ CRITICAL INSTRUCTIONS:
 
 class RAGEngine:
     """Main RAG pipeline engine."""
-    def __init__(self):
-        self.embedding_service = EmbeddingService()
-        self.vector_store = VectorStore()
-        self.llm_provider = LLMProvider()
+    def __init__(self, vector_store: VectorStore, llm_provider: LLMProvider, intent_llm: LLMProvider, embedding_service: EmbeddingService):
+        self.embedding_service = embedding_service
+        self.vector_store = vector_store
+        self.llm_provider = llm_provider
+        self.intent_llm = intent_llm
 
     async def query(self, user_query: str, user_id: int, case_id: Optional[int] = None, client_info: Optional[Dict] = None, chat_history: Optional[List[Dict[str, str]]] = None) -> Dict[str, Any]:
         """Process user query and return RAG response."""
         # Step 1: Classify Intent
         from .intent_classifier import classify_intent
-        intent_llm = LLMProvider(provider="groq")
-        intent_data = await classify_intent(user_query, intent_llm)
+        intent_data = await classify_intent(user_query, self.intent_llm)
         intent = intent_data.get("intent", "broad_thematic")
         
         filters = None

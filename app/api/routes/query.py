@@ -10,18 +10,40 @@ from sqlalchemy.ext.asyncio import AsyncSession
 import uuid
 from sqlalchemy.future import select
 from sqlalchemy import func, and_
-from typing import List
+from typing import List, Dict
 from datetime import datetime, timezone
 
 from app.db.database import get_db
 from app.db.models import QueryLog, Case, Client, User
 from app.api.schemas import QueryRequest, QueryResponse, SourceReference, SessionSummaryResponse, SessionHistoryItem
-from app.api.dependencies import get_current_user
-from app.core.rag_engine.rag_engine import RAGEngine
+from app.api.dependencies import get_current_user, get_rag_engine
+from app.core.rag_engine.engine import RAGEngine
 
 router = APIRouter(prefix="/query", tags=["query"])
 
-rag_engine = RAGEngine()
+async def _get_chat_history(session_id: str, case_id: int, user_id: int, db: AsyncSession) -> List[Dict[str, str]]:
+    chat_history = []
+    where_clauses = [QueryLog.user_id == user_id]
+    
+    if session_id:
+        where_clauses.append(QueryLog.session_id == session_id)
+    elif case_id:
+        where_clauses.append(QueryLog.case_id == case_id)
+    else:
+        return []
+        
+    history_result = await db.execute(
+        select(QueryLog).where(*where_clauses).order_by(QueryLog.created_at.desc()).limit(5)
+    )
+    logs = history_result.scalars().all()
+    logs.reverse()
+    for log in logs:
+        if log.query_text and log.response_text:
+            chat_history.append({
+                "query": log.query_text,
+                "response": log.response_text
+            })
+    return chat_history
 
 
 @router.post("/", response_model=QueryResponse)
@@ -29,6 +51,7 @@ async def process_query(
     request: QueryRequest,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
+    rag_engine: RAGEngine = Depends(get_rag_engine),
 ):
     """
     Process a legal RAG query.
@@ -63,38 +86,7 @@ async def process_query(
             }
 
     session_id = request.session_id
-    chat_history = []
-    
-    if session_id:
-        history_result = await db.execute(
-            select(QueryLog).where(
-                QueryLog.session_id == session_id,
-                QueryLog.user_id == current_user.id
-            ).order_by(QueryLog.created_at.desc()).limit(5)
-        )
-        logs = history_result.scalars().all()
-        logs.reverse()
-        for log in logs:
-            if log.query_text and log.response_text:
-                chat_history.append({
-                    "query": log.query_text,
-                    "response": log.response_text
-                })
-    elif request.case_id:
-        history_result = await db.execute(
-            select(QueryLog).where(
-                QueryLog.case_id == request.case_id,
-                QueryLog.user_id == current_user.id
-            ).order_by(QueryLog.created_at.desc()).limit(5)
-        )
-        logs = history_result.scalars().all()
-        logs.reverse()
-        for log in logs:
-            if log.query_text and log.response_text:
-                chat_history.append({
-                    "query": log.query_text,
-                    "response": log.response_text
-                })
+    chat_history = await _get_chat_history(session_id, request.case_id, current_user.id, db)
 
     if not session_id:
         session_id = str(uuid.uuid4())

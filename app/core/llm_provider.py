@@ -35,6 +35,9 @@ class LLMProvider:
     def get_langchain_model(self):
         raise NotImplementedError
 
+    async def close(self):
+        pass
+
 
 class GroqProvider(LLMProvider):
     def __init__(self, provider: Optional[str] = None, model: Optional[str] = None):
@@ -42,6 +45,9 @@ class GroqProvider(LLMProvider):
         self.model = model or config.GROQ_MODEL
         from groq import AsyncGroq
         self.client = AsyncGroq(api_key=config.GROQ_API_KEY)
+
+    async def close(self):
+        await self.client.close()
 
     async def generate_async(self, messages: List[Dict[str, str]]) -> str:
         params = {
@@ -51,6 +57,7 @@ class GroqProvider(LLMProvider):
             "max_tokens": config.GROQ_MAX_TOKENS,
         }
         response = await self.client.chat.completions.create(**params)
+        
         return response.choices[0].message.content
 
     async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
@@ -87,6 +94,9 @@ class OllamaProvider(LLMProvider):
         self.provider = "ollama"
         self.model = model or config.OLLAMA_MODEL
         self.http_client = httpx.AsyncClient(timeout=120.0)
+        
+    async def close(self):
+        await self.http_client.aclose()
 
     async def generate_async(self, messages: List[Dict[str, str]]) -> str:
         payload = {
@@ -103,7 +113,9 @@ class OllamaProvider(LLMProvider):
             json=payload
         )
         response.raise_for_status()
-        return response.json()["message"]["content"]
+        
+        data = response.json()  
+        return data["message"]["content"]
 
     async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
         payload = {
@@ -121,7 +133,9 @@ class OllamaProvider(LLMProvider):
                 json=payload
             )
             response.raise_for_status()
-            content = response.json()["message"]["content"]
+            
+            data = response.json()  
+            content = data["message"]["content"]
             content = content.replace("```json", "").replace("```", "").strip()
             return json.loads(content)
         except Exception as e:
@@ -153,17 +167,23 @@ class SarvamProvider(LLMProvider):
                 model=self.model,
                 max_tokens=4096,
             )
+            
+            content = ""
             if hasattr(response, 'choices'):
                 content = response.choices[0].message.content
-                return content if content is not None else ""
+                content = content if content is not None else ""
             elif isinstance(response, dict) and 'choices' in response:
                 content = response['choices'][0]['message'].get('content', '')
                 if isinstance(content, dict):
                     content = content.get('content', '')
-                return content if content is not None else ""
-            return str(response)
+                content = content if content is not None else ""
+            else:
+                content = str(response)
+            return content, response
 
-        return await asyncio.to_thread(_call)
+        content, response = await asyncio.to_thread(_call)
+
+        return content
 
     async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
         def _call_json():
@@ -174,23 +194,25 @@ class SarvamProvider(LLMProvider):
                     max_tokens=4096,
                 )
                 print(f"DEBUG SARVAM RAW RESPONSE: {response}")
+                
+                content = ""
                 if hasattr(response, 'choices'):
                     content = response.choices[0].message.content
                     if content is None:
                         print("DEBUG SARVAM CONTENT IS EXPLICITLY None!")
-                        return ""
-                    return content
+                        content = ""
                 elif isinstance(response, dict) and 'choices' in response:
                     content = response['choices'][0]['message'].get('content', '')
                     if content is None:
-                        return ""
-                    return content
-                return str(response)
+                        content = ""
+                else:
+                    content = str(response)
+                return content, response
             except Exception as e:
                 print(f"DEBUG SARVAM EXCEPTION: {e}")
-                return ""
+                return "", None
 
-        content = await asyncio.to_thread(_call_json)
+        content, response = await asyncio.to_thread(_call_json)      
         if not content:
             print("Error: Sarvam returned empty content.")
             return {}

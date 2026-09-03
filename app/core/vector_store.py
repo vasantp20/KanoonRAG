@@ -5,45 +5,54 @@ import chromadb
 
 import config
 
-class VectorStore:
-    """ChromaDB and BM25 operations for RAG pipeline (singleton)."""
-    _instance = None
+import pickle
+from app.core.logger import setup_logger
 
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(VectorStore, cls).__new__(cls)
-            
-            # Initialize ChromaDB persistent client
-            os.makedirs(config.CHROMA_PERSIST_DIR, exist_ok=True)
-            cls._instance.client = chromadb.PersistentClient(path=config.CHROMA_PERSIST_DIR)
-            
-            # Initialize collections
-            cls._instance.kanoon_collection = cls._instance.client.get_or_create_collection(
-                name=config.KANOON_COLLECTION,
-                metadata={"hnsw:space": "cosine"}
-            )
-            cls._instance.uploads_collection = cls._instance.client.get_or_create_collection(
-                name=config.USER_UPLOADS_COLLECTION,
-                metadata={"hnsw:space": "cosine"}
-            )
-            
-            # Initialize BM25 state
-            cls._instance.kanoon_bm25 = None
-            cls._instance.kanoon_bm25_docs = []
-            cls._instance.kanoon_bm25_meta = []
-            cls._instance._build_bm25()
-            
-            # Initialize Cross-Encoder
-            try:
-                from sentence_transformers import CrossEncoder
-                print("Loading BAAI/bge-reranker-base...")
-                cls._instance.reranker = CrossEncoder('BAAI/bge-reranker-base')
-                print("Reranker loaded successfully!")
-            except Exception as e:
-                print(f"Error loading reranker: {e}")
-                cls._instance.reranker = None
-                
-        return cls._instance
+logger = setup_logger(__name__)
+
+class VectorStore:
+    """ChromaDB and BM25 operations for RAG pipeline."""
+
+    def __init__(self):
+        self.client = None
+        self.kanoon_collection = None
+        self.uploads_collection = None
+        self.kanoon_bm25 = None
+        self.kanoon_bm25_docs = []
+        self.kanoon_bm25_meta = []
+        self.reranker = None
+        self.bm25_path = os.path.join(config.CHROMA_PERSIST_DIR, "bm25_index.pkl")
+
+    def initialize(self):
+        """Initialize connections and models. Call from lifespan."""
+        logger.info("Initializing VectorStore...")
+        os.makedirs(config.CHROMA_PERSIST_DIR, exist_ok=True)
+        self.client = chromadb.PersistentClient(path=config.CHROMA_PERSIST_DIR)
+        
+        self.kanoon_collection = self.client.get_or_create_collection(
+            name=config.KANOON_COLLECTION,
+            metadata={"hnsw:space": "cosine"}
+        )
+        self.uploads_collection = self.client.get_or_create_collection(
+            name=config.USER_UPLOADS_COLLECTION,
+            metadata={"hnsw:space": "cosine"}
+        )
+        
+        self._load_bm25()
+        
+        try:
+            from sentence_transformers import CrossEncoder
+            logger.info("Loading BAAI/bge-reranker-base...")
+            self.reranker = CrossEncoder('BAAI/bge-reranker-base')
+            logger.info("Reranker loaded successfully!")
+        except Exception as e:
+            logger.error(f"Error loading reranker: {e}")
+            self.reranker = None
+
+    def close(self):
+        """Clean up resources."""
+        # ChromaDB handles its own cleanup, but we can clear references
+        pass
 
     def _tokenize(self, text: str) -> List[str]:
         """Simple tokenizer for BM25."""
@@ -51,8 +60,26 @@ class VectorStore:
             return []
         return re.findall(r'\w+', text.lower())
 
+    def _load_bm25(self):
+        """Load BM25 from disk, or rebuild if it doesn't exist."""
+        if os.path.exists(self.bm25_path):
+            try:
+                with open(self.bm25_path, "rb") as f:
+                    data = pickle.load(f)
+                    self.kanoon_bm25 = data["bm25"]
+                    self.kanoon_bm25_docs = data["docs"]
+                    self.kanoon_bm25_meta = data["meta"]
+                logger.info("Loaded BM25 index from disk.")
+                return
+            except Exception as e:
+                logger.error(f"Error loading BM25 from disk: {e}")
+        
+        # Fallback to rebuild
+        self._build_bm25()
+
     def _build_bm25(self):
-        """Build the in-memory BM25 index from Chroma documents."""
+        """Build the in-memory BM25 index from Chroma documents and save to disk."""
+        logger.info("Building BM25 index from ChromaDB...")
         try:
             from rank_bm25 import BM25Okapi
             
@@ -62,8 +89,17 @@ class VectorStore:
                 self.kanoon_bm25_meta = data['metadatas']
                 tokenized_corpus = [self._tokenize(doc) for doc in self.kanoon_bm25_docs]
                 self.kanoon_bm25 = BM25Okapi(tokenized_corpus)
+                
+                # Save to disk
+                with open(self.bm25_path, "wb") as f:
+                    pickle.dump({
+                        "bm25": self.kanoon_bm25,
+                        "docs": self.kanoon_bm25_docs,
+                        "meta": self.kanoon_bm25_meta
+                    }, f)
+                logger.info("BM25 index built and saved to disk.")
         except Exception as e:
-            print(f"Error building BM25 index: {e}")
+            logger.error(f"Error building BM25 index: {e}")
 
     def add_kanoon_chunks(self, chunks: List[Dict[str, Any]]):
         """Add chunks to the kanoon collection and rebuild BM25."""

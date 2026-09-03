@@ -48,3 +48,8 @@ async def get_current_user(token: str = Depends(get_token_from_request), db: Asy
     if user is None:
         raise credentials_exception
     return user
+
+def get_rag_engine(request: Request):
+    """Dependency to get the injected RAGEngine from app state."""
+    return request.app.state.rag_engine
+

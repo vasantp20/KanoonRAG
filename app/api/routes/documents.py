@@ -15,18 +15,13 @@ from sqlalchemy.future import select
 from app.db.database import get_db
 from app.db.models import GeneratedDocument, Case, Client, User, DocType
 from app.api.schemas import DocumentGenerateRequest, DocumentGenerateResponse
-from app.api.dependencies import get_current_user
+from app.api.dependencies import get_current_user, get_rag_engine
 from app.core.document_generator import DocumentGenerator
-from app.core.rag_engine.rag_engine import RAGEngine
-from app.core.vector_store import VectorStore
-from app.core.embeddings import EmbeddingService
+from app.core.rag_engine.engine import RAGEngine
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
-rag_engine = RAGEngine()
 doc_gen = DocumentGenerator()
-embedding_service = EmbeddingService()
-vector_store = VectorStore()
 
 # Section definitions for each document type
 SECTION_DEFS = {
@@ -59,6 +54,7 @@ async def generate_document(
     request: DocumentGenerateRequest,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
+    rag_engine: RAGEngine = Depends(get_rag_engine),
 ):
     """
     Generate a legal document (DOCX) for a given case.
@@ -91,8 +87,8 @@ async def generate_document(
 
     # Retrieve relevant context once for all sections
     search_query = f"{case.case_type.value} {case.description or ''} {case.opposing_party_name or ''}"
-    query_embedding = embedding_service.embed_query(search_query)
-    context_chunks = vector_store.search_all(query_embedding, current_user.id, case.id)
+    query_embedding = rag_engine.embedding_service.embed_query(search_query)
+    context_chunks = rag_engine.vector_store.search_all(search_query, query_embedding, current_user.id, case.id)
 
     # Generate content for each section
     section_defs = SECTION_DEFS.get(request.doc_type, [])

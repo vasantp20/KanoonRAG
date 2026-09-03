@@ -12,12 +12,39 @@ from app.db.database import init_db, close_db
 from app.api.routes import auth, clients, cases, query, documents, kanoon
 
 
+from app.core.vector_store import VectorStore
+from app.core.llm_provider import LLMProvider
+from app.core.embeddings import EmbeddingService
+from app.core.rag_engine.engine import RAGEngine
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Initialize DB on startup, dispose on shutdown."""
     await init_db()
+    
+    # Initialize ML and Vector resources
+    vector_store = VectorStore()
+    vector_store.initialize()
+    
+    llm_provider = LLMProvider()
+    intent_llm = LLMProvider(provider="groq")
+    embedding_service = EmbeddingService()
+    
+    app.state.vector_store = vector_store
+    app.state.llm_provider = llm_provider
+    app.state.intent_llm = intent_llm
+    app.state.embedding_service = embedding_service
+    app.state.rag_engine = RAGEngine(vector_store, llm_provider, intent_llm, embedding_service)
+    
+    
     yield
+    
+
+    
     await close_db()
+    vector_store.close()
+    await llm_provider.close()
+    await intent_llm.close()
 
 
 app = FastAPI(
