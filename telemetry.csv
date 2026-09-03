@@ -1,0 +1,3 @@
+Timestamp,UUID,Query,Step,Input Tokens,Output Tokens,Provider
+2026-09-03T08:34:34.556339,cb97e6d8-a2dd-4542-970a-0b33364ff938,"In the case of State of Rajasthan vs. Teg Bahadur & Ors., what were the key arguments presented by the counsel for the appellant and the respondents-accused regarding the reliability of evidence and the application of Section 113-B of the Evidence Act?",intent_classification,427,229,groq
+2026-09-03T08:34:48.756131,cb97e6d8-a2dd-4542-970a-0b33364ff938,"In the case of State of Rajasthan vs. Teg Bahadur & Ors., what were the key arguments presented by the counsel for the appellant and the respondents-accused regarding the reliability of evidence and the application of Section 113-B of the Evidence Act?",answer_generation,6478,1395,sarvam

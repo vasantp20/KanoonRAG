@@ -25,6 +25,8 @@ CRITICAL INSTRUCTIONS:
 4. If multiple cases are present in the context, ALWAYS prioritize and base your primary answer on the most recent judgment (using the Year/Date provided in the document headers). Use older cases only to show historical context if relevant, but clearly state which ruling is the latest.
 """
 
+import uuid
+
 class RAGEngine:
     """Main RAG pipeline engine."""
     def __init__(self, vector_store: VectorStore, llm_provider: LLMProvider, intent_llm: LLMProvider, embedding_service: EmbeddingService):
@@ -35,9 +37,12 @@ class RAGEngine:
 
     async def query(self, user_query: str, user_id: int, case_id: Optional[int] = None, client_info: Optional[Dict] = None, chat_history: Optional[List[Dict[str, str]]] = None) -> Dict[str, Any]:
         """Process user query and return RAG response."""
+        query_uuid = str(uuid.uuid4())
+        
         # Step 1: Classify Intent
         from .intent_classifier import classify_intent
-        intent_data = await classify_intent(user_query, self.intent_llm)
+        intent_ctx = {"query_uuid": query_uuid, "query": user_query, "step": "intent_classification"}
+        intent_data = await classify_intent(user_query, self.intent_llm, telemetry_ctx=intent_ctx)
         intent = intent_data.get("intent", "broad_thematic")
         
         filters = None
@@ -105,14 +110,16 @@ class RAGEngine:
         logger.debug(f"LLM Prompt Messages:\n{json.dumps(messages, indent=2)}")
         
         # Step 6: Call LLM
-        answer = await call_llm(messages, self.llm_provider)
+        answer_ctx = {"query_uuid": query_uuid, "query": user_query, "step": "answer_generation"}
+        answer = await call_llm(messages, self.llm_provider, telemetry_ctx=answer_ctx)
         
         # Step 7: Parse response & extract sources
         sources = extract_sources(retrieved_chunks)
         
         return {
             "answer": answer,
-            "sources": sources
+            "sources": sources,
+            "query_uuid": query_uuid
         }
 
     async def generate_document_section(self, section_name: str, case_info: Dict, context_chunks: List[Dict[str, Any]]) -> str:

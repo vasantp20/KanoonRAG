@@ -26,10 +26,10 @@ class LLMProvider:
     def __init__(self, provider: Optional[str] = None, model: Optional[str] = None):
         pass
 
-    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+    async def generate_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> str:
         raise NotImplementedError
 
-    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+    async def generate_json_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> dict:
         raise NotImplementedError
 
     def get_langchain_model(self):
@@ -49,7 +49,7 @@ class GroqProvider(LLMProvider):
     async def close(self):
         await self.client.close()
 
-    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+    async def generate_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> str:
         params = {
             "messages": messages,
             "model": self.model,
@@ -58,9 +58,21 @@ class GroqProvider(LLMProvider):
         }
         response = await self.client.chat.completions.create(**params)
         
+        if telemetry_ctx and hasattr(response, 'usage') and response.usage:
+            from app.core.telemetry import log_llm_usage
+            usage = response.usage
+            log_llm_usage(
+                telemetry_ctx.get('query_uuid'),
+                telemetry_ctx.get('query'),
+                telemetry_ctx.get('step'),
+                getattr(usage, 'prompt_tokens', 0),
+                getattr(usage, 'completion_tokens', 0),
+                self.provider
+            )
+            
         return response.choices[0].message.content
 
-    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+    async def generate_json_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> dict:
         params = {
             "messages": messages,
             "model": self.model,
@@ -70,6 +82,19 @@ class GroqProvider(LLMProvider):
         }
         try:
             response = await self.client.chat.completions.create(**params)
+            
+            if telemetry_ctx and hasattr(response, 'usage') and response.usage:
+                from app.core.telemetry import log_llm_usage
+                usage = response.usage
+                log_llm_usage(
+                    telemetry_ctx.get('query_uuid'),
+                    telemetry_ctx.get('query'),
+                    telemetry_ctx.get('step'),
+                    getattr(usage, 'prompt_tokens', 0),
+                    getattr(usage, 'completion_tokens', 0),
+                    self.provider
+                )
+
             content = response.choices[0].message.content
             content = content.replace("```json", "").replace("```", "").strip()
             return json.loads(content)
@@ -98,7 +123,7 @@ class OllamaProvider(LLMProvider):
     async def close(self):
         await self.http_client.aclose()
 
-    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+    async def generate_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> str:
         payload = {
             "model": self.model,
             "messages": messages,
@@ -115,9 +140,21 @@ class OllamaProvider(LLMProvider):
         response.raise_for_status()
         
         data = response.json()  
+        
+        if telemetry_ctx:
+            from app.core.telemetry import log_llm_usage
+            log_llm_usage(
+                telemetry_ctx.get('query_uuid'),
+                telemetry_ctx.get('query'),
+                telemetry_ctx.get('step'),
+                data.get('prompt_eval_count', 0),
+                data.get('eval_count', 0),
+                self.provider
+            )
+            
         return data["message"]["content"]
 
-    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+    async def generate_json_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> dict:
         payload = {
             "model": self.model,
             "messages": messages,
@@ -135,6 +172,18 @@ class OllamaProvider(LLMProvider):
             response.raise_for_status()
             
             data = response.json()  
+            
+            if telemetry_ctx:
+                from app.core.telemetry import log_llm_usage
+                log_llm_usage(
+                    telemetry_ctx.get('query_uuid'),
+                    telemetry_ctx.get('query'),
+                    telemetry_ctx.get('step'),
+                    data.get('prompt_eval_count', 0),
+                    data.get('eval_count', 0),
+                    self.provider
+                )
+                
             content = data["message"]["content"]
             content = content.replace("```json", "").replace("```", "").strip()
             return json.loads(content)
@@ -160,7 +209,7 @@ class SarvamProvider(LLMProvider):
         # Initialize standard client
         self.client = SarvamAI(api_subscription_key=config.SARVAM_API_KEY)
 
-    async def generate_async(self, messages: List[Dict[str, str]]) -> str:
+    async def generate_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> str:
         def _call():
             response = self.client.chat.completions(
                 messages=messages,
@@ -182,10 +231,29 @@ class SarvamProvider(LLMProvider):
             return content, response
 
         content, response = await asyncio.to_thread(_call)
+        
+        if telemetry_ctx:
+            input_tokens, output_tokens = 0, 0
+            if hasattr(response, 'usage') and response.usage:
+                input_tokens = getattr(response.usage, 'prompt_tokens', 0)
+                output_tokens = getattr(response.usage, 'completion_tokens', 0)
+            elif isinstance(response, dict) and 'usage' in response:
+                input_tokens = response['usage'].get('prompt_tokens', 0)
+                output_tokens = response['usage'].get('completion_tokens', 0)
+                
+            from app.core.telemetry import log_llm_usage
+            log_llm_usage(
+                telemetry_ctx.get('query_uuid'),
+                telemetry_ctx.get('query'),
+                telemetry_ctx.get('step'),
+                input_tokens,
+                output_tokens,
+                self.provider
+            )
 
         return content
 
-    async def generate_json_async(self, messages: List[Dict[str, str]]) -> dict:
+    async def generate_json_async(self, messages: List[Dict[str, str]], telemetry_ctx: Optional[Dict] = None) -> dict:
         def _call_json():
             try:
                 response = self.client.chat.completions(
@@ -216,6 +284,26 @@ class SarvamProvider(LLMProvider):
         if not content:
             print("Error: Sarvam returned empty content.")
             return {}
+            
+        if telemetry_ctx and response:
+            input_tokens, output_tokens = 0, 0
+            if hasattr(response, 'usage') and response.usage:
+                input_tokens = getattr(response.usage, 'prompt_tokens', 0)
+                output_tokens = getattr(response.usage, 'completion_tokens', 0)
+            elif isinstance(response, dict) and 'usage' in response:
+                input_tokens = response['usage'].get('prompt_tokens', 0)
+                output_tokens = response['usage'].get('completion_tokens', 0)
+                
+            from app.core.telemetry import log_llm_usage
+            log_llm_usage(
+                telemetry_ctx.get('query_uuid'),
+                telemetry_ctx.get('query'),
+                telemetry_ctx.get('step'),
+                input_tokens,
+                output_tokens,
+                self.provider
+            )
+            
         try:
             content = content.replace("```json", "").replace("```", "").strip()
             return json.loads(content)

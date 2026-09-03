@@ -46,6 +46,9 @@ async def _get_chat_history(session_id: str, case_id: int, user_id: int, db: Asy
     return chat_history
 
 
+import time
+from app.core.telemetry import log_endpoint_latency
+
 @router.post("/", response_model=QueryResponse)
 async def process_query(
     request: QueryRequest,
@@ -59,6 +62,7 @@ async def process_query(
     Optionally scoped to a specific case to include client info and
     uploaded documents in the retrieval context.
     """
+    start_time = time.time()
     client_info = None
 
     if request.case_id:
@@ -102,6 +106,12 @@ async def process_query(
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"RAG query failed: {str(e)}")
+        
+    end_time = time.time()
+    latency = end_time - start_time
+    
+    query_uuid = rag_result.get("query_uuid", "unknown")
+    log_endpoint_latency("/query", latency, query_uuid)
 
     # Build typed source references
     sources = []

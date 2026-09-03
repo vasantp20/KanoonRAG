@@ -1,5 +1,5 @@
 import json
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 from app.core.llm_provider import LLMProvider
 
@@ -19,7 +19,7 @@ If the intent is "broad_thematic":
 Respond ONLY with valid JSON matching the formats above.
 """
 
-async def classify_intent(query: str, llm_provider: LLMProvider) -> Dict[str, Any]:
+async def classify_intent(query: str, llm_provider: LLMProvider, telemetry_ctx: Optional[Dict] = None) -> Dict[str, Any]:
     """
     Classify the query intent and extract metadata or expand the query.
     """
@@ -29,7 +29,7 @@ async def classify_intent(query: str, llm_provider: LLMProvider) -> Dict[str, An
     ]
     
     try:
-        response_dict = await llm_provider.generate_json_async(messages)
+        response_dict = await llm_provider.generate_json_async(messages, telemetry_ctx)
         if "intent" in response_dict:
             return response_dict
     except Exception as e:
