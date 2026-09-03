@@ -20,6 +20,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# ── Application Metadata ───────────────────────────────────────────────────────
+RAG_ENGINE_VERSION = os.getenv("RAG_ENGINE_VERSION", "1.0.0")
+
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
