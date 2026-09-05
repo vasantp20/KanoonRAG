@@ -43,47 +43,10 @@ class RAGEngine:
         from .intent_classifier import classify_intent
         intent_ctx = {"query_uuid": query_uuid, "query": user_query, "step": "intent_classification"}
         intent_data = await classify_intent(user_query, self.intent_llm, telemetry_ctx=intent_ctx)
-        intent = intent_data.get("intent", "broad_thematic")
-        
-        filters = None
-        search_query = user_query
-        
-        if intent == "specific_case":
-            keywords = intent_data.get("metadata", {}).get("keywords", [])
-            if keywords:
-                # Construct an $and filter requiring all unique keywords to be present
-                filters = {"$and": [{"title": {"$contains": kw}} for kw in keywords]}
-                print(f"Specific Case Query Detected. Applying keyword filter: {filters}")
-                # Also boost the search_query with the exact keywords
-                search_query = " ".join(keywords) + " " + user_query
-        else:
-            search_query = intent_data.get("expanded_query", user_query)
-            logger.info(f"Broad Thematic Query Detected. Expanded query: {search_query}")
-            
-        # Step 2: Embed query
-        query_embedding = self.embedding_service.embed_query(search_query)
-        
-        # Step 3: Search collections
-        retrieved_chunks = self.vector_store.search_all(search_query, query_embedding, user_id, case_id, filters=filters)
-        
-        # Fallback for specific case if exact filter misses
-        if intent == "specific_case" and not retrieved_chunks:
-            logger.warning("Specific case filter yielded no results, falling back to broad search.")
-            retrieved_chunks = self.vector_store.search_all(search_query, query_embedding, user_id, case_id)
-            
-        # Step 3.5: Fetch complete documents for specific case intent
-        if intent == "specific_case" and retrieved_chunks:
-            doc_ids = []
-            for chunk in retrieved_chunks:
-                doc_id = chunk.get("metadata", {}).get("kanoon_doc_id")
-                if doc_id and doc_id not in doc_ids:
-                    doc_ids.append(doc_id)
-            
-            # Fetch complete documents for top 3 hits
-            complete_docs = self.vector_store.get_complete_documents(doc_ids[:3])
-            
-            if complete_docs:
-                retrieved_chunks = complete_docs
+        # Step 2 & 3: Retrieve context using orchestrator
+        from .retrievers import RetrievalOrchestrator
+        orchestrator = RetrievalOrchestrator(self.vector_store, self.embedding_service)
+        retrieved_chunks = orchestrator.retrieve(user_query, intent_data, user_id, case_id)
         
         # Step 4: Assemble context
         context = format_context(retrieved_chunks)
