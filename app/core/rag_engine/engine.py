@@ -48,6 +48,33 @@ class RAGEngine:
         orchestrator = RetrievalOrchestrator(self.vector_store, self.embedding_service)
         retrieved_chunks = orchestrator.retrieve(user_query, intent_data, user_id, case_id)
         
+        # Step 3.5: Hybrid Quality Gate
+        from .quality_gate import HybridQualityGate
+        gate = HybridQualityGate(self.intent_llm)
+        is_sufficient, gate_reason, gate_status = await gate.evaluate(user_query, retrieved_chunks)
+        
+        logger.info(f"Quality Gate Result: {gate_status} (Reason: {gate_reason})")
+        
+        if gate_status == "REFUSAL":
+            return {
+                "answer": "No relevant records found based on the provided documents.",
+                "sources": [],
+                "query_uuid": query_uuid
+            }
+            
+        if gate_status == "AGENT_FALLBACK":
+            logger.info("Falling back to Agentic Tool Loop...")
+            from .agent_loop import AgentRunner
+            agent = AgentRunner(self.vector_store, self.llm_provider, self.intent_llm)
+            agent_result = await agent.run_tool_loop(user_query, retrieved_chunks)
+            if agent_result.get("status") == "REFUSAL":
+                return {
+                    "answer": "Context is not sufficient to answer the query.",
+                    "sources": [],
+                    "query_uuid": query_uuid
+                }
+            retrieved_chunks = agent_result.get("chunks", retrieved_chunks)
+
         # Step 4: Assemble context
         context = format_context(retrieved_chunks)
         logger.debug(f"Retrieved Context:\n{context}")
