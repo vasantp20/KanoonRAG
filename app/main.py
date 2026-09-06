@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.db.database import init_db, close_db
-from app.api.routes import auth, clients, cases, query, documents, kanoon
+from app.api.routes import auth, query
 
 
 from app.core.vector_store import VectorStore
@@ -27,7 +27,7 @@ async def lifespan(app: FastAPI):
     vector_store.initialize()
     
     llm_provider = LLMProvider()
-    intent_llm = LLMProvider(provider="groq")
+    intent_llm = LLMProvider(provider="sarvam")
     embedding_service = EmbeddingService()
     
     app.state.vector_store = vector_store
@@ -63,11 +63,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router)
-app.include_router(clients.router)
-app.include_router(cases.router)
 app.include_router(query.router)
-app.include_router(documents.router)
-app.include_router(kanoon.router)
 
 
 @app.get("/")

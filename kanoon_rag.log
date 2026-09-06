@@ -1,0 +1,1811 @@
+2026-09-06 07:27:45,954 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 07:27:46,167 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 07:27:46,167 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 07:27:50,069 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 07:37:23,842 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 07:37:23,981 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 07:37:23,981 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 07:37:27,302 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 07:37:32,622 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 07:37:32,769 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 07:37:32,769 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 07:37:35,498 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 07:56:01,925 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 07:56:02,066 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 07:56:02,066 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 07:56:05,704 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 07:56:23,735 - app.core.rag_engine.engine - INFO - Quality Gate Result: AGENT_FALLBACK (Reason: Tier 2: Context insufficient)
+2026-09-06 07:56:23,735 - app.core.rag_engine.engine - INFO - Falling back to Agentic Tool Loop...
+2026-09-06 07:59:11,225 - app.core.rag_engine.engine - INFO - Quality Gate Result: AGENT_FALLBACK (Reason: Tier 2: Context insufficient)
+2026-09-06 07:59:11,225 - app.core.rag_engine.engine - INFO - Falling back to Agentic Tool Loop...
+2026-09-06 08:00:13,677 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 08:00:13,821 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 08:00:13,821 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 08:00:17,585 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 08:01:09,594 - app.core.rag_engine.engine - INFO - Quality Gate Result: AGENT_FALLBACK (Reason: Tier 2: Context insufficient)
+2026-09-06 08:01:09,594 - app.core.rag_engine.engine - INFO - Falling back to Agentic Tool Loop...
+2026-09-06 08:01:54,712 - app.core.rag_engine.engine - INFO - Quality Gate Result: PASS (Reason: Tier 2: Context is sufficient)
+2026-09-06 08:01:54,713 - app.core.rag_engine.engine - DEBUG - Retrieved Context:
+--- Document 1 [Case: PREM KUMAR vs STATE OF RAJASTHAN | No Citation | Supreme Court of India, 2009 | File: 17378-2001___jonew__judis__33463.pdf] ---
+“113-B:  Presumption  as  to  dowry  death-  When  the
+question is whether a person has committed the dowry
+death of a woman and it is shown that soon before her
+death such woman has been subjected by such person to
+cruelty or harassment for, or in connection with, any
+demand for dowry, the Court shall presume that such
+person had caused the dowry death.
+Explanation – For the purposes of this section ‘dowry
+death’ shall have the same meaning as in Section 304-B
+of the Indian Penal Code (45 of 1860).”
+  
+11.
+The necessity for insertion of the two provisions has been amply
+analysed by the Law Commission of India in its 21st Report dated 10th
+August, 1988 on ‘Dowry Deaths and Law Reform’. Keeping in view the
+impediment in the pre-existing law in securing evidence to prove dowry
+related deaths, legislature thought it wise to insert a provision relating to
+presumption of dowry death on proof of certain essentials.  It is in this
+background  presumptive  Section  113-B  in  the  Evidence  Act  has  been
+inserted.  As per the definition of ‘dowry death’ in Section 304-B IPC and
+the wording in the presumptive Section 113-B of the Evidence Act, one of
+the essential ingredients, amongst others, in both the provisions is that the
+concerned woman must have been “soon before her death” subjected to
+cruelty or harassment “for or in connection with the demand of dowry”.
+Presumption under Section 113-B is a presumption of law.  On proof of the
+essentials mentioned therein, it becomes obligatory on the Court to raise a
+11
+
+--- Document 2 [Case: SULTAN SINGH vs STATE OF HARYANA | No Citation | Supreme Court of India, 2014 | File: 28422-2008___jonew__judis__41973.pdf] ---
+JUDGMENT
+the  Court  shall  presume  that  such  person  had 
+caused the dowry death.
+Explanation.—For the purposes of this section, 
+‘dowry death’ shall have the same meaning as in 
+Section  304-B  of  the  Indian  Penal  Code  (45  of 
+1860).”
+The necessity for insertion of the two provisions 
+has been amply analysed by the Law Commission 
+of  India  in  its  21st  Report  dated  10-8-1988  on 
+“Dowry Deaths and Law Reform”. Keeping in view 
+the impediment in the pre-existing law in securing 
+evidence  to  prove  dowry-related  deaths,  the 
+legislature  thought  it  wise  to  insert  a  provision 
+relating to presumption of dowry death on proof of 
+certain  essentials.  It  is  in  this  background  that 
+presumptive Section 113-B in the Evidence Act has 
+been  inserted.  As  per  the  definition  of  “dowry 
+death” in Section 304-B IPC and the wording in the 
+presumptive  Section  113-B of  the  Evidence  Act, 
+one of the essential ingredients, amongst others, 
+in  both  the  provisions  is  that  the  woman 
+concerned  must  have  been  “soon  before  her 
+death” subjected to cruelty or harassment “for or 
+in  connection  with  the  demand  of  dowry”. 
+Presumption under Section 113-B is a presumption 
+of  law.  On  proof  of  the  essentials  mentioned 
+therein, it becomes obligatory on the court to raise 
+a presumption that the accused caused the dowry 
+death.  The  presumption  shall  be  raised  only  on 
+proof of the following essentials:
+(1)  The  question  before  the  court  must  be 
+whether  the  accused  has  committed  the  dowry 
+death  of  the  woman.  (This  means  that  the 
+presumption can be raised only if the accused is 
+being  tried  for  the  offence  under  Section  304-B 
+IPC.)
+(2)  The  woman  was  subjected  to  cruelty  or 
+harassment by her husband or his relatives.
+(3) Such cruelty or harassment was for or in 
+connection with any demand for dowry.
+(4) Such cruelty or harassment was soon before 
+her death.
+
+--- Document 3 [Case: STATE OF RAJASTHAN vs TEG BAHADUR | No Citation | Supreme Court of India, 2004 | File: 2390-1998___jonew__judis__26489.pdf] ---
+facts and circumstances which were proved beyond reasonable doubt and the 
+evidence adduced on record clearly proves the guilt of all the respondents-accused that 
+in all probabilities the respondents-accused had caused the death of the 18 year old 
+deceased Suman.  She further submitted that the High Court is not correct in not 
+appreciating the testimonies of PW-13 - Om Prakash and PW-4 - Ram Kishan who 
+have clearly stated in their statements the entire chronology of events, which led to the 
+death of the deceased.  According to the learned counsel for the appellant, such clear 
+and lucid statement of facts, which were proved beyond reasonable doubt should not 
+have been overlooked and ignored by the High Court even when their testimonies 
+clearly corroborate the evidence adduced by the prosecution and has successfully 
+proved the guilt of the accused.  The counsel for the appellant contended that all the 
+ingredients of offence under Section 304B were made out and it was urged that there 
+was sufficient evidence to hold that before the death of Suman there was demand for 
+dowry by the appellant and there was consequential harassment on his part.  Counsel 
+also urged that the presumption under Section 113-B of the Evidence Act should have 
+been drawn and the High Court seriously erred in acquitting the accused without 
+properly appreciating the evidence.  
+In view of these submissions, the learned counsel for the appellant submitted 
+that the High Court has erred in acquitting the accused even when the chain of 
+circumstances was complete which clearly point out towards the guilt of the 
+respondents-accused.  Winding up her arguments, the learned counsel submitted that 
+the cremation of the body of the deceased Suman was cremated in the hasty manner 
+without even informing the parents of the deceased.  Learned counsel for the appellant 
+prayed that the appeal against the final judgment of the High Court be set aside and the
+
+--- Document 4 [Case: STATE OF A.P. vs RAJ GOPAL ASAWA | No Citation | Supreme Court of India, 2004 | File: 2424-1998___jonew__judis__25971.pdf] ---
+http://JUDIS.NIC.IN 
+SUPREME COURT OF INDIA
+Page 5 of 6 
+113-B in the Evidence Act has been inserted.  As per the 
+definition of ’dowry death’ in Section 304-B IPC and the 
+wording in the presumptive Section 113-B of the Evidence 
+Act, one of the essential ingredients, amongst others, in 
+both the provisions is that the concerned woman must have 
+been "soon before her death" subjected to cruelty or 
+harassment "for or in connection with the demand of 
+dowry". Presumption under Section 113-B is a presumption 
+of law.  On proof of the essentials mentioned therein, it 
+becomes obligatory on the Court to raise a presumption that 
+the accused caused the dowry death.  The presumption shall 
+be raised only on proof of the following essentials: 
+(1)     The question before the Court must be 
+whether the accused has committed the dowry 
+death of a woman. (This means that the 
+presumption can be raised only if the 
+accused is being tried for the offence under 
+Section 304-B IPC).
+(2)     The woman was subjected to cruelty or 
+harassment by her husband or his relatives.
+(3)     Such cruelty or harassment was for, or 
+in connection with any demand for dowry.
+(4)     Such cruelty or harassment was soon 
+before her death.
+        A conjoint reading of Section 113-B of the Evidence Act 
+and Section 304-B IPC shows that there must be material to 
+show that soon before her death the victim was subjected to 
+cruelty or harassment. Prosecution has to rule out the 
+possibility of a natural or accidental death so as to bring 
+it within the purview of the ’death occurring otherwise than 
+in normal circumstances’.  The expression ’soon before’ is 
+very relevant where Section 113-B of the Evidence Act and 
+Section 304-B IPC are pressed into service.  Prosecution is 
+obliged to show that soon before the occurrence there was 
+cruelty or harassment and only in that case presumption 
+operates. Evidence in that regard has to be led by
+
+--- Document 5 [Case: BUDDHADEB SAHA vs THE STATE OF WEST BENGAL | No Citation | Supreme Court of India, 2023 | File: 45398-2019___supremecourt__2019__45398__45398_2019_16_114_46813_Judgement_13-Sep-2023.pdf] ---
+SUBMISSIONS ON BEHALF OF THE STATE:- 
+16.
+ On  the  other  hand,  this  appeal  has  been
+vehemently  opposed  by  Mr.  Avishkar  Singhvi,  the
+learned  counsel  appearing  for  the  State  of  West
+Bengal.   He  would  submit  that  no  error  not  to
+speak of any error of law could be said to have
+been committed by the Courts below in holding the
+appellants guilty of the offence with which they
+were charged. 
+17.
+ The  learned  counsel  laid  much  emphasis  on
+the  fact  that  within  couple  of  months  from  the
+date  of  marriage,  the  deceased  died  at  her
+matrimonial  home  under  suspicious  circumstances.
+According  to  him,  there  is  thumping  evidence  on
+record  to  indicate  that  there  was  incessant
+harassment to the deceased by all the appellants
+
+7
+for want of dowry. 
+18.
+The learned counsel invited the attention of
+this Court to Section 113B of the Indian Evidence
+Act,  1872  (for  short,  “the  Evidence  Act”)  which
+raises a presumption against the accused. Section
+113B of the Evidence Act reads thus:-
+“Section  113B.  Presumption  as  to  dowry
+death. --  When  the  question  is  whether  a
+person has committed the dowry death of a
+woman and it is shown that soon before her
+death such woman had been subjected by such
+person to cruelty or harassment for, or in
+connection with, any demand for dowry, the
+court  shall  presume  that  such  person  had
+caused the dowry death.”
+19.
+The learned counsel drew a fine distinction
+between  Sections  113A  and  113B  resply  of  the
+Evidence Act. In Section 113A, the Legislature has
+thought fit to use the word “may”. Therefore, in a
+given set of facts, the Court may presume whereas
+under Section 113B of the Indian Evidence Act the
+word used is “shall”. In view of the word “shall”,
+the Court is left with no other option but to draw
+the presumption. 
+20.
+He  would  submit  that  there  is  intrinsic
+evidence on record to indicate that the deceased
+
+--- Document 6 [Case: JAGJIT SINGH vs STATE OF PUNJAB | No Citation | Supreme Court of India, 2018 | File: 17046-2015___supremecourt__2015__17046__17046_2015_Judgement_26-Sep-2018.pdf] ---
+28
+bound to proceed on the basis that the person has caused
+the dowry death, the presumption is rebuttable and it is
+open to the relative to prove that the ingredients of
+Section  304-B  IPC  are  not  satisfied.   See  in  this
+regard, the following statement of law contained in the
+case of G.V. Siddaramesh v. State of Karnataka 2010 (3)
+SCC 152:
+“26. Section 113-B of the Evidence Act raises
+a presumption against the accused and reads:
+“113-B.  Presumption as to dowry death -
+When the question is whether a person has
+committed the dowry death of a woman and
+it is shown that soon before her death
+such  woman  had  been  subjected  by  such
+person to cruelty or harassment for, or
+in connection with, any demand for dowry,
+the court shall presume that such person
+had caused the dowry death.
+Explanation. - For the purposes of this
+section,  ‘dowry  death’  shall  have  the
+same meaning as in Section 304-B of the
+Indian Penal Code (45 of 1860).”
+A reading of Section 113-B of the Evidence Act
+shows that there must be material to show that
+soon before the death of woman, such woman was
+subjected to cruelty or harassment for or in
+connection with demand of dowry, then only a
+presumption  can  be  drawn  that  a  person  has
+committed the dowry death of a woman. It is
+then  up  to  the  appellant  to  discharge  this
+presumption.”
+
+--- Document 7 [Case: HIRA LAL vs STATE (GOVT. OF NCT), DELHI | No Citation | Supreme Court of India, 2003 | File: 10391-2002___jonew__judis__19141.pdf] ---
+http://JUDIS.NIC.IN 
+SUPREME COURT OF INDIA
+Page 4 of 7 
+deaths, legislature thought it wise to insert a provision 
+relating to presumption of dowry death on proof of certain 
+essentials.  It is in this background presumptive Section 
+113-B in the Evidence Act has been inserted.  As per the 
+definition of ’dowry death’ in Section 304-B IPC and the 
+wording in the presumptive Section 113-B of the Evidence 
+Act, one of the essential ingredients, amongst others, in 
+both the provisions is that the concerned woman must have 
+been "soon before her death" subjected to cruelty or 
+harassment "for or in connection with the demand of 
+dowry". Presumption under Section 113-B is a presumption 
+of law.  On proof of the essentials mentioned therein, it 
+becomes obligatory on the Court to raise a presumption that 
+the accused caused the dowry death.  The presumption shall 
+be raised only on proof of the following essentials: 
+(1)     The question before the Court must be 
+whether the accused has committed the dowry 
+death of a woman. (This means that the 
+presumption can be raised only if the 
+accused is being tried for the offence under 
+Section 304-B IPC).
+(2)     The woman was subjected to cruelty or 
+harassment by her husband or his relatives.
+(3)     Such cruelty or harassment was for, or 
+in connection with any demand for dowry.
+(4)     Such cruelty or harassment was soon 
+before her death.
+        A conjoint reading of Section 113-B of the Evidence 
+Act and Section 304-B IPC shows that there must be material 
+to show that soon before her death the victim was subjected 
+to cruelty or harassment.  Prosecution has to rule out the 
+possibility of a natural or accidental death so as to bring 
+it within the purview of the ’death occurring otherwise 
+than in normal circumstances’.  The expression ’soon 
+before’ is very relevant where Section 113-B of the 
+Evidence Act and Section 304-B IPC are pressed into 
+service.  Prosecution is obliged to show that soon before
+
+--- Document 8 [Case: HIRA LAL vs STATE (GOVT. OF NCT), DELHI | No Citation | Supreme Court of India, 2003 | File: 10391-2002___jonew__judis__19301.pdf] ---
+http://JUDIS.NIC.IN 
+SUPREME COURT OF INDIA
+Page 4 of 7 
+relating to presumption of dowry death on proof of certain 
+essentials.  It is in this background presumptive Section 
+113-B in the Evidence Act has been inserted.  As per the 
+definition of ’dowry death’ in Section 304-B IPC and the 
+wording in the presumptive Section 113-B of the Evidence 
+Act, one of the essential ingredients, amongst others, in 
+both the provisions is that the concerned woman must have 
+been "soon before her death" subjected to cruelty or 
+harassment "for or in connection with the demand of 
+dowry". Presumption under Section 113-B is a presumption 
+of law.  On proof of the essentials mentioned therein, it 
+becomes obligatory on the Court to raise a presumption that 
+the accused caused the dowry death.  The presumption shall 
+be raised only on proof of the following essentials: 
+(1)     The question before the Court must be 
+whether the accused has committed the dowry 
+death of a woman. (This means that the 
+presumption can be raised only if the 
+accused is being tried for the offence under 
+Section 304-B IPC).
+(2)     The woman was subjected to cruelty or 
+harassment by her husband or his relatives.
+(3)     Such cruelty or harassment was for, or 
+in connection with any demand for dowry.
+(4)     Such cruelty or harassment was soon 
+before her death.
+        A conjoint reading of Section 113-B of the Evidence 
+Act and Section 304-B IPC shows that there must be material 
+to show that soon before her death the victim was subjected 
+to cruelty or harassment.  Prosecution has to rule out the 
+possibility of a natural or accidental death so as to bring 
+it within the purview of the ’death occurring otherwise 
+than in normal circumstances’.  The expression ’soon 
+before’ is very relevant where Section 113-B of the 
+Evidence Act and Section 304-B IPC are pressed into 
+service.  Prosecution is obliged to show that soon before 
+the occurrence there was cruelty or harassment and only in
+
+--- Document 9 [Case: RAJIV SINGH vs THE STATE OF BIHAR | No Citation | Supreme Court of India, 2015 | File: 24043-2014___jonew__judis__43204.pdf] ---
+JUDGMENT
+60
+63.
+In terms of this judgment, suspicion, howsoever  grave
+cannot take the place of proof and the prosecution case to
+succeed has to be in the category of “must be” and not “may
+be”.  a distance to be covered by way of clear, cogent and
+unimpeachable  evidence  to  rule  out  any  possibility  of
+wrongful  conviction  of  the  accused  and  resultant
+mis-carriage of justice.  For this, the Court has to essentially
+undertake  an  exhaustive  and  analytical  appraisal  of  the
+evidence on record and register findings as warranted by the
+same. The above proposition is so well-established that it
+does not call for multiple citations to further consolidate the
+same.
+64.
+Whereas  in  Sultan  Singh  (supra),  this  Court  had
+propounded that a presumption under Section 113-B of the
+Evidence  Act   is  attracted  only  in  case  of  suicidal  or
+homicidal death and not in the case of an accidental death, it
+was proclaimed in Sher Singh (supra)  that the harassment
+and  cruelty  by  the  husband  has  to  have  a  perceptible
+
+Page 61
+
+--- Document 10 [Case: KESHAB CHANDRA PRADHAN vs BAINA | No Citation | Supreme Court of India, 2007 | File: 8306-2000___jonew__judis__29673.pdf] ---
+http://JUDIS.NIC.IN 
+SUPREME COURT OF INDIA
+Page 4 of 5 
+        
+22.     Distinction between Section 113A and 113B was noticed by the Court 
+in Satvir Singh v. State of Punjab [(2001) 8 SCC 633], stating  :
+\023No doubt, Section 306 IPC read with Section 
+113-A of the Evidence Act is wide enough to take 
+care of an offence under Section 304-B also. But 
+the latter is made a more serious offence by 
+providing a much higher sentence and also by 
+imposing a minimum period of imprisonment as 
+the sentence. In other words, if death occurs 
+otherwise than under normal circumstances within 
+7 years of the marriage as a sequel to the cruelty or 
+harassment inflicted on a woman with demand of 
+dowry, soon before her death, Parliament intended 
+such a case to be treated as a very serious offence 
+punishable even up to imprisonment for life in 
+appropriate cases. It is for the said purpose that 
+such cases are separated from the general category 
+provided under Section 306 IPC (read with Section 
+113-A of the Evidence Act) and made a separate 
+offence.\024
+23.     In Hans Raj v. State of Haryana [(2004) 12 SCC 257], this Court held:
+\02313. Unlike Section 113-B of the Indian 
+Evidence Act, a statutory presumption does not 
+arise by operation of law merely on proof of the 
+circumstances enumerated in Section 113-A of the 
+Indian Evidence Act. Under Section 113-A of the 
+Indian Evidence Act, the prosecution has first to 
+establish that the woman concerned committed 
+suicide within a period of seven years from the 
+date of her marriage and that her husband (in this 
+case) had subjected her to cruelty. Even if these
+
+--- Document 11 [Case: SOCIAL ACTION FORUM vs UNION OF INDIA AND ORS. MINSTRY LAW AND JUSTICE | No Citation | Supreme Court of India, 2018 | File: 40984-2014___supremecourt__2014__40984__40984_2014_Judgement_14-Sep-2018.pdf] ---
+6 
+ 
+"There is no doubt that the object of introducing Chapter 
+XX-A containing Section 498A in the Indian Penal Code 
+was to prevent the torture to a woman by her husband or 
+by relatives of her husband. Section 498A was added with 
+a view to punishing a husband and his relatives who 
+harass or torture the wife to coerce her or her relatives to 
+satisfy unlawful demands of dowry. The hyper-technical 
+view would be counter productive and would act against 
+interests of women and against the object for which this 
+provision was added. There is eveiy likelihood that non-
+exercise of inherent power to quash the proceedings to 
+meet the ends of justice would prevent women from 
+settling earlier. That is not the object of Chapter XXA of 
+Indian Penal Code." 
+ 
+5. 
+In Brij Lal v. Prem Chand  and another3, this Court ruled thus:- 
+ 
+“It would not be out of place for us to refer here to the 
+addition of Sections 113-A and 113-B to the Indian 
+Evidence Act and Sections 498-A and 304-B to the Indian 
+Penal Code by subsequent amendments. Section 113-A 
+Evidence Act and 498-A Indian Penal Code have been 
+introduced in the respective enactments by the Criminal 
+Law (Second amendment) Act, 1983 (Act 46 of 1983) and 
+Section 113-B of the Evidence Act and 304-B Indian 
+Penal Code have been introduced by Act No. 43 of 1986. 
+The degradation of society due to the pernicious system 
+of dowry and the unconscionable demands made by 
+greedy and unscrupulous husbands and their parents and 
+relatives resulting in an alarming number of suicidal and 
+dowry deaths by women has shocked the Legislative 
+conscience to such an extent that the Legislature has 
+deemed it necessary to provide additional provisions of 
+law, procedural as well as substantive, to combat the evil 
+and has consequently introduced Sections 113-A and 
+113-B in the Indian Evidence Act and Sections 498-A 
+and 304-B in the Indian Penal Code. By reason of Section 
+113-A, the Courts can presume that the commission of
+
+--- Document 12 [Case: GURDEEP SINGH vs STATE OF PUNJAB . | No Citation | Supreme Court of India, 2011 | File: 17524-2002___jonew__judis__38644.pdf] ---
+Crl.A. No. 1085 of 2003                                                                                                                                                            REPORTABLE
+5
+the  first  time  would  have  very  limited  evidentiary 
+value.  
+3.
+Mr. Kuldip Singh, learned counsel for the State 
+has, however, supported the judgment of the trial court 
+and  the  High  Court  and  has  submitted  that  as  the 
+deceased was a young woman,a presumption had to be drawn 
+that she had died an unnatural death and as such the 
+provisions of Section 113B of the Evidence Act would be 
+applicable  to the facts of the case.
+4.
+We have heard the learned counsel very carefully 
+and have gone through the record.  
+5.
+We first find that the evidence with respect to 
+the  appellant  Gurdeep  Singh  is  almost  identical  with 
+that of the six accused who have been acquitted of the 
+same charge – two by the High Court and four by the 
+trial court and he appears to have been singled out as 
+being  the  husband.   We  first  take  up  the  argument 
+relating to Section 304B and the presumption drawn under 
+Section  113B.   A  bare  reading  of  Section  304B  pre-
+supposes  several factors for its applicability, they 
+being:- (i) death should be of burns or bodily injury or 
+has occurred otherwise than under normal circumstances: 
+(ii) within seven years of the marriage; and (iii) that 
+soon before her death she had been subjected to cruelty 
+or harrassment by her husband or her relatives.  This
+
+2026-09-06 08:01:54,713 - app.core.rag_engine.engine - DEBUG - LLM Prompt Messages:
+[
+  {
+    "role": "system",
+    "content": "You are a senior Indian family law expert and legal assistant.\nYour task is to provide accurate, professional, and empathetic legal answers based EXCLUSIVELY on the provided context.\n\nCRITICAL INSTRUCTIONS:\n1. Base your answer ONLY on the provided context. Do NOT use any outside or parametric knowledge to answer the question.\n2. If the provided context does not contain sufficient information to answer the question, you MUST reply exactly with: \"I don't know based on the provided documents.\" Do not attempt to guess or extrapolate.\n3. When you use information from the context, you MUST cite the source precisely as follows:\n   - For Kanoon documents (legal cases): [Case: <Title> | <Citation> | <Court>, <Year>]\n   - For user uploaded documents: [Client File: <filename>, Page <n>]\n4. If multiple cases are present in the context, ALWAYS prioritize and base your primary answer on the most recent judgment (using the Year/Date provided in the document headers). Use older cases only to show historical context if relevant, but clearly state which ruling is the latest.\n"
+  },
+  {
+    "role": "user",
+    "content": "Context information is below.\n\n--- Document 1 [Case: PREM KUMAR vs STATE OF RAJASTHAN | No Citation | Supreme Court of India, 2009 | File: 17378-2001___jonew__judis__33463.pdf] ---\n\u201c113-B:  Presumption  as  to  dowry  death-  When  the\nquestion is whether a person has committed the dowry\ndeath of a woman and it is shown that soon before her\ndeath such woman has been subjected by such person to\ncruelty or harassment for, or in connection with, any\ndemand for dowry, the Court shall presume that such\nperson had caused the dowry death.\nExplanation \u2013 For the purposes of this section \u2018dowry\ndeath\u2019 shall have the same meaning as in Section 304-B\nof the Indian Penal Code (45 of 1860).\u201d\n  \n11.\nThe necessity for insertion of the two provisions has been amply\nanalysed by the Law Commission of India in its 21st Report dated 10th\nAugust, 1988 on \u2018Dowry Deaths and Law Reform\u2019. Keeping in view the\nimpediment in the pre-existing law in securing evidence to prove dowry\nrelated deaths, legislature thought it wise to insert a provision relating to\npresumption of dowry death on proof of certain essentials.  It is in this\nbackground  presumptive  Section  113-B  in  the  Evidence  Act  has  been\ninserted.  As per the definition of \u2018dowry death\u2019 in Section 304-B IPC and\nthe wording in the presumptive Section 113-B of the Evidence Act, one of\nthe essential ingredients, amongst others, in both the provisions is that the\nconcerned woman must have been \u201csoon before her death\u201d subjected to\ncruelty or harassment \u201cfor or in connection with the demand of dowry\u201d.\nPresumption under Section 113-B is a presumption of law.  On proof of the\nessentials mentioned therein, it becomes obligatory on the Court to raise a\n11\n\n--- Document 2 [Case: SULTAN SINGH vs STATE OF HARYANA | No Citation | Supreme Court of India, 2014 | File: 28422-2008___jonew__judis__41973.pdf] ---\nJUDGMENT\nthe  Court  shall  presume  that  such  person  had \ncaused the dowry death.\nExplanation.\u2014For the purposes of this section, \n\u2018dowry death\u2019 shall have the same meaning as in \nSection  304-B  of  the  Indian  Penal  Code  (45  of \n1860).\u201d\nThe necessity for insertion of the two provisions \nhas been amply analysed by the Law Commission \nof  India  in  its  21st  Report  dated  10-8-1988  on \n\u201cDowry Deaths and Law Reform\u201d. Keeping in view \nthe impediment in the pre-existing law in securing \nevidence  to  prove  dowry-related  deaths,  the \nlegislature  thought  it  wise  to  insert  a  provision \nrelating to presumption of dowry death on proof of \ncertain  essentials.  It  is  in  this  background  that \npresumptive Section 113-B in the Evidence Act has \nbeen  inserted.  As  per  the  definition  of  \u201cdowry \ndeath\u201d in Section 304-B IPC and the wording in the \npresumptive  Section  113-B of  the  Evidence  Act, \none of the essential ingredients, amongst others, \nin  both  the  provisions  is  that  the  woman \nconcerned  must  have  been  \u201csoon  before  her \ndeath\u201d subjected to cruelty or harassment \u201cfor or \nin  connection  with  the  demand  of  dowry\u201d. \nPresumption under Section 113-B is a presumption \nof  law.  On  proof  of  the  essentials  mentioned \ntherein, it becomes obligatory on the court to raise \na presumption that the accused caused the dowry \ndeath.  The  presumption  shall  be  raised  only  on \nproof of the following essentials:\n(1)  The  question  before  the  court  must  be \nwhether  the  accused  has  committed  the  dowry \ndeath  of  the  woman.  (This  means  that  the \npresumption can be raised only if the accused is \nbeing  tried  for  the  offence  under  Section  304-B \nIPC.)\n(2)  The  woman  was  subjected  to  cruelty  or \nharassment by her husband or his relatives.\n(3) Such cruelty or harassment was for or in \nconnection with any demand for dowry.\n(4) Such cruelty or harassment was soon before \nher death.\n\n--- Document 3 [Case: STATE OF RAJASTHAN vs TEG BAHADUR | No Citation | Supreme Court of India, 2004 | File: 2390-1998___jonew__judis__26489.pdf] ---\nfacts and circumstances which were proved beyond reasonable doubt and the \nevidence adduced on record clearly proves the guilt of all the respondents-accused that \nin all probabilities the respondents-accused had caused the death of the 18 year old \ndeceased Suman.  She further submitted that the High Court is not correct in not \nappreciating the testimonies of PW-13 - Om Prakash and PW-4 - Ram Kishan who \nhave clearly stated in their statements the entire chronology of events, which led to the \ndeath of the deceased.  According to the learned counsel for the appellant, such clear \nand lucid statement of facts, which were proved beyond reasonable doubt should not \nhave been overlooked and ignored by the High Court even when their testimonies \nclearly corroborate the evidence adduced by the prosecution and has successfully \nproved the guilt of the accused.  The counsel for the appellant contended that all the \ningredients of offence under Section 304B were made out and it was urged that there \nwas sufficient evidence to hold that before the death of Suman there was demand for \ndowry by the appellant and there was consequential harassment on his part.  Counsel \nalso urged that the presumption under Section 113-B of the Evidence Act should have \nbeen drawn and the High Court seriously erred in acquitting the accused without \nproperly appreciating the evidence.  \nIn view of these submissions, the learned counsel for the appellant submitted \nthat the High Court has erred in acquitting the accused even when the chain of \ncircumstances was complete which clearly point out towards the guilt of the \nrespondents-accused.  Winding up her arguments, the learned counsel submitted that \nthe cremation of the body of the deceased Suman was cremated in the hasty manner \nwithout even informing the parents of the deceased.  Learned counsel for the appellant \nprayed that the appeal against the final judgment of the High Court be set aside and the\n\n--- Document 4 [Case: STATE OF A.P. vs RAJ GOPAL ASAWA | No Citation | Supreme Court of India, 2004 | File: 2424-1998___jonew__judis__25971.pdf] ---\nhttp://JUDIS.NIC.IN \nSUPREME COURT OF INDIA\nPage 5 of 6 \n113-B in the Evidence Act has been inserted.  As per the \ndefinition of \u2019dowry death\u2019 in Section 304-B IPC and the \nwording in the presumptive Section 113-B of the Evidence \nAct, one of the essential ingredients, amongst others, in \nboth the provisions is that the concerned woman must have \nbeen \"soon before her death\" subjected to cruelty or \nharassment \"for or in connection with the demand of \ndowry\". Presumption under Section 113-B is a presumption \nof law.  On proof of the essentials mentioned therein, it \nbecomes obligatory on the Court to raise a presumption that \nthe accused caused the dowry death.  The presumption shall \nbe raised only on proof of the following essentials: \n(1)     The question before the Court must be \nwhether the accused has committed the dowry \ndeath of a woman. (This means that the \npresumption can be raised only if the \naccused is being tried for the offence under \nSection 304-B IPC).\n(2)     The woman was subjected to cruelty or \nharassment by her husband or his relatives.\n(3)     Such cruelty or harassment was for, or \nin connection with any demand for dowry.\n(4)     Such cruelty or harassment was soon \nbefore her death.\n        A conjoint reading of Section 113-B of the Evidence Act \nand Section 304-B IPC shows that there must be material to \nshow that soon before her death the victim was subjected to \ncruelty or harassment. Prosecution has to rule out the \npossibility of a natural or accidental death so as to bring \nit within the purview of the \u2019death occurring otherwise than \nin normal circumstances\u2019.  The expression \u2019soon before\u2019 is \nvery relevant where Section 113-B of the Evidence Act and \nSection 304-B IPC are pressed into service.  Prosecution is \nobliged to show that soon before the occurrence there was \ncruelty or harassment and only in that case presumption \noperates. Evidence in that regard has to be led by\n\n--- Document 5 [Case: BUDDHADEB SAHA vs THE STATE OF WEST BENGAL | No Citation | Supreme Court of India, 2023 | File: 45398-2019___supremecourt__2019__45398__45398_2019_16_114_46813_Judgement_13-Sep-2023.pdf] ---\nSUBMISSIONS ON BEHALF OF THE STATE:- \n16.\n On  the  other  hand,  this  appeal  has  been\nvehemently  opposed  by  Mr.  Avishkar  Singhvi,  the\nlearned  counsel  appearing  for  the  State  of  West\nBengal.   He  would  submit  that  no  error  not  to\nspeak of any error of law could be said to have\nbeen committed by the Courts below in holding the\nappellants guilty of the offence with which they\nwere charged. \n17.\n The  learned  counsel  laid  much  emphasis  on\nthe  fact  that  within  couple  of  months  from  the\ndate  of  marriage,  the  deceased  died  at  her\nmatrimonial  home  under  suspicious  circumstances.\nAccording  to  him,  there  is  thumping  evidence  on\nrecord  to  indicate  that  there  was  incessant\nharassment to the deceased by all the appellants\n\n7\nfor want of dowry. \n18.\nThe learned counsel invited the attention of\nthis Court to Section 113B of the Indian Evidence\nAct,  1872  (for  short,  \u201cthe  Evidence  Act\u201d)  which\nraises a presumption against the accused. Section\n113B of the Evidence Act reads thus:-\n\u201cSection  113B.  Presumption  as  to  dowry\ndeath. --  When  the  question  is  whether  a\nperson has committed the dowry death of a\nwoman and it is shown that soon before her\ndeath such woman had been subjected by such\nperson to cruelty or harassment for, or in\nconnection with, any demand for dowry, the\ncourt  shall  presume  that  such  person  had\ncaused the dowry death.\u201d\n19.\nThe learned counsel drew a fine distinction\nbetween  Sections  113A  and  113B  resply  of  the\nEvidence Act. In Section 113A, the Legislature has\nthought fit to use the word \u201cmay\u201d. Therefore, in a\ngiven set of facts, the Court may presume whereas\nunder Section 113B of the Indian Evidence Act the\nword used is \u201cshall\u201d. In view of the word \u201cshall\u201d,\nthe Court is left with no other option but to draw\nthe presumption. \n20.\nHe  would  submit  that  there  is  intrinsic\nevidence on record to indicate that the deceased\n\n--- Document 6 [Case: JAGJIT SINGH vs STATE OF PUNJAB | No Citation | Supreme Court of India, 2018 | File: 17046-2015___supremecourt__2015__17046__17046_2015_Judgement_26-Sep-2018.pdf] ---\n28\nbound to proceed on the basis that the person has caused\nthe dowry death, the presumption is rebuttable and it is\nopen to the relative to prove that the ingredients of\nSection  304-B  IPC  are  not  satisfied.   See  in  this\nregard, the following statement of law contained in the\ncase of G.V. Siddaramesh v. State of Karnataka 2010 (3)\nSCC 152:\n\u201c26. Section 113-B of the Evidence Act raises\na presumption against the accused and reads:\n\u201c113-B.  Presumption as to dowry death -\nWhen the question is whether a person has\ncommitted the dowry death of a woman and\nit is shown that soon before her death\nsuch  woman  had  been  subjected  by  such\nperson to cruelty or harassment for, or\nin connection with, any demand for dowry,\nthe court shall presume that such person\nhad caused the dowry death.\nExplanation. - For the purposes of this\nsection,  \u2018dowry  death\u2019  shall  have  the\nsame meaning as in Section 304-B of the\nIndian Penal Code (45 of 1860).\u201d\nA reading of Section 113-B of the Evidence Act\nshows that there must be material to show that\nsoon before the death of woman, such woman was\nsubjected to cruelty or harassment for or in\nconnection with demand of dowry, then only a\npresumption  can  be  drawn  that  a  person  has\ncommitted the dowry death of a woman. It is\nthen  up  to  the  appellant  to  discharge  this\npresumption.\u201d\n\n--- Document 7 [Case: HIRA LAL vs STATE (GOVT. OF NCT), DELHI | No Citation | Supreme Court of India, 2003 | File: 10391-2002___jonew__judis__19141.pdf] ---\nhttp://JUDIS.NIC.IN \nSUPREME COURT OF INDIA\nPage 4 of 7 \ndeaths, legislature thought it wise to insert a provision \nrelating to presumption of dowry death on proof of certain \nessentials.  It is in this background presumptive Section \n113-B in the Evidence Act has been inserted.  As per the \ndefinition of \u2019dowry death\u2019 in Section 304-B IPC and the \nwording in the presumptive Section 113-B of the Evidence \nAct, one of the essential ingredients, amongst others, in \nboth the provisions is that the concerned woman must have \nbeen \"soon before her death\" subjected to cruelty or \nharassment \"for or in connection with the demand of \ndowry\". Presumption under Section 113-B is a presumption \nof law.  On proof of the essentials mentioned therein, it \nbecomes obligatory on the Court to raise a presumption that \nthe accused caused the dowry death.  The presumption shall \nbe raised only on proof of the following essentials: \n(1)     The question before the Court must be \nwhether the accused has committed the dowry \ndeath of a woman. (This means that the \npresumption can be raised only if the \naccused is being tried for the offence under \nSection 304-B IPC).\n(2)     The woman was subjected to cruelty or \nharassment by her husband or his relatives.\n(3)     Such cruelty or harassment was for, or \nin connection with any demand for dowry.\n(4)     Such cruelty or harassment was soon \nbefore her death.\n        A conjoint reading of Section 113-B of the Evidence \nAct and Section 304-B IPC shows that there must be material \nto show that soon before her death the victim was subjected \nto cruelty or harassment.  Prosecution has to rule out the \npossibility of a natural or accidental death so as to bring \nit within the purview of the \u2019death occurring otherwise \nthan in normal circumstances\u2019.  The expression \u2019soon \nbefore\u2019 is very relevant where Section 113-B of the \nEvidence Act and Section 304-B IPC are pressed into \nservice.  Prosecution is obliged to show that soon before\n\n--- Document 8 [Case: HIRA LAL vs STATE (GOVT. OF NCT), DELHI | No Citation | Supreme Court of India, 2003 | File: 10391-2002___jonew__judis__19301.pdf] ---\nhttp://JUDIS.NIC.IN \nSUPREME COURT OF INDIA\nPage 4 of 7 \nrelating to presumption of dowry death on proof of certain \nessentials.  It is in this background presumptive Section \n113-B in the Evidence Act has been inserted.  As per the \ndefinition of \u2019dowry death\u2019 in Section 304-B IPC and the \nwording in the presumptive Section 113-B of the Evidence \nAct, one of the essential ingredients, amongst others, in \nboth the provisions is that the concerned woman must have \nbeen \"soon before her death\" subjected to cruelty or \nharassment \"for or in connection with the demand of \ndowry\". Presumption under Section 113-B is a presumption \nof law.  On proof of the essentials mentioned therein, it \nbecomes obligatory on the Court to raise a presumption that \nthe accused caused the dowry death.  The presumption shall \nbe raised only on proof of the following essentials: \n(1)     The question before the Court must be \nwhether the accused has committed the dowry \ndeath of a woman. (This means that the \npresumption can be raised only if the \naccused is being tried for the offence under \nSection 304-B IPC).\n(2)     The woman was subjected to cruelty or \nharassment by her husband or his relatives.\n(3)     Such cruelty or harassment was for, or \nin connection with any demand for dowry.\n(4)     Such cruelty or harassment was soon \nbefore her death.\n        A conjoint reading of Section 113-B of the Evidence \nAct and Section 304-B IPC shows that there must be material \nto show that soon before her death the victim was subjected \nto cruelty or harassment.  Prosecution has to rule out the \npossibility of a natural or accidental death so as to bring \nit within the purview of the \u2019death occurring otherwise \nthan in normal circumstances\u2019.  The expression \u2019soon \nbefore\u2019 is very relevant where Section 113-B of the \nEvidence Act and Section 304-B IPC are pressed into \nservice.  Prosecution is obliged to show that soon before \nthe occurrence there was cruelty or harassment and only in\n\n--- Document 9 [Case: RAJIV SINGH vs THE STATE OF BIHAR | No Citation | Supreme Court of India, 2015 | File: 24043-2014___jonew__judis__43204.pdf] ---\nJUDGMENT\n60\n63.\nIn terms of this judgment, suspicion, howsoever  grave\ncannot take the place of proof and the prosecution case to\nsucceed has to be in the category of \u201cmust be\u201d and not \u201cmay\nbe\u201d.  a distance to be covered by way of clear, cogent and\nunimpeachable  evidence  to  rule  out  any  possibility  of\nwrongful  conviction  of  the  accused  and  resultant\nmis-carriage of justice.  For this, the Court has to essentially\nundertake  an  exhaustive  and  analytical  appraisal  of  the\nevidence on record and register findings as warranted by the\nsame. The above proposition is so well-established that it\ndoes not call for multiple citations to further consolidate the\nsame.\n64.\nWhereas  in  Sultan  Singh  (supra),  this  Court  had\npropounded that a presumption under Section 113-B of the\nEvidence  Act   is  attracted  only  in  case  of  suicidal  or\nhomicidal death and not in the case of an accidental death, it\nwas proclaimed in Sher Singh (supra)  that the harassment\nand  cruelty  by  the  husband  has  to  have  a  perceptible\n\nPage\u00a061\n\n--- Document 10 [Case: KESHAB CHANDRA PRADHAN vs BAINA | No Citation | Supreme Court of India, 2007 | File: 8306-2000___jonew__judis__29673.pdf] ---\nhttp://JUDIS.NIC.IN \nSUPREME COURT OF INDIA\nPage 4 of 5 \n        \n22.     Distinction between Section 113A and 113B was noticed by the Court \nin Satvir Singh v. State of Punjab [(2001) 8 SCC 633], stating  :\n\\023No doubt, Section 306 IPC read with Section \n113-A of the Evidence Act is wide enough to take \ncare of an offence under Section 304-B also. But \nthe latter is made a more serious offence by \nproviding a much higher sentence and also by \nimposing a minimum period of imprisonment as \nthe sentence. In other words, if death occurs \notherwise than under normal circumstances within \n7 years of the marriage as a sequel to the cruelty or \nharassment inflicted on a woman with demand of \ndowry, soon before her death, Parliament intended \nsuch a case to be treated as a very serious offence \npunishable even up to imprisonment for life in \nappropriate cases. It is for the said purpose that \nsuch cases are separated from the general category \nprovided under Section 306 IPC (read with Section \n113-A of the Evidence Act) and made a separate \noffence.\\024\n23.     In Hans Raj v. State of Haryana [(2004) 12 SCC 257], this Court held:\n\\02313. Unlike Section 113-B of the Indian \nEvidence Act, a statutory presumption does not \narise by operation of law merely on proof of the \ncircumstances enumerated in Section 113-A of the \nIndian Evidence Act. Under Section 113-A of the \nIndian Evidence Act, the prosecution has first to \nestablish that the woman concerned committed \nsuicide within a period of seven years from the \ndate of her marriage and that her husband (in this \ncase) had subjected her to cruelty. Even if these\n\n--- Document 11 [Case: SOCIAL ACTION FORUM vs UNION OF INDIA AND ORS. MINSTRY LAW AND JUSTICE | No Citation | Supreme Court of India, 2018 | File: 40984-2014___supremecourt__2014__40984__40984_2014_Judgement_14-Sep-2018.pdf] ---\n6 \n \n\"There is no doubt that the object of introducing Chapter \nXX-A containing Section 498A in the Indian Penal Code \nwas to prevent the torture to a woman by her husband or \nby relatives of her husband. Section 498A was added with \na view to punishing a husband and his relatives who \nharass or torture the wife to coerce her or her relatives to \nsatisfy unlawful demands of dowry. The hyper-technical \nview would be counter productive and would act against \ninterests of women and against the object for which this \nprovision was added. There is eveiy likelihood that non-\nexercise of inherent power to quash the proceedings to \nmeet the ends of justice would prevent women from \nsettling earlier. That is not the object of Chapter XXA of \nIndian Penal Code.\" \n \n5. \nIn Brij Lal v. Prem Chand  and another3, this Court ruled thus:- \n \n\u201cIt would not be out of place for us to refer here to the \naddition of Sections 113-A and 113-B to the Indian \nEvidence Act and Sections 498-A and 304-B to the Indian \nPenal Code by subsequent amendments. Section 113-A \nEvidence Act and 498-A Indian Penal Code have been \nintroduced in the respective enactments by the Criminal \nLaw (Second amendment) Act, 1983 (Act 46 of 1983) and \nSection 113-B of the Evidence Act and 304-B Indian \nPenal Code have been introduced by Act No. 43 of 1986. \nThe degradation of society due to the pernicious system \nof dowry and the unconscionable demands made by \ngreedy and unscrupulous husbands and their parents and \nrelatives resulting in an alarming number of suicidal and \ndowry deaths by women has shocked the Legislative \nconscience to such an extent that the Legislature has \ndeemed it necessary to provide additional provisions of \nlaw, procedural as well as substantive, to combat the evil \nand has consequently introduced Sections 113-A and \n113-B in the Indian Evidence Act and Sections 498-A \nand 304-B in the Indian Penal Code. By reason of Section \n113-A, the Courts can presume that the commission of\n\n--- Document 12 [Case: GURDEEP SINGH vs STATE OF PUNJAB . | No Citation | Supreme Court of India, 2011 | File: 17524-2002___jonew__judis__38644.pdf] ---\nCrl.A. No. 1085 of 2003                                                                                                                                                            REPORTABLE\n5\nthe  first  time  would  have  very  limited  evidentiary \nvalue.  \n3.\nMr. Kuldip Singh, learned counsel for the State \nhas, however, supported the judgment of the trial court \nand  the  High  Court  and  has  submitted  that  as  the \ndeceased was a young woman,a presumption had to be drawn \nthat she had died an unnatural death and as such the \nprovisions of Section 113B of the Evidence Act would be \napplicable  to the facts of the case.\n4.\nWe have heard the learned counsel very carefully \nand have gone through the record.  \n5.\nWe first find that the evidence with respect to \nthe  appellant  Gurdeep  Singh  is  almost  identical  with \nthat of the six accused who have been acquitted of the \nsame charge \u2013 two by the High Court and four by the \ntrial court and he appears to have been singled out as \nbeing  the  husband.   We  first  take  up  the  argument \nrelating to Section 304B and the presumption drawn under \nSection  113B.   A  bare  reading  of  Section  304B  pre-\nsupposes  several factors for its applicability, they \nbeing:- (i) death should be of burns or bodily injury or \nhas occurred otherwise than under normal circumstances: \n(ii) within seven years of the marriage; and (iii) that \nsoon before her death she had been subjected to cruelty \nor harrassment by her husband or her relatives.  This\n\n\nGiven the context information and not prior knowledge, answer the user's query: In the case of State of Rajasthan vs. Teg Bahadur & Ors., what were the key arguments presented by the counsel for the appellant and the respondents-accused regarding the reliability of evidence and the application of Section 113-B of the Evidence Act?"
+  }
+]
+2026-09-06 08:02:35,987 - app.core.rag_engine.engine - INFO - Quality Gate Result: PASS (Reason: Tier 2: Context is sufficient)
+2026-09-06 08:02:35,987 - app.core.rag_engine.engine - DEBUG - Retrieved Context:
+--- Document 1 [Case: SHALU OJHA vs PRASHANT OJHA | No Citation | Supreme Court of India, 2018 | File: 9365-2016___supremecourt__2016__9365__9365_2016_Judgement_23-Jul-2018.pdf] ---
+NON-REPORTABLE
+IN THE SUPREME COURT OF INDIA
+CRIMINAL APPELLATE JURISDICTION
+SPECIAL LEAVE PETITION (CRIMINAL) NO. 3935 OF 2016
+SHALU OJHA
+.....PETITIONER(S)
+VERSUS
+PRASHANT OJHA
+.....RESPONDENT(S)
+J U D G M E N T
+A.K. SIKRI, J.
+On an earlier occasion, after hearing the petitioner who
+appeared in person, and the learned counsel for the respondent,
+we  had  passed  order  dated  September  4,  2017,  thereby
+disposing of this petition with the following directions:
+(a)
+insofar as domestic violence proceedings before the Family
+Court are concerned, necessary documents shall be filed by
+both the parties within four weeks from today and evidence
+led pursuant thereto.  The trial court shall endeavour to
+decide the case finally, within a period of eight months from
+today,  on  the  basis  of  evidence  and  fix  the  rate  of
+maintenance finally; and
+SLP (Crl.) No. 3935 of 2016
+Page 1 of 15
+Digitally signed by
+SUSHIL KUMAR
+RAKHEJA
+Date: 2018.07.23
+18:09:24 IST
+Reason:
+Signature Not Verified
+
+(b)
+Crl.MC. No. 850 of 2015, pending before the High Court,
+shall be taken up for hearing immediately and the High
+Court  shall  endeavour  to  dispose  of  the  same  as
+expeditiously as possible and determine at what rate interim
+maintenance  is  to  be  given,  i.e.  whether  order  dated
+February 13, 2015 passed by the learned ASJ need any
+modification or not.
+2)
+Thereafter, review petition was filed by the petitioner pointing out
+that there was apparent error in passing the aforesaid directions
+inasmuch  as  matter  was  remitted  to  the  High  Court  for
+presumption that proceedings were pending but the fact is that no
+such proceedings are pending under the Protection of Women
+from  Domestic  Violence  Act,  2005  (for  short  the  ‘DV  Act’).
+Realising  this  error,  the  review  petition  was  allowed  and  the
+Special  Leave  Petition  was  restored  which  has  been  heard
+afresh.
+3)
+Notwithstanding the aforesaid factual error which had crept in the
+
+order dated September 4, 2017, the other factual details recorded
+in the said order are a matter of record.  Therefore, it would be in
+the fitness of things to reproduce the same:
+Though this case has a chequered history, only those facts
+SLP (Crl.) No. 3935 of 2016
+Page 2 of 15
+
+which  are  very  material  are  taken  note  of,  eschewing  other
+unnecessary details, in order to avoid burdening this judgment
+with the facts which may not be relevant.  
+The petitioner is the respondent’s wife.  It is unfortunate that
+after  their  marriage  on  April  20,  2007  in  Delhi,  they  stayed
+together hardly for four months.  Thus, for almost ten years they
+have  parted  company  and  are  living  separately.   It  is  not
+necessary to go into the reasons which led to the matrimonial
+discord as in the present petition this Court is concerned only with
+the dispute regarding the rate of maintenance.
+The petitioner had filed an application sometime in June
+2009 claiming maintenance under the provisions of Section 12 of
+the DV Act.  In that application, apart from other reliefs, she has
+claimed maintenance as well.  Order dated July 05, 2012 was
+passed by the learned Metropolitan Magistrate granting interim
+maintenance @ Rs.2,50,000/- per month with effect from the date
+of  filing  of  the  complaint  as  well  as  compensation  of
+Rs.1,00,000/-.  Since the respondent did not honour the said
+
+order, the petitioner filed the execution petition for recovery of the
+arrears  of  maintenance.   In  the  meantime,  the  respondent
+challenged  the  order  of  the  Metropolitan  Magistrate  granting
+maintenance, by filing appeal under Section 29 of the DV Act, in
+SLP (Crl.) No. 3935 of 2016
+Page 3 of 15
+
+the  Court  of  Additional  Sessions  Judge,  Delhi  (for  short,  the
+‘ASJ’).   In  the  said  appeal,  the  learned  ASJ  issued  interim
+directions dated January 10, 2013 for depositing of the entire
+arrears of maintenance within two months.  As this order was not
+complied with, the appeal filed by the respondent was dismissed
+on May 07, 2013.  This order of dismissal was challenged by the
+respondent before the High Court.  In those proceedings, order
+dated July 23, 2013 was passed allowing the appellant herein to
+file the reply, etc.   As no stay was granted, order dated July 23,
+2013 was challenged by the respondent in this Court by filing a
+special leave petition.  This Court, however, did not entertain the
+same.  At the same time, while disposing of the special leave
+petition, observations were made to the effect that if the parties
+apply for mediation, the matter shall be referred to the Delhi High
+Court Mediation and Conciliation Centre at the earliest.  Keeping
+in view these observations, the High Court referred the dispute to
+the Mediation Centre at the Delhi High Court and also stayed the
+execution proceedings in the meantime.  Mediation proceedings
+failed.  As a result, the High Court took up the matter on merits
+and  passed  orders  dated  September  10,  2013  directing  the
+respondent to  pay Rs.5,00,000/-  on or  before September  30,
+2013 and another sum of Rs.5,00,000/- on or before October 31,
+SLP (Crl.) No. 3935 of 2016
+Page 4 of 15
+
+2013.  The petitioner filed an application seeking modification of
+these orders and prayed for the directions to the respondent to
+pay entire arrears of maintenance as per the order of the Family
+Court in domestic violence proceedings.   In the said application
+only notice was issued and since interim stay on the execution
+proceedings continued, the petitioner filed special leave petition in
+this Court for vacation of the interim order passed by the High
+Court in the execution proceedings.    This special leave petition
+was converted into appeal on grant of leave, in which judgment
+was delivered on September 18, 2014 allowing the said appeal.
+Operative portion of the said judgment reads as under:
+“31.  The issue before the High Court in Crl.MC. No.
+1975 of 2013 is limited i.e. whether the sessions court
+could have dismissed the respondent’s appeal only on
+the  ground  that  respondent  did  not  discharge  the
+obligation arising out of the conditional interim order
+passed by the sessions court.  Necessarily the High
+Court will have to go into the question whether the
+sessions court has the power to grant interim stay of
+the execution of the order under appeal before it.
+32.  In a matter arising under a legislation meant for
+protecting the rights of the women, the High Court
+should  have  been  slow  in  granting  interim  orders,
+interfering with the orders by which maintenance is
+granted  to  the  appellant.   No  doubt,  such  interim
+orders are now vacated.  In the process the appellant
+is still awaiting the fruits of maintenance order even
+after 2 years of the order.
+33.   We  find  it  difficult  to  accept  that  in  a  highly
+contested matter like this the appellant would have
+instructed  her  counsel  not  to  press  her  claim  for
+maintenance.  In our view, the High Court ought not to
+SLP (Crl.) No. 3935 of 2016
+Page 5 of 15
+
+have accepted the statement of the counsel without
+verification.  The impugned order is set aside.  
+34.  We are of the opinion that the conduct of the
+respondent is a gross abuse of the judicial process.
+We  do  not  see  any  reason  why  the  respondent’s
+petition  Crl.MC  No.  1975  of  2013  should  be  kept
+pending.  Whatever be the decision of the High Court,
+one of the parties will (we are sure) approach this
+Court again thereby delaying the conclusion of the
+litigation.   The  interests  of  justice  would  be  better
+served if the respondent’s appeal before the Sessions
+Court is heard and disposed of on merits instead of
+going into the residuary questions of the authority of
+the  appellate  Court  to  grant  interim  orders  or  the
+legality  of  the  decision  of  the  Sessions  Court  to
+dismiss the appeal only on the ground of the non-
+compliance by the respondent with the conditions of
+the interim order.  The Criminal Appeal No. 23/2012
+stands restored to the file of the Sessions Court.
+35.  We also direct that the maintenance order passed
+by the magistrate be executed forthwith in accordance
+with law.  The executing court should complete the
+process within 8 weeks and report compliance in the
+High Court.  We make it clear that such hearing of the
+Sessions Court should only be after the execution of
+the order of maintenance passed by the Magistrate.
+36.  In the event of the respondent’s success in the
+appeal, either in full or part, the Sessions Court can
+make appropriate orders regarding the payments due
+to  be  made  by  the  respondent  in  the  execution
+proceedings.”
+ 
+Notwithstanding the aforesaid judgment, as the respondent
+did not clear the entire arrears of maintenance, he was sent to
+judicial custody, where he remained till December 22, 2014.  A
+miscellaneous application  was filed  by the  respondent  in this
+Court in the afore-mentioned disposed of appeal stating that he
+
+did not clear the entire arrears of maintenance, he was sent to
+judicial custody, where he remained till December 22, 2014.  A
+miscellaneous application  was filed  by the  respondent  in this
+Court in the afore-mentioned disposed of appeal stating that he
+was  in  judicial  custody  due  to  his  inability  to  pay  the  entire
+SLP (Crl.) No. 3935 of 2016
+Page 6 of 15
+
+maintenance  and  requested  that  his  matter  be  heard  by  the
+Sessions Court on merits.  In this application this Court passed
+orders dated December 18, 2014 directing the Sessions Court to
+decide  the  appeal  of  the  respondent  within  six  weeks.   He
+remained in judicial custody till December 22, 2014, on which
+date he was released.  During this period, though the respondent
+had paid certain amounts towards maintenance, but he did not
+clear the entire outstanding dues.
+Thereafter, on February 13, 2015, the learned ASJ decided
+the appeal of the  respondent  reducing  the maintenance  from
+Rs.2,50,000/-, as fixed by the Family Court, to Rs.50,000/- per
+month, from the date of filing of the petition under Section 12 of
+the DV Act.   This order was challenged by the appellant by filing
+a petition (Crl.MC. No. 850 of 2015) before the High Court under
+Section  482  read  with  Section  482  of  the  Code  of  Criminal
+Procedure, 1973 (for short, ‘Cr.P.C.’).
+It will also be of interest to note that the maintenance of
+Rs.50,000/-, as fixed by the learned ASJ, even when reduced
+significantly from Rs.2,50,000/-, was still not acceptable to the
+respondent either.  Seeking further reduction in the maintenance,
+the respondent also challenged this order before the High Court
+by filing petition under Section 482 Cr.P.C.  However, his petition
+SLP (Crl.) No. 3935 of 2016
+Page 7 of 15
+
+was dismissed by the High Court vide order dated April 06, 2015.
+The special leave petition filed by the respondent there against
+was also dismissed by this Court on May 11, 2015.  In this
+manner, insofar as maintenance granted by the learned ASJ @
+Rs.50,000/-  per  month  is  concerned,  this  order  has  attained
+finality qua the respondent.  The question, therefore, is as to
+whether the petitioner is entitled to enhancement and whether the
+learned ASJ rightly reduced the amount of maintenance.
+Though, the petitioner has filed a petition under Section 482
+Cr.P.C.,  which  is  registered  as  Crl.MC.  No.  850  of  2015,  as
+pointed out above, and the same is still pending. Notwithstanding,
+the petitioner has chosen to file the instant special leave petition
+challenging the order dated February 13, 2015 passed by the
+ASJ.
+Normally, when the proceedings are still pending before the
+High Court, where same order dated February 13, 2015 passed
+by the ASJ is challenged, this Court should not have entertained
+the instant petition from the very beginning.  However, notice was
+issued in this petition, keeping in mind the consideration as to
+whether  the  dispute  can  be  resolved  amicably,  suitably  and
+appropriately by this Court.  For this purpose, matter was taken
+up from time to time.  Attempts were even made that the parties
+SLP (Crl.) No. 3935 of 2016
+Page 8 of 15
+
+settle all their disputes amicably.  We even called the parties to
+the  Chambers  and  had  discussions  with  them.   However,
+amicable solution to the problem, acceptable to both the parties,
+could not be achieved.
+The petitioner, who appears in person, has submitted that
+there were no valid reasons for the learned ASJ to reduce the
+maintenance.  In order to prove that the respondent is a man of
+means  who  is  running  number  of  businesses  either  as  the
+proprietor or partner of firm(s) or shareholder/director in certain
+companies and possesses various assets and is also enjoying
+the life of affluence, she has produced plethora of documents in
+support.   The  respondent  has  refuted  the  authenticity  or  the
+relevance of those documents and his submission is that his
+stakes in all these businesses are no longer there.  According to
+him, some of the companies/firms mentioned by the petitioner
+never  took  off  and  started  any  business  and  in  some  other
+companies he no longer enjoys any stakes.  Picture painted by
+the respondent is that he is undergoing very hard times and his
+financial condition is pathetic.  It is also stated that he had to even
+go behind bars and remain in custody for more than fifty days
+because of his inability to pay the arrears.  
+SLP (Crl.) No. 3935 of 2016
+Page 9 of 15
+
+4)
+We may point out that during arguments, it was contended by
+learned counsel for the respondent that apart from the monthly
+maintenance amount which the respondent was giving to the
+petitioner every month, the petitioner had some other source of
+income as well.  This submission was based on the premise that
+the amount of maintenance so far received by the petitioner,
+which was to the tune of Rs.49 lakhs, was kept by the petitioner
+in the fixed deposits accounts in the banks.  According to him, it
+proves that the petitioner had other source of income and she
+was  employed/self-employed  and  from  that  income,  she  was
+meeting her day to day needs.  We accordingly passed order
+dated January 29, 2018 directing the petitioner to file an affidavit
+of her income which would be in the fomat as prescribed in the
+
+judgment of Delhi High Court in the case of Kusum Sharma v.
+Mahinder Kumar Sharma decided on January 14, 2015 (FAO
+No. 309/1996).  Respondent was also given opportunity to file
+additional documents along with affidavit.  Such an affidavit of
+income was, therefore, filed by the petitioner.  Respondent also
+filed reply to the said income affidavit to which petitioner filed her
+rejoinder.
+5)
+In the income affidavit filed by the petitioner in the prescribed
+SLP (Crl.) No. 3935 of 2016
+Page 10 of 15
+
+format, she has, inter alia, mentioned that she is staying with her
+parents in their house in Mansarovar Garden.  The petitioner has
+also mentioned about monthly expenditure.  Col. 11 and Col. 16
+of Part I being relevant are reproduced below:
+Sl. No.
+Description
+Particulars
+11.
+Monthly  expenditure  (as
+mentioned in S. No. 60)
+Rs. 1.5 lac approx. spent jointly
+by parents and self.  My share in
+the above expenditure is around
+Rs. 1 lac per month.
+16.
+If not staying at Matrimonial
+home,  relationship  and
+income  of  the  person  with
+whom you are staying?
+Staying with my parents in House
+in which my brother has a sizable
+share.  Income Rs. 1.5 lac p.m.
+6)
+It is not understood as to how petitioner’s share of expenditure is
+Rs. 1 lakh per month out of Rs.1.5 lakhs monthly expenditure.
+Likewise, it is not explained in Col. 16 as to in what form, income
+of Rs. 1.5 lakhs per month is generated and who is earning that
+income.  Of course, the petitioner has otherwise maintained that
+she is not having any other source of income except the amount
+of maintenance given to her by the respondent.  The petitioner
+has also stated that she is compelled to live in her parents house
+as the maintenance amount is not sufficient even to pay monthly
+rent of an aparment.  
+7)
+In Part II of  the  affidavit,  the  petitioner  has made  averments
+relating to respondent.  The petitioner says that respondent is
+SLP (Crl.) No. 3935 of 2016
+Page 11 of 15
+
+earning about Rs.20 lakhs per month.  She has given the details
+of  certain  business  ventures/restaurants  owned  by  the
+respondent in which he is having his share.  The petitioner has
+also  given  particulars  of  assets  allegedly  owned  by  the
+respondent.  The petitioner has annexed photocopies of various
+documents in support of her assertions.  
+8)
+In the reply affidavit filed by the respondent, it is averred that the
+petitioner is maintaining four bank accounts and the total amount
+lying in these accounts is  Rs.8,36,610/-.  It is also stated that the
+petitioner is having fixed deposits in the banks for a total sum of
+Rs. 35,75,000/-.  In this manner, the total bank balance of the
+petitioner is Rs.44,11,610/-.  As against this, the respondent has
+paid to the petitioner a sum of Rs.49 lakhs from June 4, 2009 to
+July, 2017. Thus, in the last eight years, against a sum of Rs.49
+lakhs paid by the respondent to the petitioner, the petitioner is still
+having  bank  balance  of  Rs.44  lakhs.   According  to  the
+respondent, it would be inconceivable that petitioner has spent
+only Rs.5 lakhs of rupees (or little more if interest earned by the
+petitioner on the aforesaid Rs.49 lakhs is added) in eight years
+and that shows that she has other sources of income as well.
+Other  averments  in  the  petitioner’s  affidavit  was  also  denied
+SLP (Crl.) No. 3935 of 2016
+Page 12 of 15
+
+including her share of expenditure in the neighbourhood of Rs.1
+lakh per month or that respondent is earning Rs.20 lakhs per
+month.  In respect of the particulars given by the petitioner about
+the businesses of the respondent, the respondent has denied the
+same and submits that, at present, there is no Restaurant or Bar
+anywhere in India in which respondent has any share or interest.
+He has his own explanation and has given alleged circumstances
+in which he had to give up his share in certain businesses.  The
+petitioner  has  controverted  his  averments  in  her  rejoinder
+affidavit.   During  arguments,  the  petitioner  also  tried  to
+demonstrate, by referring to certain documents filed by her, that
+the respondent was indulging in falsehood.  
+9)
+We have given a glimpse of the respective cases set up by both
+the parties, without giving details thereof, as asserted by the
+petitioner and the manner in which the respondent has refuted
+the same.  
+10)
+After  giving  conscious  and  objective  consideration  to  the
+documents placed on record by both the sides, we are of the view
+that it is only after the evidence is led by both the parties, the
+veracity  and  evidential  value  of  such  material  can  be  finally
+adjudged,  more  particularly,  when  the  said  material  and
+SLP (Crl.) No. 3935 of 2016
+Page 13 of 15
+
+assertions  of  the  parties  would  be  tested  with  their  cross-
+examination.  
+11)
+The present proceedings arise out of the petition which was filed
+by the petitioner under Section 12 of the DV Act.   The trial court
+had arrived at a figure of maintenance on the basis of affidavits
+filed by both the parties along with their respective documents.
+Same exercise is undertaken by the learned ASJ in the impugned
+
+order while adjudging the correctness of the order passed by the
+trial court and, in the process, reducing the maintenance from
+Rs.2.50  lakhs  to  Rs.50,000/-  per  month.   This  obviously
+happened as the proceedings under the DV Act are of summary
+nature.  
+12)
+In these circumstances, the appropriate course of action would be
+to allow the petitioner to file an application for maintenance under
+the Hindu Adoptions and Maintenance Act, 1956 or under Section
+125 of the Code of Criminal Procedure, 1973 so that in these
+proceedings, both the parties lead their documentary and oral
+evidence and on the basis of such material, appropriate view is
+taken by the said Court.  
+13)
+We accordingly dispose of this petition by granting liberty to the
+SLP (Crl.) No. 3935 of 2016
+Page 14 of 15
+
+petitioner to move appropriate application for maintenance, as
+indicated above.  Once such application is moved, same shall be
+decided by the concerned Court most expeditiously having regard
+to the fact that the petitioner is fighting for her maintenance for
+last number of years and these proceedings should attain finality
+at the earliest.  We also make it clear that any maintenance fixed
+shall not, in any case, be less than Rs.50,000/- per month which
+figure of maintenance has already attained finality.  
+14)
+As a sequel, the respondent shall continue to pay Rs.50,000/- per
+month to the petitioner in the meanwhile.  The present petition
+stands disposed of accordingly.
+.............................................J.
+(A.K. SIKRI)
+.............................................J.
+(ASHOK BHUSHAN)
+NEW DELHI;
+JULY 23, 2018.
+SLP (Crl.) No. 3935 of 2016
+Page 15 of 15
+
+--- Document 2 [Case: SHALU OJHA vs PRASHANT OJHA | No Citation | Supreme Court of India, 2017 | File: 9365-2016___supremecourt__2016__9365__9365_2016_Order_04-Sep-2017.pdf] ---
+REPORTABLE
+IN THE SUPREME COURT OF INDIA
+CRIMINAL APPELLATE JURISDICTION
+SPECIAL LEAVE PETITION (CRIMINAL) NO. 3935 OF 2016
+SHALU OJHA
+.....APPELLANT(S)
+VERSUS
+PRASHANT OJHA
+.....RESPONDENT(S)
+J U D G M E N T
+A.K. SIKRI, J.
+Though this case has a chequered history, only those facts
+which  are  very  material  are  taken  note  of,  eschewing  other
+unnecessary details, in order to avoid burdening this judgment
+with the facts which may not be relevant.
+2)
+The petitioner is the respondent’s wife.  It is unfortunate that after
+their marriage on April 20, 2007 in Delhi, they stayed together
+hardly for four months.  Thus, for almost ten years they have
+parted company and are living separately.  It is not necessary to
+go into the reasons which led to the matrimonial discord as in the
+present petition this Court is concerned only with the dispute
+regarding the rate of maintenance.
+SLP (Crl.) No. 3935 of 2016
+Page 1 of 10
+Digitally signed by
+BALA PARVATHI
+Date: 2017.09.04
+17:53:22 IST
+Reason:
+Signature Not Verified
+
+3)
+The petitioner had filed an application sometime in June 2009
+claiming maintenance under the provisions of Section 12 of the
+Protection  of  Women  from  Domestic  Violence  Act,  2005
+(hereinafter referred to as the ‘DV Act’).  In that application, apart
+from other reliefs, she has claimed maintenance as well.  Order
+dated July 05, 2012 was passed by the learned Metropolitan
+Magistrate  granting  interim  maintenance  @  Rs.2,50,000/-  per
+month with effect from the date of filing of the complaint as well
+as compensation of Rs.1,00,000/-.  Since the respondent did not
+honour the said order, the petitioner filed the execution petition for
+recovery of the arrears of maintenance.  In the meantime, the
+respondent challenged the order of the Metropolitan Magistrate
+granting maintenance, by filing appeal under Section 29 of the DV
+Act, in the Court of Additional Sessions Judge, Delhi (for short,
+the ‘ASJ’).  In the said appeal, the learned ASJ issued interim
+directions dated January 10, 2013 for depositing of the entire
+arrears of maintenance within two months.  As this order was not
+complied with, the appeal filed by the respondent was dismissed
+on May 07, 2013.  This order of dismissal was challenged by the
+respondent before the High Court.  In those proceedings, order
+dated July 23, 2013 was passed allowing the appellant herein to
+file the reply, etc.   As no stay was granted, order dated July 23,
+SLP (Crl.) No. 3935 of 2016
+Page 2 of 10
+
+2013 was challenged by the respondent in this Court by filing a
+special leave petition.  This Court, however, did not entertain the
+same.  At the same time, while disposing of the special leave
+petition, observations were made to the effect that if the parties
+apply for mediation, the matter shall be referred to the Delhi High
+Court Mediation and Conciliation Centre at the earliest.  Keeping
+in view these observations, the High Court referred the dispute to
+the Mediation Centre at the Delhi High Court and also stayed the
+execution proceedings in the meantime.  Mediation proceedings
+failed.  As a result, the High Court took up the matter on merits
+and  passed  orders  dated  September  10,  2013  directing  the
+respondent to  pay Rs.5,00,000/-  on or  before September 30,
+2013 and another sum of Rs.5,00,000/- on or before October 31,
+2013.  The petitioner filed an application seeking modification of
+these orders and prayed for the directions to the respondent to
+pay entire arrears of maintenance as per the order of the Family
+Court in domestic violence proceedings.   In the said application
+only notice was issued and since interim stay on the execution
+proceedings continued, the petitioner filed special leave petition in
+this Court for vacation of the interim order passed by the High
+Court in the execution proceedings.    This special leave petition
+was converted into appeal on grant of leave, in which judgment
+SLP (Crl.) No. 3935 of 2016
+Page 3 of 10
+
+was delivered on September 18, 2014 allowing the said appeal.
+Operative portion of the said judgment reads as under:
+“31.  The issue before the High Court in Crl.MC. No.
+1975 of 2013 is limited i.e. whether the sessions court
+could have dismissed the respondent’s appeal only on
+the  ground  that  respondent  did  not  discharge  the
+obligation arising out of the conditional interim order
+passed by the sessions court.  Necessarily the High
+Court will have to go into the question whether the
+sessions court has the power to grant interim stay of
+the execution of the order under appeal before it.
+32.  In a matter arising under a legislation meant for
+protecting the rights of the women, the High Court
+should  have  been  slow  in  granting  interim  orders,
+interfering with the orders by which maintenance is
+granted  to  the  appellant.   No  doubt,  such  interim
+orders are now vacated.  In the process the appellant
+is still awaiting the fruits of maintenance order even
+after 2 years of the order.
+33.   We find  it  difficult  to  accept  that  in  a  highly
+contested matter like this the appellant would have
+instructed  her  counsel  not  to  press  her  claim  for
+maintenance.  In our view, the High Court ought not to
+have accepted the statement of the counsel without
+verification.  The impugned order is set aside.  
+34.  We are of the opinion that the conduct of the
+respondent is a gross abuse of the judicial process.
+We  do  not  see  any  reason  why  the  respondent’s
+petition  Crl.MC  No.  1975  of  2013  should  be  kept
+pending.  Whatever be the decision of the High Court,
+one of the parties will (we are sure) approach this
+Court again thereby delaying  the conclusion of the
+litigation.   The  interests  of  justice  would  be  better
+served if the respondent’s appeal before the Sessions
+Court is heard and disposed of on merits instead of
+going into the residuary questions of the authority of
+the  appellate  Court  to  grant  interim  orders  or  the
+
+litigation.   The  interests  of  justice  would  be  better
+served if the respondent’s appeal before the Sessions
+Court is heard and disposed of on merits instead of
+going into the residuary questions of the authority of
+the  appellate  Court  to  grant  interim  orders  or  the
+legality  of  the  decision  of  the  Sessions  Court  to
+dismiss  the  appeal  only  on  the  ground  of  the
+non-compliance by the respondent with the conditions
+of the interim order.  The Criminal Appeal No. 23/2012
+stands restored to the file of the Sessions Court.
+SLP (Crl.) No. 3935 of 2016
+Page 4 of 10
+
+35.  We also direct that the maintenance order passed
+by the magistrate be executed forthwith in accordance
+with law.  The executing court should complete the
+process within 8 weeks and report compliance in the
+High Court.  We make it clear that such hearing of the
+Sessions Court should only be after the execution of
+the order of maintenance passed by the Magistrate.
+36.  In the event of the respondent’s success in the
+appeal, either in full or part, the Sessions Court can
+make appropriate orders regarding the payments due
+to  be  made  by  the  respondent  in  the  execution
+proceedings.”
+ 
+4)
+Notwithstanding the aforesaid judgment, as the respondent did
+not  clear  the  entire  arrears  of  maintenance,  he  was  sent  to
+judicial custody, where he remained till December 22, 2014.  A
+miscellaneous application  was filed  by the  respondent  in this
+Court in the afore-mentioned disposed of appeal stating that he
+was  in  judicial  custody due  to  his  inability to  pay the  entire
+maintenance  and  requested  that  his  matter  be  heard  by the
+Sessions Court on merits.  In this application this Court passed
+orders dated December 18, 2014 directing the Sessions Court to
+decide  the  appeal  of  the  respondent  within  six  weeks.   He
+remained in judicial custody till December 22, 2014, on which
+date he was released.  During this period, though the respondent
+had paid certain amounts towards maintenance, but he did not
+clear the entire outstanding dues.
+5)
+ Thereafter, on February 13, 2015, the learned ASJ decided the
+SLP (Crl.) No. 3935 of 2016
+Page 5 of 10
+
+appeal  of  the  respondent  reducing  the  maintenance  from
+Rs.2,50,000/-, as fixed by the Family Court, to Rs.50,000/- per
+month, from the date of filing of the petition under Section 12 of
+the DV Act.   This order was challenged by the appellant by filing
+a petition (Crl.MC. No. 850 of 2015) before the High Court under
+Section  482  read  with  Section  482  of  the  Code  of  Criminal
+Procedure, 1973 (for short, ‘Cr.P.C.’).
+6)
+It  will  also  be  of  interest  to  note  that  the  maintenance  of
+Rs.50,000/-, as fixed by the learned ASJ, even when reduced
+significantly from Rs.2,50,000/-, was still not acceptable to the
+respondent either.  Seeking further reduction in the maintenance,
+the respondent also challenged this order before the High Court
+by filing petition under Section 482 Cr.P.C.  However, his petition
+was dismissed by the High Court vide order dated April 06, 2015.
+The special leave petition filed by the respondent there against
+was also dismissed by this Court on May 11, 2015.  In this
+manner, insofar as maintenance granted by the learned ASJ @
+Rs.50,000/-  per  month  is  concerned,  this  order  has  attained
+finality qua the respondent.  The question, therefore, is as to
+whether the petitioner is entitled to enhancement and whether the
+learned ASJ rightly reduced the amount of maintenance.
+SLP (Crl.) No. 3935 of 2016
+Page 6 of 10
+
+7)
+Though  the  petitioner  has  filed  a  petition  under  Section  482
+Cr.P.C.,  which  is  registered  as  Crl.MC.  No.  850  of  2015,  as
+pointed  out  above,  and  the  same  is  still  pending.
+Notwithstanding,  the  petitioner  has  chosen  to  file  the  instant
+special leave petition challenging the order dated February 13,
+2015 passed by the ASJ.
+8)
+Normally, when the proceedings are still pending before the High
+Court, where same order dated February 13, 2015 passed by the
+ASJ is challenged, this Court should not have entertained the
+instant petition from the very beginning.  However, notice was
+issued in this petition, keeping in mind the consideration as to
+whether  the  dispute  can  be  resolved  amicably,  suitably  and
+appropriately by this Court.  For this purpose, matter was taken
+up from time to time.  Attempts were even made that the parties
+settle all their disputes amicably.  We even called the parties to
+the  Chambers  and  had  discussions  with  them.   However,
+amicable solution to the problem, acceptable to both the parties,
+could not be achieved.
+9)
+The petitioner, who appears in person, has submitted that there
+were  no  valid  reasons  for  the  learned  ASJ  to  reduce  the
+SLP (Crl.) No. 3935 of 2016
+Page 7 of 10
+
+maintenance.  In order to prove that the respondent is a man of
+means  who  is  running  number  of  businesses  either  as  the
+proprietor or partner of firm(s) or shareholder/director in certain
+companies and possesses various assets and is also enjoying
+the life of affluence, she has produced plethora of documents in
+support.   The  respondent  has  refuted  the  authenticity or  the
+relevance of those documents and his submission is that his
+stakes in all these businesses are no longer there.  According to
+him, some of the companies/firms mentioned by the petitioner
+never  took  off  and  started  any  business  and  in  some  other
+companies he no longer enjoys any stakes.  Picture painted by
+the respondent is that he is undergoing very hard times and his
+financial condition is pathetic.  It is also stated that he had to even
+go behind bars and remain in custody for more than fifty days
+because of his inability to pay the arrears.  We are not giving the
+details of the properties and businesses as mentioned by the
+petitioner or the response thereto as given by him.  It is because
+of the reason that after going through these documents, we find
+that final view thereupon can be taken only after evidence is led
+by both the parties and the veracity of their respective stands is
+tested with their cross-examination in the light of material which
+both the parties want to produce.
+SLP (Crl.) No. 3935 of 2016
+Page 8 of 10
+
+10)
+We,  therefore,  dispose  of  this  petition  with  the  following
+directions:
+(a)
+insofar as domestic violence proceedings before the Family
+Court are concerned, necessary documents shall be filed by
+both the parties within four weeks from today and evidence
+led pursuant thereto.  The trial court shall endeavour to
+decide the case finally, within a period of eight months from
+today,  on  the  basis  of  evidence  and  fix  the  rate  of
+maintenance finally; and
+(b)
+Crl.MC. No. 850 of 2015, pending before the High Court,
+shall be taken up for hearing immediately and the High
+Court  shall  endeavour  to  dispose  of  the  same  as
+expeditiously as possible and determine at what rate interim
+maintenance  is  to  be  given,  i.e.  whether  order  dated
+February 13, 2015 passed by the learned ASJ need any
+modification or not.
+No costs.
+.............................................J.
+(A.K. SIKRI)
+.............................................J.
+(ASHOK BHUSHAN)
+NEW DELHI;
+SEPTEMBER 4, 2017.
+SLP (Crl.) No. 3935 of 2016
+Page 9 of 10
+
+ITEM NO.1502               COURT NO.6           SECTION II-C
+               S U P R E M E  C O U R T  O F  I N D I A
+                       RECORD OF PROCEEDINGS
+Petition(s) for Special Leave to Appeal (Crl.)No(s).3935/2016
+(Arising  out  of  impugned  final  judgment  and  order  dated
+13-02-2015  in  CA  No.  75/2014  passed  by  the  Additional
+Session Judge Delhi)
+SHALU OJHA                                  Petitioner(s)
+                                VERSUS
+PRASHANT OJHA                                Respondent(s)
+([HEARD BY : HON. A.K. SIKRI AND HON. ASHOK BHUSHAN, JJ.])
+Date : 04-09-2017 This matter was called on for pronouncement
+of JUDGMENT today.
+ 
+For Petitioner(s)
+Petitioner-in-person
+                    
+For Respondent(s)
+Mr. Baij Nath Patel, Adv.
+                    T. V. S. Raghavendra Sreyas, AOR
+                    
+               
+Hon'ble Mr. Justice A.K. Sikri pronounced the
+
+judgment of the Bench comprising Hon'ble Mr. Justice
+Ashok Bhushan and His Lordship. 
+        The petition is disposed of in terms of signed 
+Reportable Judgment.
+Pending applications, if any, stand disposed of.
+ 
+ (B.PARVATHI)                    (MALA KUMARI SHARMA)
+COURT MASTER                        COURT MASTER 
+(Signed reportable judgment is placed on the file)
+SLP (Crl.) No. 3935 of 2016
+Page 10 of 10
+
+--- Document 3 [Case: SHALU OJHA vs PRASHANT OJHA | No Citation | Supreme Court of India, 2014 | File: 23149-2014___jonew__judis__41932.pdf] ---
+Page 1
+
+JUDGMENT
+NON-REPORTABLE
+IN THE SUPREME COURT OF INDIA
+CRIMINAL APPELLATE JURISDICTION
+CRIMINAL APPEAL NO.2070  OF 2014
+(Arising out of Special Leave Petition (Crl.) No.6220 OF 2014)
+Shalu Ojha
+ 
+… Appellant
+Versus
+Prashant Ojha
+…Respondent
+J U D G M E N T
+Chelameswar, J.
+1.
+Leave granted.
+2.
+This is an unfortunate case where the provisions of the 
+Protection of Women from Domestic Violence Act, 2005 are 
+rendered  simply  a  pious  hope  of  the  Parliament  and  a 
+teasing illusion for the appellant.
+
+Page 2
+
+JUDGMENT
+3.
+The appellant is a young woman who got married to the 
+respondent on 20.04.2007 in Delhi according to Hindu rites 
+and customs, pursuant to certain information placed by the 
+respondent on the website known as “Sycorian Matrimonial 
+Services Ltd.”.  
+4.
+According to the appellant, she was thrown out of the 
+matrimonial home within four months of the marriage on 
+14.8.2007.  Thereafter, the respondent started pressurizing 
+the appellant to agree for dissolution of marriage by mutual 
+consent.  As the appellant did not agree for the same, the 
+respondent filed a petition for divorce being H.M.A. No.637 of 
+2007 under Section 13(1) of the Hindu Marriage Act, 1955 on 
+17.10.2007 before the Additional District Judge, Tis Hazari 
+Courts, Delhi.  The said petition was dismissed by an order 
+dated 03.10.2008.  Within four months, the respondent filed 
+another petition on 08.04.2009 once again invoking Section 
+13(1) of the Hindu Marriage Act, 1955 before the Additional 
+District  Judge,  Patiala  House  Courts,  Delhi  being  H.M.A. 
+No.215  of  2009  and  the  same  on  being  transferred  is 
+2
+
+Page 3
+
+JUDGMENT
+pending before the Family Court, Saket and renumbered as 
+H.M.A. No.266 of 2009.
+5.
+On  04.06.2009,  the  appellant  filed  a  complaint  case 
+No.120/4/09 under Section 12 of the Protection of Women 
+from Domestic Violence Act, 2005 (hereinafter referred to as 
+“the DV Act”).
+6.
+The said complaint case came to be disposed of by the 
+learned  Metropolitan  Magistrate,  New  Delhi  by  his  order 
+dated 05.07.2012.  By the said order, the Magistrate granted 
+an amount of Rs.2.5 lacs towards monthly maintenance of 
+the appellant which included rental charges for alternative 
+accommodation.  The respondent was made liable to pay 
+such  monthly  maintenance from  the date of filing  of the 
+petition, i.e. from 04.06.2009. The monthly maintenance was 
+made payable on or before 10th of each succeeding month. 
+The learned Magistrate further directed that the arrears of 
+the maintenance be cleared by 05.12.2012.
+7.
+Aggrieved by the above order, the respondent carried 
+the  matter  in  appeal  under  Section  29  of  the  DV  Act  in 
+3
+
+Page 4
+
+JUDGMENT
+Criminal Appeal No.23 of 2012 before the learned Additional 
+Sessions  Judge,  Rohini,  New  Delhi.   On  10.01.2013,  the 
+learned Additional Sessions Judge while granting stay of the 
+execution  of  the  order  under  appeal  passed  an  order 
+directing the respondent to pay the entire arrears of the 
+maintenance due to the appellant till the presentation of the 
+appeal within a period of two months.  
+8.
+Since  the  respondent  did  not  pay  the  arrears,  the 
+appellant moved an application for execution of the order 
+dated 10.01.2013.  
+9.
+By an order dated 07.05.2013, Criminal Appeal No.23 of 
+2013  preferred  by  the  respondent  was  dismissed  by  the 
+learned  Sessions  Judge for  non-compliance of the interim 
+directions dated 10.01.2013.  
+10.
+Aggrieved  by  the  order  dated  07.05.2013,  the 
+respondent filed Crl. Misc. Case No.1975 of 2013 and Crl. 
+Misc. Application No.78-34 of 2013 for interim directions in 
+the  High  Court  of  Delhi  on  08.05.2013.  The  High  Court 
+initially declined to pass an interim order in the said appeal. 
+4
+
+Page 5
+
+JUDGMENT
+Aggrieved  by  the  same  the  respondent  approached  this 
+Court  in  SLP  (Crl.)  No.6509-6510  of  2013  which  was 
+dismissed  in limine  on 13.08.2013 with a direction to the 
+parties to apply for mediation.
+11.
+Pursuant to the said direction, the respondent filed Crl. 
+Misc.  Application  No.12547  of  2013  in  Crl.  Misc.  Case 
+No.1975  of  2013  for  direction  to  refer  the  matter  to 
+Mediation.  The matter was referred accordingly.  Eventually 
+the mediation failed.  On receipt of such failure report, the 
+appeal  was  again  listed  before  the  High  Court  on 
+10.09.2013.  The High Court directed the respondent to pay 
+an amount of Rs.10 lakhs in two instalments and that the 
+execution petition filed by the appellant for the recovery of 
+the arrears be kept in abeyance.  
+12.
+Thereafter, an application was filed by the appellant 
+before the High Court seeking direction to the respondent for 
+the  payment  of  monthly  maintenance  (current  period)  in 
+terms of order dated 05.7.2012 of the learned Metropolitan 
+Magistrate  (supra).  It  appears  that  the  matter  underwent 
+5
+
+Page 6
+
+JUDGMENT
+number of adjournments but no orders have been passed by 
+the High Court.
+13.
+In  the  said  background,  the  appellant  filed  Special 
+Leave Petition (Crl.) No.2210 of 2014 in this Court.  The said 
+petition came to be disposed of on 31.03.2014 by setting 
+aside the interim stay  granted by  the High Court on the 
+execution  petition  filed  by  the  appellant.   This  Court 
+categorically observed that - it is open to the petitioner to execute the
+
+order  of  maintenance  passed  by  the  learned  Metropolitan  Magistrate and 
+requested the High Court to dispose of the appeal of the 
+respondent expeditiously.  
+ 
+14.
+Strangely,  when  the  appellant’s  application  for  the 
+payment of current maintenance in C.M. No.18869 of 2013 
+was listed on 27.5.2014 before the High Court along with 
+other connected matters in Appeal (Crl. Misc. Case No.1975 
+of 2013) preferred by the respondent, the application of the 
+appellant was dismissed as “not pressed” on representation 
+made  by  the  counsel  appearing  for  the  appellant.  The 
+appellant  appeared  in  person  before  us  and  made  a 
+6
+
+Page 7
+
+JUDGMENT
+statement that such instructions not to press the application 
+were never given to the counsel who appeared in the High 
+Court and hence the present appeal.
+15.
+We  have  heard  the  appellant-in-person  and  learned 
+counsel appearing on behalf of the respondent.
+16.
+The  learned  counsel  appearing  on  behalf  of  the 
+respondent pleaded inability to make the payment of the 
+arrears and the current maintenance due to the appellant in 
+terms  of  the  order  passed  by  the  learned  Metropolitan 
+Magistrate  on  05.07.2012  on  the  ground  that  the 
+respondent’s annual income as can be seen from his income-
+tax returns for the last two years is only around Rs.2.50 
+lakhs per annum. 
+17.
+The appellant submitted that the income-tax returns of 
+the respondent do not reflect the true picture of the income 
+of the respondent.  The appellant pointed out the profile of 
+the  respondent  placed  on  the  website  of  “Sycorian 
+Matrimonial  Services  Ltd.”  wherein  the  respondent’s 
+personal income is shown as Rs.50 lakhs to Rs.1 crore per 
+7
+
+Page 8
+
+JUDGMENT
+annum and monthly income of Rs.5 lakhs. He was shown to 
+be a Managing Director or Director of four companies, the 
+details of which are as under:
+Sr. No.
+Organization
+Designation
+1
+M/s Utkarsh Art Press Pvt. Ltd.
+Managing Director/Share Holder
+2
+M/s Empress Infonet Pvt. Ltd.
+Director/Share Holder
+3
+Hotel Urban Pind
+Director
+4
+M/s Brahmani Apparel Pvt. Ltd.
+Director/Share Holder
+ 
+18.
+Apart from that, the appellant also placed reliance on a 
+article published in weekly magazine Business World (Issue 
+dated  10.03.2014)  wherein  some  information  regarding  a 
+posh restaurant known as Zerruco by Zilli at The Ashok, New 
+Delhi  was  published.   The  article  named  the  respondent 
+along  with  one  Kashif  Farooq  as  the  restaurateurs. 
+According  to  the  article,  the  restaurant  was  set  up  at 
+astounding cost of Rs.7 crore.  The relevant portion of the 
+article reads as follows:
+“If chef Back has  been feeding American entertainment 
+industry stars.  London-based Aldo Zilli is well-known for 
+his celeb-patronised Italian bites.  He has just made his 
+Asian foray with Zerruco by Zilli, set in the partly al fresco-
+partly indoors space at The Ashoka New Delhi that used to 
+house Mashrabiya.  The menu is simple, fresh and Med – 
+salads, grills, the occasional show-offy “ gelato ravioli” but 
+this is one of those big “lifestyle restaurants” that we seem 
+to be losing more recently with the spurt in made-to-look-
+like-mom-and-pop places.
+8
+
+Page 9
+
+JUDGMENT
+Restaurateurs Kashif Farooq and Prashant Ojha known in 
+the clubbing/partying circuits have brought in Zilli as part 
+of their ambitious plans to grow and get taken seriously in 
+the  F&B  realm.   The  restaurant  (that  will  turn  into  a 
+lounge/club in the evenings) has been set up at astounding 
+Rs.7 crore cost.  You can look to this one as an alternate to 
+the “upscale, casual”, Olive-like spaces.”   
+ 
+19.
+Before we proceed to take any decision in the matter, 
+we deem it appropriate to make a brief survey of the DV Act 
+insofar  as  it  is  relevant  for  the  present  purpose.   The 
+preamble of the Act states that this is “an Act to provide for more 
+effective protection of the rights of women guaranteed under the Constitution who 
+are victims of violence of any kind occurring within the family and for matters 
+connected or incidental thereto.”
+20.
+“Domestic violence” is defined under Section 3 as any 
+act, omission or commission or conduct of any adult male 
+who is or has been in domestic relationship.
+“Section  3.  Definition  of  domestic  violence.—For  the 
+purposes of this Act, any act, omission or commission or 
+conduct  of  the  respondent  shall  constitute  domestic 
+violence in case it—
+(a)
+harms or injures or endangers the health, safety, life, 
+limb or well-being whether mental or physical, of the 
+aggrieved  person  or  tends  to  do  so  and  includes 
+causing  physical  abuse,  sexual  abuse,  verbal  and 
+emotional abuse and economic abuse; or
+9
+
+Page 10
+
+JUDGMENT
+(b)
+harasses, harms, injures or endangers the aggrieved 
+person with a view to coerce her or any other person 
+related to her to meet any unlawful demand for any 
+dowry or other property or valuable security; or
+(c)
+has the effect of threatening the aggrieved person or 
+any person related to her by any conduct mentioned 
+in clause (a) or clause (b); or
+(d)
+otherwise injures or causes harm, whether physical 
+or mental, to the aggrieved person.”
+21.
+The expression “domestic relationship” is defined under 
+Section  2(f)1.  The  expressions  “physical  abuse”,  “sexual 
+abuse”,  “verbal  and  emotional  abuse”  and  “economic 
+abuse” are explained in Explanation-1 to Section 3.
+22.
+Section  12  of  the  Act  recognizes  the  right  of  an 
+“aggrieved person”2 (necessarily a woman by definition) to 
+present application to the Magistrate seeking one or more 
+reliefs under the Act.  The reliefs provided under the Act are 
+contained in Sections 17 to 22.  Section 17 creates a right in 
+1 Section 2. (f) “domestic relationship” means a relationship between two persons who live or have, at any 
+point of time, lived together in a shared household, when they are related by consanguinity, marriage, or 
+through a relationship in the nature of marriage, adoption or are family members living together as a joint 
+family.
+2. Section 2.(a) "aggrieved person" means any woman who is, or has been, in a domestic relationship with 
+the respondent and who alleges to have been subjected to any act of  domestic violence by the respondent; 
+10
+
+Page 11
+
+JUDGMENT
+favour of a woman/aggrieved person to reside in a “shared 
+household” defined under Section 2(s)3.
+23.
+Section 18 deals with various orders that can be passed 
+by  the  Magistrate  dealing  with  the  application  of  an 
+aggrieved person under Section 12.  Section 19 provides for 
+various kinds of residence orders which a Magistrate dealing 
+with an application under Section 12 can pass in favour of a 
+woman.  Section 20 authorizes the Magistrate dealing with 
+an application under Section 12 to direct the respondent to 
+pay monetary relief to the aggrieved person.  Section 20 
+reads as follows:
+“Section 20. Monetary reliefs.—(1) While disposing of 
+an  application  under  sub-section  (1)  of  section  12,  the 
+Magistrate  may  direct  the  respondent  to  pay  monetary 
+relief to meet the expenses incurred and losses suffered by 
+the  aggrieved  person  and  any  child  of  the  aggrieved 
+person as a result of the domestic violence and such relief 
+may include, but is not limited to,—
+(a)
+…………………………………
+(b)
+………………………………….
+(c)
+…………………………………..
+3. Section 2(s).— "shared household" means a household where the person aggrieved lives or at any  stage 
+has lived in a domestic relationship either singly or along with the respondent and  includes such a 
+household whether owned or tenanted either jointly by the aggrieved person  and the respondent, or owned 
+or tenanted by either of them in respect of which either the  aggrieved person or the respondent or both 
+jointly or singly have any right, title, interest or  equity and includes such a household which may belong to 
+the joint family of which the  respondent is a member, irrespective of whether the respondent or the 
+aggrieved person has  any right, title or interest in the shared household.  
+11
+
+Page 12
+
+JUDGMENT
+(d)
+the maintenance for the aggrieved person as 
+well  as  her  children,  if  any,  including  an  order 
+under  or  in  addition  to  an  order  of  maintenance 
+under section 125 of the Code of Criminal Procedure, 
+1973 (2 of 1974)  or any other law for the time 
+being in force. 
+(2).
+The monetary relief granted under this section shall 
+be adequate, fair and reasonable and consistent with the 
+standard  of  living  to  which  the  aggrieved  person  is 
+accustomed.
+(3).
+The  Magistrate  shall  have  the  power  to  order  an 
+appropriate lump sum payment or monthly payments of 
+maintenance, as the nature and circumstances of the case 
+may require.
+(4).
+The  Magistrate shall send a copy of the order for 
+monetary relief made under sub-section (1) to the parties 
+to the application and to the in-charge of the police station 
+within the local limits of whose jurisdiction the respondent 
+resides.
+(5).
+The respondent shall pay the monetary relief granted 
+to the aggrieved person within the period specified in the
+
+order under sub-section (1).
+(6).
+Upon the failure on the part of the respondent to 
+make payment in terms of the order under sub-section (1), 
+the Magistrate may direct the employer or a debtor of the 
+respondent, to directly pay to the aggrieved person or to 
+deposit with the court a portion of the wages or salaries or 
+debt due to or accrued to the credit of the respondent, 
+which  amount  may  be  adjusted  towards  the  monetary 
+relief payable by the respondent.”
+(emphasis supplied)
+24.
+Section 21 deals with the jurisdiction of the Magistrate 
+to  pass  orders  relating  to  custody  of  children  of  the 
+aggrieved  person.   Section  22  deals  with  compensation 
+12
+
+Page 13
+
+JUDGMENT
+orders  which  authorizes  the  Magistrate  to  pass  an  order 
+directing the respondent to pay compensation and damages 
+for  the  injuries  including  mental  torture  and  emotional 
+distress caused by the act of domestic violence committed 
+by the respondent.  The Magistrate receiving a complaint 
+under Section 12 is authorized under the Act to pass anyone 
+of the orders under the various provisions discussed above 
+appropriate to the facts of the complaint.
+25.
+Section  29  provides  for  an  appeal  to  the  Court  of 
+Session against any order passed by the Magistrate under 
+the Act either at the instance of the aggrieved person or the 
+respondent.
+26.
+One important factor to be noticed in the context of the 
+present  case  is  that  while  Section  23  expressly  confers 
+power on the Magistrate to grant interim orders, there is no 
+express  provision  conferring  such  power  on  the  Sessions 
+Court in exercise of its appellate jurisdiction.  Section 23 
+reads as follows:
+“Section  23.  Power  to  grant  interim  and  ex  parte 
+orders.—(1) In any proceeding before him under this Act, 
+13
+
+Page 14
+
+JUDGMENT
+the Magistrate may pass such interim order as he deems 
+just and proper. 
+(2) If the Magistrate is satisfied that an application prima 
+facie discloses that the respondent is committing, or has 
+committed an act of domestic violence or that there is a 
+likelihood  that  the  respondent  may  commit  an  act  of 
+domestic violence, he may grant an ex parte order on the 
+basis of the affidavit in such form, as may be prescribed, of 
+the aggrieved person under section 18, section 19, section 
+20, section 21 or, as the case may be, section 22 against 
+the respondent.” 
+27.
+It can be seen from the DV Act that no further appeal or 
+revision is provided to the High Court or any other Court 
+against the order of the Sessions Court under Section 29.  
+28.
+It is in the background of the abovementioned Scheme 
+of the DV Act this case is required to be considered.  The 
+appellant made a complaint under Section 12 of the DV Act. 
+The  Magistrate  in  exercise  of  his  jurisdiction  granted 
+maintenance  to  the  appellant.   The  Magistrate’s  legal 
+authority to pass such an order is traceable to Section 20(1)
+(d) of the DV Act.
+29.
+Questioning the correctness of the Magistrate’s order in 
+granting  the  maintenance  of  Rs.2.5  lakhs  per  month  the 
+respondent carried the matter in appeal under Section 29 to 
+14
+
+Page 15
+
+JUDGMENT
+the Sessions Court and sought stay of the execution of the
+
+order of the Magistrate during the pendency of the appeal. 
+Whether  the  Sessions  Court  in  exercise  of  its  jurisdiction 
+under Section 29 of the Act has any power to pass interim 
+orders staying the execution of the order appealed before it 
+is a matter to be examined in an appropriate case.   We only 
+note that there is no express grant of power conferred on 
+the Sessions Court while such power is expressly conferred 
+on the Magistrate under Section 23.  Apart from that, the 
+power to grant interim orders is not always inherent in every 
+Court.   Such  powers  are  either  expressly  conferred  or 
+implied  in  certain  circumstances.   This  Court  in  Super 
+Cassettes  Industres  Limited
+ v.
+ Music  Broadcast 
+Private Limited, (2012) 5 SCC 488, examined this question 
+in detail.  At any rate, we do not propose to decide whether 
+the Sessions Court has the power to grant interim order such 
+as  the  one  sought  by  the  respondent  herein  during  the 
+pendency of his appeal, for that issue has not been argued 
+before us.  
+15
+
+Page 16
+
+JUDGMENT
+30.
+We presume (we emphasize that we only presume for 
+the purpose of this appeal) that the Sessions Court does 
+have such power.  If such a power exists then it can certainly 
+be  exercised  by  the  Sessions  Court  on  such  terms  and 
+conditions which in the opinion of the Sessions Court are 
+justified in the facts and circumstances of a given case.  In 
+the  alternative,  if  the  Sessions  Court  does  not  have  the 
+power to grant interim orders during the pendency of the 
+appeal, the Sessions Court ought not to have stayed the 
+execution  of  the  maintenance  order  passed  by  the 
+Magistrate.   Since the respondent did not comply with such 
+conditional order, the Sessions Court thought it fit to dismiss 
+the  appeal.   Challenging  the  correctness  of  the  said 
+dismissal, the respondent carried the matter before the High 
+Court  invoking  Section  482  of  the  Code  of  Criminal 
+Procedure, 1973 and Article 227 of the Constitution.  
+31.
+The issue before the High Court in Crl. MC. No. 1975 of 
+2013 is limited i.e. whether the sessions court could have 
+dismissed the respondent’s appeal only on the ground that 
+respondent did not discharge the obligation arising out of 
+16
+
+Page 17
+
+JUDGMENT
+the conditional interim order passed by the sessions court. 
+Necessarily the High Court will have to go into the question 
+whether the sessions court has the power to grant interim 
+stay of the execution of the order under appeal before it.
+32.
+In  a  matter  arising  under  a  legislation  meant  for 
+protecting the rights of the women, the High Court should 
+have been slow in granting interim orders, interfering with 
+the orders by which maintenance is granted to the appellant. 
+No  doubt,  such  interim  orders  are  now  vacated.   In  the 
+process  the  appellant  is  still  awaiting  the  fruits  of 
+maintenance order even after 2 years of the order.
+33.
+We find it difficult to accept that in a highly contested 
+matter  like  this  the  appellant  would  have  instructed  her 
+counsel not to press her claim for maintenance.   In our view, 
+the High Court ought not to have accepted the statement of 
+the counsel without verification.  The impugned order is set 
+aside.
+34.
+We  are  of  the  opinion  that  the  conduct  of  the 
+respondent is a gross abuse of the judicial process.  We do 
+17
+
+Page 18
+
+JUDGMENT
+not see any reason why the respondent’s petition Crl. MC No. 
+1975 of 2013 should be kept pending.  Whatever be the 
+decision of the High Court, one of the parties will (we are 
+sure)  approach  this  Court  again  thereby  delaying  the 
+conclusion of the litigation.  The interests of justice would be 
+better served if the respondent’s appeal before the Sessions 
+Court is heard and disposed of on merits instead of going 
+into the residuary questions of the authority of the appellate 
+Court to grant interim orders or the legality of the decision of 
+the Sessions Court to dismiss the appeal only on the ground 
+of the non-compliance by the respondent with the conditions 
+of the interim order. The Criminal Appeal No.23/2012 stands 
+restored to the file of the Sessions Court.
+35.
+We also direct that the maintenance order passed by 
+the  magistrate  be  executed  forthwith  in  accordance  with 
+law.    The  executing  court  should  complete  the  process 
+within 8 weeks and report compliance in the High Court. We 
+make it clear that such hearing by the Sessions Court should 
+only  be  after  the  execution  of  the  order  of  maintenance 
+passed by the Magistrate.   
+18
+
+Page 19
+
+JUDGMENT
+36.
+In the event of the respondent’s success in the appeal, 
+either  in  full  or  part,  the  Sessions  Court  can  make 
+appropriate orders regarding the payments due to be made 
+by the respondent in the execution proceedings.
+The appeal is disposed off accordingly.
+………………………….J.
+                                                          (J. Chelameswar)
+……………………..….J.
+ 
+                            (A.K. Sikri)
+New Delhi;
+September 18, 2014
+19
+
+2026-09-06 08:02:35,988 - app.core.rag_engine.engine - DEBUG - LLM Prompt Messages:
+[
+  {
+    "role": "system",
+    "content": "You are a senior Indian family law expert and legal assistant.\nYour task is to provide accurate, professional, and empathetic legal answers based EXCLUSIVELY on the provided context.\n\nCRITICAL INSTRUCTIONS:\n1. Base your answer ONLY on the provided context. Do NOT use any outside or parametric knowledge to answer the question.\n2. If the provided context does not contain sufficient information to answer the question, you MUST reply exactly with: \"I don't know based on the provided documents.\" Do not attempt to guess or extrapolate.\n3. When you use information from the context, you MUST cite the source precisely as follows:\n   - For Kanoon documents (legal cases): [Case: <Title> | <Citation> | <Court>, <Year>]\n   - For user uploaded documents: [Client File: <filename>, Page <n>]\n4. If multiple cases are present in the context, ALWAYS prioritize and base your primary answer on the most recent judgment (using the Year/Date provided in the document headers). Use older cases only to show historical context if relevant, but clearly state which ruling is the latest.\n"
+  },
+  {
+    "role": "user",
+    "content": "Context information is below.\n\n--- Document 1 [Case: SHALU OJHA vs PRASHANT OJHA | No Citation | Supreme Court of India, 2018 | File: 9365-2016___supremecourt__2016__9365__9365_2016_Judgement_23-Jul-2018.pdf] ---\nNON-REPORTABLE\nIN THE SUPREME COURT OF INDIA\nCRIMINAL APPELLATE JURISDICTION\nSPECIAL LEAVE PETITION (CRIMINAL) NO. 3935 OF 2016\nSHALU OJHA\n.....PETITIONER(S)\nVERSUS\nPRASHANT OJHA\n.....RESPONDENT(S)\nJ U D G M E N T\nA.K. SIKRI, J.\nOn an earlier occasion, after hearing the petitioner who\nappeared in person, and the learned counsel for the respondent,\nwe  had  passed  order  dated  September  4,  2017,  thereby\ndisposing of this petition with the following directions:\n(a)\ninsofar as domestic violence proceedings before the Family\nCourt are concerned, necessary documents shall be filed by\nboth the parties within four weeks from today and evidence\nled pursuant thereto.  The trial court shall endeavour to\ndecide the case finally, within a period of eight months from\ntoday,  on  the  basis  of  evidence  and  fix  the  rate  of\nmaintenance finally; and\nSLP (Crl.) No. 3935 of 2016\nPage 1 of 15\nDigitally signed by\nSUSHIL KUMAR\nRAKHEJA\nDate: 2018.07.23\n18:09:24 IST\nReason:\nSignature Not Verified\n\n(b)\nCrl.MC. No. 850 of 2015, pending before the High Court,\nshall be taken up for hearing immediately and the High\nCourt  shall  endeavour  to  dispose  of  the  same  as\nexpeditiously as possible and determine at what rate interim\nmaintenance  is  to  be  given,  i.e.  whether  order  dated\nFebruary 13, 2015 passed by the learned ASJ need any\nmodification or not.\n2)\nThereafter, review petition was filed by the petitioner pointing out\nthat there was apparent error in passing the aforesaid directions\ninasmuch  as  matter  was  remitted  to  the  High  Court  for\npresumption that proceedings were pending but the fact is that no\nsuch proceedings are pending under the Protection of Women\nfrom  Domestic  Violence  Act,  2005  (for  short  the  \u2018DV  Act\u2019).\nRealising  this  error,  the  review  petition  was  allowed  and  the\nSpecial  Leave  Petition  was  restored  which  has  been  heard\nafresh.\n3)\nNotwithstanding the aforesaid factual error which had crept in the\n\norder dated September 4, 2017, the other factual details recorded\nin the said order are a matter of record.  Therefore, it would be in\nthe fitness of things to reproduce the same:\nThough this case has a chequered history, only those facts\nSLP (Crl.) No. 3935 of 2016\nPage 2 of 15\n\nwhich  are  very  material  are  taken  note  of,  eschewing  other\nunnecessary details, in order to avoid burdening this judgment\nwith the facts which may not be relevant.  \nThe petitioner is the respondent\u2019s wife.  It is unfortunate that\nafter  their  marriage  on  April  20,  2007  in  Delhi,  they  stayed\ntogether hardly for four months.  Thus, for almost ten years they\nhave  parted  company  and  are  living  separately.   It  is  not\nnecessary to go into the reasons which led to the matrimonial\ndiscord as in the present petition this Court is concerned only with\nthe dispute regarding the rate of maintenance.\nThe petitioner had filed an application sometime in June\n2009 claiming maintenance under the provisions of Section 12 of\nthe DV Act.  In that application, apart from other reliefs, she has\nclaimed maintenance as well.  Order dated July 05, 2012 was\npassed by the learned Metropolitan Magistrate granting interim\nmaintenance @ Rs.2,50,000/- per month with effect from the date\nof  filing  of  the  complaint  as  well  as  compensation  of\nRs.1,00,000/-.  Since the respondent did not honour the said\n\norder, the petitioner filed the execution petition for recovery of the\narrears  of  maintenance.   In  the  meantime,  the  respondent\nchallenged  the  order  of  the  Metropolitan  Magistrate  granting\nmaintenance, by filing appeal under Section 29 of the DV Act, in\nSLP (Crl.) No. 3935 of 2016\nPage 3 of 15\n\nthe  Court  of  Additional  Sessions  Judge,  Delhi  (for  short,  the\n\u2018ASJ\u2019).   In  the  said  appeal,  the  learned  ASJ  issued  interim\ndirections dated January 10, 2013 for depositing of the entire\narrears of maintenance within two months.  As this order was not\ncomplied with, the appeal filed by the respondent was dismissed\non May 07, 2013.  This order of dismissal was challenged by the\nrespondent before the High Court.  In those proceedings, order\ndated July 23, 2013 was passed allowing the appellant herein to\nfile the reply, etc.   As no stay was granted, order dated July 23,\n2013 was challenged by the respondent in this Court by filing a\nspecial leave petition.  This Court, however, did not entertain the\nsame.  At the same time, while disposing of the special leave\npetition, observations were made to the effect that if the parties\napply for mediation, the matter shall be referred to the Delhi High\nCourt Mediation and Conciliation Centre at the earliest.  Keeping\nin view these observations, the High Court referred the dispute to\nthe Mediation Centre at the Delhi High Court and also stayed the\nexecution proceedings in the meantime.  Mediation proceedings\nfailed.  As a result, the High Court took up the matter on merits\nand  passed  orders  dated  September  10,  2013  directing  the\nrespondent to  pay Rs.5,00,000/-  on or  before September  30,\n2013 and another sum of Rs.5,00,000/- on or before October 31,\nSLP (Crl.) No. 3935 of 2016\nPage 4 of 15\n\n2013.  The petitioner filed an application seeking modification of\nthese orders and prayed for the directions to the respondent to\npay entire arrears of maintenance as per the order of the Family\nCourt in domestic violence proceedings.   In the said application\nonly notice was issued and since interim stay on the execution\nproceedings continued, the petitioner filed special leave petition in\nthis Court for vacation of the interim order passed by the High\nCourt in the execution proceedings.    This special leave petition\nwas converted into appeal on grant of leave, in which judgment\nwas delivered on September 18, 2014 allowing the said appeal.\nOperative portion of the said judgment reads as under:\n\u201c31.  The issue before the High Court in Crl.MC. No.\n1975 of 2013 is limited i.e. whether the sessions court\ncould have dismissed the respondent\u2019s appeal only on\nthe  ground  that  respondent  did  not  discharge  the\nobligation arising out of the conditional interim order\npassed by the sessions court.  Necessarily the High\nCourt will have to go into the question whether the\nsessions court has the power to grant interim stay of\nthe execution of the order under appeal before it.\n32.  In a matter arising under a legislation meant for\nprotecting the rights of the women, the High Court\nshould  have  been  slow  in  granting  interim  orders,\ninterfering with the orders by which maintenance is\ngranted  to  the  appellant.   No  doubt,  such  interim\norders are now vacated.  In the process the appellant\nis still awaiting the fruits of maintenance order even\nafter 2 years of the order.\n33.   We  find  it  difficult  to  accept  that  in  a  highly\ncontested matter like this the appellant would have\ninstructed  her  counsel  not  to  press  her  claim  for\nmaintenance.  In our view, the High Court ought not to\nSLP (Crl.) No. 3935 of 2016\nPage 5 of 15\n\nhave accepted the statement of the counsel without\nverification.  The impugned order is set aside.  \n34.  We are of the opinion that the conduct of the\nrespondent is a gross abuse of the judicial process.\nWe  do  not  see  any  reason  why  the  respondent\u2019s\npetition  Crl.MC  No.  1975  of  2013  should  be  kept\npending.  Whatever be the decision of the High Court,\none of the parties will (we are sure) approach this\nCourt again thereby delaying the conclusion of the\nlitigation.   The  interests  of  justice  would  be  better\nserved if the respondent\u2019s appeal before the Sessions\nCourt is heard and disposed of on merits instead of\ngoing into the residuary questions of the authority of\nthe  appellate  Court  to  grant  interim  orders  or  the\nlegality  of  the  decision  of  the  Sessions  Court  to\ndismiss the appeal only on the ground of the non-\ncompliance by the respondent with the conditions of\nthe interim order.  The Criminal Appeal No. 23/2012\nstands restored to the file of the Sessions Court.\n35.  We also direct that the maintenance order passed\nby the magistrate be executed forthwith in accordance\nwith law.  The executing court should complete the\nprocess within 8 weeks and report compliance in the\nHigh Court.  We make it clear that such hearing of the\nSessions Court should only be after the execution of\nthe order of maintenance passed by the Magistrate.\n36.  In the event of the respondent\u2019s success in the\nappeal, either in full or part, the Sessions Court can\nmake appropriate orders regarding the payments due\nto  be  made  by  the  respondent  in  the  execution\nproceedings.\u201d\n \nNotwithstanding the aforesaid judgment, as the respondent\ndid not clear the entire arrears of maintenance, he was sent to\njudicial custody, where he remained till December 22, 2014.  A\nmiscellaneous application  was filed  by the  respondent  in this\nCourt in the afore-mentioned disposed of appeal stating that he\n\ndid not clear the entire arrears of maintenance, he was sent to\njudicial custody, where he remained till December 22, 2014.  A\nmiscellaneous application  was filed  by the  respondent  in this\nCourt in the afore-mentioned disposed of appeal stating that he\nwas  in  judicial  custody  due  to  his  inability  to  pay  the  entire\nSLP (Crl.) No. 3935 of 2016\nPage 6 of 15\n\nmaintenance  and  requested  that  his  matter  be  heard  by  the\nSessions Court on merits.  In this application this Court passed\norders dated December 18, 2014 directing the Sessions Court to\ndecide  the  appeal  of  the  respondent  within  six  weeks.   He\nremained in judicial custody till December 22, 2014, on which\ndate he was released.  During this period, though the respondent\nhad paid certain amounts towards maintenance, but he did not\nclear the entire outstanding dues.\nThereafter, on February 13, 2015, the learned ASJ decided\nthe appeal of the  respondent  reducing  the maintenance  from\nRs.2,50,000/-, as fixed by the Family Court, to Rs.50,000/- per\nmonth, from the date of filing of the petition under Section 12 of\nthe DV Act.   This order was challenged by the appellant by filing\na petition (Crl.MC. No. 850 of 2015) before the High Court under\nSection  482  read  with  Section  482  of  the  Code  of  Criminal\nProcedure, 1973 (for short, \u2018Cr.P.C.\u2019).\nIt will also be of interest to note that the maintenance of\nRs.50,000/-, as fixed by the learned ASJ, even when reduced\nsignificantly from Rs.2,50,000/-, was still not acceptable to the\nrespondent either.  Seeking further reduction in the maintenance,\nthe respondent also challenged this order before the High Court\nby filing petition under Section 482 Cr.P.C.  However, his petition\nSLP (Crl.) No. 3935 of 2016\nPage 7 of 15\n\nwas dismissed by the High Court vide order dated April 06, 2015.\nThe special leave petition filed by the respondent there against\nwas also dismissed by this Court on May 11, 2015.  In this\nmanner, insofar as maintenance granted by the learned ASJ @\nRs.50,000/-  per  month  is  concerned,  this  order  has  attained\nfinality qua the respondent.  The question, therefore, is as to\nwhether the petitioner is entitled to enhancement and whether the\nlearned ASJ rightly reduced the amount of maintenance.\nThough, the petitioner has filed a petition under Section 482\nCr.P.C.,  which  is  registered  as  Crl.MC.  No.  850  of  2015,  as\npointed out above, and the same is still pending. Notwithstanding,\nthe petitioner has chosen to file the instant special leave petition\nchallenging the order dated February 13, 2015 passed by the\nASJ.\nNormally, when the proceedings are still pending before the\nHigh Court, where same order dated February 13, 2015 passed\nby the ASJ is challenged, this Court should not have entertained\nthe instant petition from the very beginning.  However, notice was\nissued in this petition, keeping in mind the consideration as to\nwhether  the  dispute  can  be  resolved  amicably,  suitably  and\nappropriately by this Court.  For this purpose, matter was taken\nup from time to time.  Attempts were even made that the parties\nSLP (Crl.) No. 3935 of 2016\nPage 8 of 15\n\nsettle all their disputes amicably.  We even called the parties to\nthe  Chambers  and  had  discussions  with  them.   However,\namicable solution to the problem, acceptable to both the parties,\ncould not be achieved.\nThe petitioner, who appears in person, has submitted that\nthere were no valid reasons for the learned ASJ to reduce the\nmaintenance.  In order to prove that the respondent is a man of\nmeans  who  is  running  number  of  businesses  either  as  the\nproprietor or partner of firm(s) or shareholder/director in certain\ncompanies and possesses various assets and is also enjoying\nthe life of affluence, she has produced plethora of documents in\nsupport.   The  respondent  has  refuted  the  authenticity  or  the\nrelevance of those documents and his submission is that his\nstakes in all these businesses are no longer there.  According to\nhim, some of the companies/firms mentioned by the petitioner\nnever  took  off  and  started  any  business  and  in  some  other\ncompanies he no longer enjoys any stakes.  Picture painted by\nthe respondent is that he is undergoing very hard times and his\nfinancial condition is pathetic.  It is also stated that he had to even\ngo behind bars and remain in custody for more than fifty days\nbecause of his inability to pay the arrears.  \nSLP (Crl.) No. 3935 of 2016\nPage 9 of 15\n\n4)\nWe may point out that during arguments, it was contended by\nlearned counsel for the respondent that apart from the monthly\nmaintenance amount which the respondent was giving to the\npetitioner every month, the petitioner had some other source of\nincome as well.  This submission was based on the premise that\nthe amount of maintenance so far received by the petitioner,\nwhich was to the tune of Rs.49 lakhs, was kept by the petitioner\nin the fixed deposits accounts in the banks.  According to him, it\nproves that the petitioner had other source of income and she\nwas  employed/self-employed  and  from  that  income,  she  was\nmeeting her day to day needs.  We accordingly passed order\ndated January 29, 2018 directing the petitioner to file an affidavit\nof her income which would be in the fomat as prescribed in the\n\njudgment of Delhi High Court in the case of Kusum Sharma v.\nMahinder Kumar Sharma decided on January 14, 2015 (FAO\nNo. 309/1996).  Respondent was also given opportunity to file\nadditional documents along with affidavit.  Such an affidavit of\nincome was, therefore, filed by the petitioner.  Respondent also\nfiled reply to the said income affidavit to which petitioner filed her\nrejoinder.\n5)\nIn the income affidavit filed by the petitioner in the prescribed\nSLP (Crl.) No. 3935 of 2016\nPage 10 of 15\n\nformat, she has, inter alia, mentioned that she is staying with her\nparents in their house in Mansarovar Garden.  The petitioner has\nalso mentioned about monthly expenditure.  Col. 11 and Col. 16\nof Part I being relevant are reproduced below:\nSl. No.\nDescription\nParticulars\n11.\nMonthly  expenditure  (as\nmentioned in S. No. 60)\nRs. 1.5 lac approx. spent jointly\nby parents and self.  My share in\nthe above expenditure is around\nRs. 1 lac per month.\n16.\nIf not staying at Matrimonial\nhome,  relationship  and\nincome  of  the  person  with\nwhom you are staying?\nStaying with my parents in House\nin which my brother has a sizable\nshare.  Income Rs. 1.5 lac p.m.\n6)\nIt is not understood as to how petitioner\u2019s share of expenditure is\nRs. 1 lakh per month out of Rs.1.5 lakhs monthly expenditure.\nLikewise, it is not explained in Col. 16 as to in what form, income\nof Rs. 1.5 lakhs per month is generated and who is earning that\nincome.  Of course, the petitioner has otherwise maintained that\nshe is not having any other source of income except the amount\nof maintenance given to her by the respondent.  The petitioner\nhas also stated that she is compelled to live in her parents house\nas the maintenance amount is not sufficient even to pay monthly\nrent of an aparment.  \n7)\nIn Part II of  the  affidavit,  the  petitioner  has made  averments\nrelating to respondent.  The petitioner says that respondent is\nSLP (Crl.) No. 3935 of 2016\nPage 11 of 15\n\nearning about Rs.20 lakhs per month.  She has given the details\nof  certain  business  ventures/restaurants  owned  by  the\nrespondent in which he is having his share.  The petitioner has\nalso  given  particulars  of  assets  allegedly  owned  by  the\nrespondent.  The petitioner has annexed photocopies of various\ndocuments in support of her assertions.  \n8)\nIn the reply affidavit filed by the respondent, it is averred that the\npetitioner is maintaining four bank accounts and the total amount\nlying in these accounts is  Rs.8,36,610/-.  It is also stated that the\npetitioner is having fixed deposits in the banks for a total sum of\nRs. 35,75,000/-.  In this manner, the total bank balance of the\npetitioner is Rs.44,11,610/-.  As against this, the respondent has\npaid to the petitioner a sum of Rs.49 lakhs from June 4, 2009 to\nJuly, 2017. Thus, in the last eight years, against a sum of Rs.49\nlakhs paid by the respondent to the petitioner, the petitioner is still\nhaving  bank  balance  of  Rs.44  lakhs.   According  to  the\nrespondent, it would be inconceivable that petitioner has spent\nonly Rs.5 lakhs of rupees (or little more if interest earned by the\npetitioner on the aforesaid Rs.49 lakhs is added) in eight years\nand that shows that she has other sources of income as well.\nOther  averments  in  the  petitioner\u2019s  affidavit  was  also  denied\nSLP (Crl.) No. 3935 of 2016\nPage 12 of 15\n\nincluding her share of expenditure in the neighbourhood of Rs.1\nlakh per month or that respondent is earning Rs.20 lakhs per\nmonth.  In respect of the particulars given by the petitioner about\nthe businesses of the respondent, the respondent has denied the\nsame and submits that, at present, there is no Restaurant or Bar\nanywhere in India in which respondent has any share or interest.\nHe has his own explanation and has given alleged circumstances\nin which he had to give up his share in certain businesses.  The\npetitioner  has  controverted  his  averments  in  her  rejoinder\naffidavit.   During  arguments,  the  petitioner  also  tried  to\ndemonstrate, by referring to certain documents filed by her, that\nthe respondent was indulging in falsehood.  \n9)\nWe have given a glimpse of the respective cases set up by both\nthe parties, without giving details thereof, as asserted by the\npetitioner and the manner in which the respondent has refuted\nthe same.  \n10)\nAfter  giving  conscious  and  objective  consideration  to  the\ndocuments placed on record by both the sides, we are of the view\nthat it is only after the evidence is led by both the parties, the\nveracity  and  evidential  value  of  such  material  can  be  finally\nadjudged,  more  particularly,  when  the  said  material  and\nSLP (Crl.) No. 3935 of 2016\nPage 13 of 15\n\nassertions  of  the  parties  would  be  tested  with  their  cross-\nexamination.  \n11)\nThe present proceedings arise out of the petition which was filed\nby the petitioner under Section 12 of the DV Act.   The trial court\nhad arrived at a figure of maintenance on the basis of affidavits\nfiled by both the parties along with their respective documents.\nSame exercise is undertaken by the learned ASJ in the impugned\n\norder while adjudging the correctness of the order passed by the\ntrial court and, in the process, reducing the maintenance from\nRs.2.50  lakhs  to  Rs.50,000/-  per  month.   This  obviously\nhappened as the proceedings under the DV Act are of summary\nnature.  \n12)\nIn these circumstances, the appropriate course of action would be\nto allow the petitioner to file an application for maintenance under\nthe Hindu Adoptions and Maintenance Act, 1956 or under Section\n125 of the Code of Criminal Procedure, 1973 so that in these\nproceedings, both the parties lead their documentary and oral\nevidence and on the basis of such material, appropriate view is\ntaken by the said Court.  \n13)\nWe accordingly dispose of this petition by granting liberty to the\nSLP (Crl.) No. 3935 of 2016\nPage 14 of 15\n\npetitioner to move appropriate application for maintenance, as\nindicated above.  Once such application is moved, same shall be\ndecided by the concerned Court most expeditiously having regard\nto the fact that the petitioner is fighting for her maintenance for\nlast number of years and these proceedings should attain finality\nat the earliest.  We also make it clear that any maintenance fixed\nshall not, in any case, be less than Rs.50,000/- per month which\nfigure of maintenance has already attained finality.  \n14)\nAs a sequel, the respondent shall continue to pay Rs.50,000/- per\nmonth to the petitioner in the meanwhile.  The present petition\nstands disposed of accordingly.\n.............................................J.\n(A.K. SIKRI)\n.............................................J.\n(ASHOK BHUSHAN)\nNEW DELHI;\nJULY 23, 2018.\nSLP (Crl.) No. 3935 of 2016\nPage 15 of 15\n\n--- Document 2 [Case: SHALU OJHA vs PRASHANT OJHA | No Citation | Supreme Court of India, 2017 | File: 9365-2016___supremecourt__2016__9365__9365_2016_Order_04-Sep-2017.pdf] ---\nREPORTABLE\nIN THE SUPREME COURT OF INDIA\nCRIMINAL APPELLATE JURISDICTION\nSPECIAL LEAVE PETITION (CRIMINAL) NO. 3935 OF 2016\nSHALU OJHA\n.....APPELLANT(S)\nVERSUS\nPRASHANT OJHA\n.....RESPONDENT(S)\nJ U D G M E N T\nA.K. SIKRI, J.\nThough this case has a chequered history, only those facts\nwhich  are  very  material  are  taken  note  of,  eschewing  other\nunnecessary details, in order to avoid burdening this judgment\nwith the facts which may not be relevant.\n2)\nThe petitioner is the respondent\u2019s wife.  It is unfortunate that after\ntheir marriage on April 20, 2007 in Delhi, they stayed together\nhardly for four months.  Thus, for almost ten years they have\nparted company and are living separately.  It is not necessary to\ngo into the reasons which led to the matrimonial discord as in the\npresent petition this Court is concerned only with the dispute\nregarding the rate of maintenance.\nSLP (Crl.) No. 3935 of 2016\nPage 1 of 10\nDigitally signed by\nBALA PARVATHI\nDate: 2017.09.04\n17:53:22 IST\nReason:\nSignature Not Verified\n\n3)\nThe petitioner had filed an application sometime in June 2009\nclaiming maintenance under the provisions of Section 12 of the\nProtection  of  Women  from  Domestic  Violence  Act,  2005\n(hereinafter referred to as the \u2018DV Act\u2019).  In that application, apart\nfrom other reliefs, she has claimed maintenance as well.  Order\ndated July 05, 2012 was passed by the learned Metropolitan\nMagistrate  granting  interim  maintenance  @  Rs.2,50,000/-  per\nmonth with effect from the date of filing of the complaint as well\nas compensation of Rs.1,00,000/-.  Since the respondent did not\nhonour the said order, the petitioner filed the execution petition for\nrecovery of the arrears of maintenance.  In the meantime, the\nrespondent challenged the order of the Metropolitan Magistrate\ngranting maintenance, by filing appeal under Section 29 of the DV\nAct, in the Court of Additional Sessions Judge, Delhi (for short,\nthe \u2018ASJ\u2019).  In the said appeal, the learned ASJ issued interim\ndirections dated January 10, 2013 for depositing of the entire\narrears of maintenance within two months.  As this order was not\ncomplied with, the appeal filed by the respondent was dismissed\non May 07, 2013.  This order of dismissal was challenged by the\nrespondent before the High Court.  In those proceedings, order\ndated July 23, 2013 was passed allowing the appellant herein to\nfile the reply, etc.   As no stay was granted, order dated July 23,\nSLP (Crl.) No. 3935 of 2016\nPage 2 of 10\n\n2013 was challenged by the respondent in this Court by filing a\nspecial leave petition.  This Court, however, did not entertain the\nsame.  At the same time, while disposing of the special leave\npetition, observations were made to the effect that if the parties\napply for mediation, the matter shall be referred to the Delhi High\nCourt Mediation and Conciliation Centre at the earliest.  Keeping\nin view these observations, the High Court referred the dispute to\nthe Mediation Centre at the Delhi High Court and also stayed the\nexecution proceedings in the meantime.  Mediation proceedings\nfailed.  As a result, the High Court took up the matter on merits\nand  passed  orders  dated  September  10,  2013  directing  the\nrespondent to  pay Rs.5,00,000/-  on or  before September 30,\n2013 and another sum of Rs.5,00,000/- on or before October 31,\n2013.  The petitioner filed an application seeking modification of\nthese orders and prayed for the directions to the respondent to\npay entire arrears of maintenance as per the order of the Family\nCourt in domestic violence proceedings.   In the said application\nonly notice was issued and since interim stay on the execution\nproceedings continued, the petitioner filed special leave petition in\nthis Court for vacation of the interim order passed by the High\nCourt in the execution proceedings.    This special leave petition\nwas converted into appeal on grant of leave, in which judgment\nSLP (Crl.) No. 3935 of 2016\nPage 3 of 10\n\nwas delivered on September 18, 2014 allowing the said appeal.\nOperative portion of the said judgment reads as under:\n\u201c31.  The issue before the High Court in Crl.MC. No.\n1975 of 2013 is limited i.e. whether the sessions court\ncould have dismissed the respondent\u2019s appeal only on\nthe  ground  that  respondent  did  not  discharge  the\nobligation arising out of the conditional interim order\npassed by the sessions court.  Necessarily the High\nCourt will have to go into the question whether the\nsessions court has the power to grant interim stay of\nthe execution of the order under appeal before it.\n32.  In a matter arising under a legislation meant for\nprotecting the rights of the women, the High Court\nshould  have  been  slow  in  granting  interim  orders,\ninterfering with the orders by which maintenance is\ngranted  to  the  appellant.   No  doubt,  such  interim\norders are now vacated.  In the process the appellant\nis still awaiting the fruits of maintenance order even\nafter 2 years of the order.\n33.   We find  it  difficult  to  accept  that  in  a  highly\ncontested matter like this the appellant would have\ninstructed  her  counsel  not  to  press  her  claim  for\nmaintenance.  In our view, the High Court ought not to\nhave accepted the statement of the counsel without\nverification.  The impugned order is set aside.  \n34.  We are of the opinion that the conduct of the\nrespondent is a gross abuse of the judicial process.\nWe  do  not  see  any  reason  why  the  respondent\u2019s\npetition  Crl.MC  No.  1975  of  2013  should  be  kept\npending.  Whatever be the decision of the High Court,\none of the parties will (we are sure) approach this\nCourt again thereby delaying  the conclusion of the\nlitigation.   The  interests  of  justice  would  be  better\nserved if the respondent\u2019s appeal before the Sessions\nCourt is heard and disposed of on merits instead of\ngoing into the residuary questions of the authority of\nthe  appellate  Court  to  grant  interim  orders  or  the\n\nlitigation.   The  interests  of  justice  would  be  better\nserved if the respondent\u2019s appeal before the Sessions\nCourt is heard and disposed of on merits instead of\ngoing into the residuary questions of the authority of\nthe  appellate  Court  to  grant  interim  orders  or  the\nlegality  of  the  decision  of  the  Sessions  Court  to\ndismiss  the  appeal  only  on  the  ground  of  the\nnon-compliance by the respondent with the conditions\nof the interim order.  The Criminal Appeal No. 23/2012\nstands restored to the file of the Sessions Court.\nSLP (Crl.) No. 3935 of 2016\nPage 4 of 10\n\n35.  We also direct that the maintenance order passed\nby the magistrate be executed forthwith in accordance\nwith law.  The executing court should complete the\nprocess within 8 weeks and report compliance in the\nHigh Court.  We make it clear that such hearing of the\nSessions Court should only be after the execution of\nthe order of maintenance passed by the Magistrate.\n36.  In the event of the respondent\u2019s success in the\nappeal, either in full or part, the Sessions Court can\nmake appropriate orders regarding the payments due\nto  be  made  by  the  respondent  in  the  execution\nproceedings.\u201d\n \n4)\nNotwithstanding the aforesaid judgment, as the respondent did\nnot  clear  the  entire  arrears  of  maintenance,  he  was  sent  to\njudicial custody, where he remained till December 22, 2014.  A\nmiscellaneous application  was filed  by the  respondent  in this\nCourt in the afore-mentioned disposed of appeal stating that he\nwas  in  judicial  custody due  to  his  inability to  pay the  entire\nmaintenance  and  requested  that  his  matter  be  heard  by the\nSessions Court on merits.  In this application this Court passed\norders dated December 18, 2014 directing the Sessions Court to\ndecide  the  appeal  of  the  respondent  within  six  weeks.   He\nremained in judicial custody till December 22, 2014, on which\ndate he was released.  During this period, though the respondent\nhad paid certain amounts towards maintenance, but he did not\nclear the entire outstanding dues.\n5)\n Thereafter, on February 13, 2015, the learned ASJ decided the\nSLP (Crl.) No. 3935 of 2016\nPage 5 of 10\n\nappeal  of  the  respondent  reducing  the  maintenance  from\nRs.2,50,000/-, as fixed by the Family Court, to Rs.50,000/- per\nmonth, from the date of filing of the petition under Section 12 of\nthe DV Act.   This order was challenged by the appellant by filing\na petition (Crl.MC. No. 850 of 2015) before the High Court under\nSection  482  read  with  Section  482  of  the  Code  of  Criminal\nProcedure, 1973 (for short, \u2018Cr.P.C.\u2019).\n6)\nIt  will  also  be  of  interest  to  note  that  the  maintenance  of\nRs.50,000/-, as fixed by the learned ASJ, even when reduced\nsignificantly from Rs.2,50,000/-, was still not acceptable to the\nrespondent either.  Seeking further reduction in the maintenance,\nthe respondent also challenged this order before the High Court\nby filing petition under Section 482 Cr.P.C.  However, his petition\nwas dismissed by the High Court vide order dated April 06, 2015.\nThe special leave petition filed by the respondent there against\nwas also dismissed by this Court on May 11, 2015.  In this\nmanner, insofar as maintenance granted by the learned ASJ @\nRs.50,000/-  per  month  is  concerned,  this  order  has  attained\nfinality qua the respondent.  The question, therefore, is as to\nwhether the petitioner is entitled to enhancement and whether the\nlearned ASJ rightly reduced the amount of maintenance.\nSLP (Crl.) No. 3935 of 2016\nPage 6 of 10\n\n7)\nThough  the  petitioner  has  filed  a  petition  under  Section  482\nCr.P.C.,  which  is  registered  as  Crl.MC.  No.  850  of  2015,  as\npointed  out  above,  and  the  same  is  still  pending.\nNotwithstanding,  the  petitioner  has  chosen  to  file  the  instant\nspecial leave petition challenging the order dated February 13,\n2015 passed by the ASJ.\n8)\nNormally, when the proceedings are still pending before the High\nCourt, where same order dated February 13, 2015 passed by the\nASJ is challenged, this Court should not have entertained the\ninstant petition from the very beginning.  However, notice was\nissued in this petition, keeping in mind the consideration as to\nwhether  the  dispute  can  be  resolved  amicably,  suitably  and\nappropriately by this Court.  For this purpose, matter was taken\nup from time to time.  Attempts were even made that the parties\nsettle all their disputes amicably.  We even called the parties to\nthe  Chambers  and  had  discussions  with  them.   However,\namicable solution to the problem, acceptable to both the parties,\ncould not be achieved.\n9)\nThe petitioner, who appears in person, has submitted that there\nwere  no  valid  reasons  for  the  learned  ASJ  to  reduce  the\nSLP (Crl.) No. 3935 of 2016\nPage 7 of 10\n\nmaintenance.  In order to prove that the respondent is a man of\nmeans  who  is  running  number  of  businesses  either  as  the\nproprietor or partner of firm(s) or shareholder/director in certain\ncompanies and possesses various assets and is also enjoying\nthe life of affluence, she has produced plethora of documents in\nsupport.   The  respondent  has  refuted  the  authenticity or  the\nrelevance of those documents and his submission is that his\nstakes in all these businesses are no longer there.  According to\nhim, some of the companies/firms mentioned by the petitioner\nnever  took  off  and  started  any  business  and  in  some  other\ncompanies he no longer enjoys any stakes.  Picture painted by\nthe respondent is that he is undergoing very hard times and his\nfinancial condition is pathetic.  It is also stated that he had to even\ngo behind bars and remain in custody for more than fifty days\nbecause of his inability to pay the arrears.  We are not giving the\ndetails of the properties and businesses as mentioned by the\npetitioner or the response thereto as given by him.  It is because\nof the reason that after going through these documents, we find\nthat final view thereupon can be taken only after evidence is led\nby both the parties and the veracity of their respective stands is\ntested with their cross-examination in the light of material which\nboth the parties want to produce.\nSLP (Crl.) No. 3935 of 2016\nPage 8 of 10\n\n10)\nWe,  therefore,  dispose  of  this  petition  with  the  following\ndirections:\n(a)\ninsofar as domestic violence proceedings before the Family\nCourt are concerned, necessary documents shall be filed by\nboth the parties within four weeks from today and evidence\nled pursuant thereto.  The trial court shall endeavour to\ndecide the case finally, within a period of eight months from\ntoday,  on  the  basis  of  evidence  and  fix  the  rate  of\nmaintenance finally; and\n(b)\nCrl.MC. No. 850 of 2015, pending before the High Court,\nshall be taken up for hearing immediately and the High\nCourt  shall  endeavour  to  dispose  of  the  same  as\nexpeditiously as possible and determine at what rate interim\nmaintenance  is  to  be  given,  i.e.  whether  order  dated\nFebruary 13, 2015 passed by the learned ASJ need any\nmodification or not.\nNo costs.\n.............................................J.\n(A.K. SIKRI)\n.............................................J.\n(ASHOK BHUSHAN)\nNEW DELHI;\nSEPTEMBER 4, 2017.\nSLP (Crl.) No. 3935 of 2016\nPage 9 of 10\n\nITEM NO.1502               COURT NO.6           SECTION II-C\n               S U P R E M E  C O U R T  O F  I N D I A\n                       RECORD OF PROCEEDINGS\nPetition(s) for Special Leave to Appeal (Crl.)No(s).3935/2016\n(Arising  out  of  impugned  final  judgment  and  order  dated\n13-02-2015  in  CA  No.  75/2014  passed  by  the  Additional\nSession Judge Delhi)\nSHALU OJHA                                  Petitioner(s)\n                                VERSUS\nPRASHANT OJHA                                Respondent(s)\n([HEARD BY : HON. A.K. SIKRI AND HON. ASHOK BHUSHAN, JJ.])\nDate : 04-09-2017 This matter was called on for pronouncement\nof JUDGMENT today.\n \nFor Petitioner(s)\nPetitioner-in-person\n                    \nFor Respondent(s)\nMr. Baij Nath Patel, Adv.\n                    T. V. S. Raghavendra Sreyas, AOR\n                    \n               \nHon'ble Mr. Justice A.K. Sikri pronounced the\n\njudgment of the Bench comprising Hon'ble Mr. Justice\nAshok Bhushan and His Lordship. \n        The petition is disposed of in terms of signed \nReportable Judgment.\nPending applications, if any, stand disposed of.\n \n (B.PARVATHI)                    (MALA KUMARI SHARMA)\nCOURT MASTER                        COURT MASTER \n(Signed reportable judgment is placed on the file)\nSLP (Crl.) No. 3935 of 2016\nPage 10 of 10\n\n--- Document 3 [Case: SHALU OJHA vs PRASHANT OJHA | No Citation | Supreme Court of India, 2014 | File: 23149-2014___jonew__judis__41932.pdf] ---\nPage\u00a01\n\nJUDGMENT\nNON-REPORTABLE\nIN THE SUPREME COURT OF INDIA\nCRIMINAL APPELLATE JURISDICTION\nCRIMINAL APPEAL NO.2070  OF 2014\n(Arising out of Special Leave Petition (Crl.) No.6220 OF 2014)\nShalu Ojha\n \n\u2026 Appellant\nVersus\nPrashant Ojha\n\u2026Respondent\nJ U D G M E N T\nChelameswar, J.\n1.\nLeave granted.\n2.\nThis is an unfortunate case where the provisions of the \nProtection of Women from Domestic Violence Act, 2005 are \nrendered  simply  a  pious  hope  of  the  Parliament  and  a \nteasing illusion for the appellant.\n\nPage\u00a02\n\nJUDGMENT\n3.\nThe appellant is a young woman who got married to the \nrespondent on 20.04.2007 in Delhi according to Hindu rites \nand customs, pursuant to certain information placed by the \nrespondent on the website known as \u201cSycorian Matrimonial \nServices Ltd.\u201d.  \n4.\nAccording to the appellant, she was thrown out of the \nmatrimonial home within four months of the marriage on \n14.8.2007.  Thereafter, the respondent started pressurizing \nthe appellant to agree for dissolution of marriage by mutual \nconsent.  As the appellant did not agree for the same, the \nrespondent filed a petition for divorce being H.M.A. No.637 of \n2007 under Section 13(1) of the Hindu Marriage Act, 1955 on \n17.10.2007 before the Additional District Judge, Tis Hazari \nCourts, Delhi.  The said petition was dismissed by an order \ndated 03.10.2008.  Within four months, the respondent filed \nanother petition on 08.04.2009 once again invoking Section \n13(1) of the Hindu Marriage Act, 1955 before the Additional \nDistrict  Judge,  Patiala  House  Courts,  Delhi  being  H.M.A. \nNo.215  of  2009  and  the  same  on  being  transferred  is \n2\n\nPage\u00a03\n\nJUDGMENT\npending before the Family Court, Saket and renumbered as \nH.M.A. No.266 of 2009.\n5.\nOn  04.06.2009,  the  appellant  filed  a  complaint  case \nNo.120/4/09 under Section 12 of the Protection of Women \nfrom Domestic Violence Act, 2005 (hereinafter referred to as \n\u201cthe DV Act\u201d).\n6.\nThe said complaint case came to be disposed of by the \nlearned  Metropolitan  Magistrate,  New  Delhi  by  his  order \ndated 05.07.2012.  By the said order, the Magistrate granted \nan amount of Rs.2.5 lacs towards monthly maintenance of \nthe appellant which included rental charges for alternative \naccommodation.  The respondent was made liable to pay \nsuch  monthly  maintenance from  the date of filing  of the \npetition, i.e. from 04.06.2009. The monthly maintenance was \nmade payable on or before 10th of each succeeding month. \nThe learned Magistrate further directed that the arrears of \nthe maintenance be cleared by 05.12.2012.\n7.\nAggrieved by the above order, the respondent carried \nthe  matter  in  appeal  under  Section  29  of  the  DV  Act  in \n3\n\nPage\u00a04\n\nJUDGMENT\nCriminal Appeal No.23 of 2012 before the learned Additional \nSessions  Judge,  Rohini,  New  Delhi.   On  10.01.2013,  the \nlearned Additional Sessions Judge while granting stay of the \nexecution  of  the  order  under  appeal  passed  an  order \ndirecting the respondent to pay the entire arrears of the \nmaintenance due to the appellant till the presentation of the \nappeal within a period of two months.  \n8.\nSince  the  respondent  did  not  pay  the  arrears,  the \nappellant moved an application for execution of the order \ndated 10.01.2013.  \n9.\nBy an order dated 07.05.2013, Criminal Appeal No.23 of \n2013  preferred  by  the  respondent  was  dismissed  by  the \nlearned  Sessions  Judge for  non-compliance of the interim \ndirections dated 10.01.2013.  \n10.\nAggrieved  by  the  order  dated  07.05.2013,  the \nrespondent filed Crl. Misc. Case No.1975 of 2013 and Crl. \nMisc. Application No.78-34 of 2013 for interim directions in \nthe  High  Court  of  Delhi  on  08.05.2013.  The  High  Court \ninitially declined to pass an interim order in the said appeal. \n4\n\nPage\u00a05\n\nJUDGMENT\nAggrieved  by  the  same  the  respondent  approached  this \nCourt  in  SLP  (Crl.)  No.6509-6510  of  2013  which  was \ndismissed  in limine  on 13.08.2013 with a direction to the \nparties to apply for mediation.\n11.\nPursuant to the said direction, the respondent filed Crl. \nMisc.  Application  No.12547  of  2013  in  Crl.  Misc.  Case \nNo.1975  of  2013  for  direction  to  refer  the  matter  to \nMediation.  The matter was referred accordingly.  Eventually \nthe mediation failed.  On receipt of such failure report, the \nappeal  was  again  listed  before  the  High  Court  on \n10.09.2013.  The High Court directed the respondent to pay \nan amount of Rs.10 lakhs in two instalments and that the \nexecution petition filed by the appellant for the recovery of \nthe arrears be kept in abeyance.  \n12.\nThereafter, an application was filed by the appellant \nbefore the High Court seeking direction to the respondent for \nthe  payment  of  monthly  maintenance  (current  period)  in \nterms of order dated 05.7.2012 of the learned Metropolitan \nMagistrate  (supra).  It  appears  that  the  matter  underwent \n5\n\nPage\u00a06\n\nJUDGMENT\nnumber of adjournments but no orders have been passed by \nthe High Court.\n13.\nIn  the  said  background,  the  appellant  filed  Special \nLeave Petition (Crl.) No.2210 of 2014 in this Court.  The said \npetition came to be disposed of on 31.03.2014 by setting \naside the interim stay  granted by  the High Court on the \nexecution  petition  filed  by  the  appellant.   This  Court \ncategorically observed that - it is open to the petitioner to execute the\n\norder  of  maintenance  passed  by  the  learned  Metropolitan  Magistrate and \nrequested the High Court to dispose of the appeal of the \nrespondent expeditiously.  \n \n14.\nStrangely,  when  the  appellant\u2019s  application  for  the \npayment of current maintenance in C.M. No.18869 of 2013 \nwas listed on 27.5.2014 before the High Court along with \nother connected matters in Appeal (Crl. Misc. Case No.1975 \nof 2013) preferred by the respondent, the application of the \nappellant was dismissed as \u201cnot pressed\u201d on representation \nmade  by  the  counsel  appearing  for  the  appellant.  The \nappellant  appeared  in  person  before  us  and  made  a \n6\n\nPage\u00a07\n\nJUDGMENT\nstatement that such instructions not to press the application \nwere never given to the counsel who appeared in the High \nCourt and hence the present appeal.\n15.\nWe  have  heard  the  appellant-in-person  and  learned \ncounsel appearing on behalf of the respondent.\n16.\nThe  learned  counsel  appearing  on  behalf  of  the \nrespondent pleaded inability to make the payment of the \narrears and the current maintenance due to the appellant in \nterms  of  the  order  passed  by  the  learned  Metropolitan \nMagistrate  on  05.07.2012  on  the  ground  that  the \nrespondent\u2019s annual income as can be seen from his income-\ntax returns for the last two years is only around Rs.2.50 \nlakhs per annum. \n17.\nThe appellant submitted that the income-tax returns of \nthe respondent do not reflect the true picture of the income \nof the respondent.  The appellant pointed out the profile of \nthe  respondent  placed  on  the  website  of  \u201cSycorian \nMatrimonial  Services  Ltd.\u201d  wherein  the  respondent\u2019s \npersonal income is shown as Rs.50 lakhs to Rs.1 crore per \n7\n\nPage\u00a08\n\nJUDGMENT\nannum and monthly income of Rs.5 lakhs. He was shown to \nbe a Managing Director or Director of four companies, the \ndetails of which are as under:\nSr. No.\nOrganization\nDesignation\n1\nM/s Utkarsh Art Press Pvt. Ltd.\nManaging Director/Share Holder\n2\nM/s Empress Infonet Pvt. Ltd.\nDirector/Share Holder\n3\nHotel Urban Pind\nDirector\n4\nM/s Brahmani Apparel Pvt. Ltd.\nDirector/Share Holder\n \n18.\nApart from that, the appellant also placed reliance on a \narticle published in weekly magazine Business World (Issue \ndated  10.03.2014)  wherein  some  information  regarding  a \nposh restaurant known as Zerruco by Zilli at The Ashok, New \nDelhi  was  published.   The  article  named  the  respondent \nalong  with  one  Kashif  Farooq  as  the  restaurateurs. \nAccording  to  the  article,  the  restaurant  was  set  up  at \nastounding cost of Rs.7 crore.  The relevant portion of the \narticle reads as follows:\n\u201cIf chef Back has  been feeding American entertainment \nindustry stars.  London-based Aldo Zilli is well-known for \nhis celeb-patronised Italian bites.  He has just made his \nAsian foray with Zerruco by Zilli, set in the partly al fresco-\npartly indoors space at The Ashoka New Delhi that used to \nhouse Mashrabiya.  The menu is simple, fresh and Med \u2013 \nsalads, grills, the occasional show-offy \u201c gelato ravioli\u201d but \nthis is one of those big \u201clifestyle restaurants\u201d that we seem \nto be losing more recently with the spurt in made-to-look-\nlike-mom-and-pop places.\n8\n\nPage\u00a09\n\nJUDGMENT\nRestaurateurs Kashif Farooq and Prashant Ojha known in \nthe clubbing/partying circuits have brought in Zilli as part \nof their ambitious plans to grow and get taken seriously in \nthe  F&B  realm.   The  restaurant  (that  will  turn  into  a \nlounge/club in the evenings) has been set up at astounding \nRs.7 crore cost.  You can look to this one as an alternate to \nthe \u201cupscale, casual\u201d, Olive-like spaces.\u201d   \n \n19.\nBefore we proceed to take any decision in the matter, \nwe deem it appropriate to make a brief survey of the DV Act \ninsofar  as  it  is  relevant  for  the  present  purpose.   The \npreamble of the Act states that this is \u201can Act to provide for more \neffective protection of the rights of women guaranteed under the Constitution who \nare victims of violence of any kind occurring within the family and for matters \nconnected or incidental thereto.\u201d\n20.\n\u201cDomestic violence\u201d is defined under Section 3 as any \nact, omission or commission or conduct of any adult male \nwho is or has been in domestic relationship.\n\u201cSection  3.  Definition  of  domestic  violence.\u2014For  the \npurposes of this Act, any act, omission or commission or \nconduct  of  the  respondent  shall  constitute  domestic \nviolence in case it\u2014\n(a)\nharms or injures or endangers the health, safety, life, \nlimb or well-being whether mental or physical, of the \naggrieved  person  or  tends  to  do  so  and  includes \ncausing  physical  abuse,  sexual  abuse,  verbal  and \nemotional abuse and economic abuse; or\n9\n\nPage\u00a010\n\nJUDGMENT\n(b)\nharasses, harms, injures or endangers the aggrieved \nperson with a view to coerce her or any other person \nrelated to her to meet any unlawful demand for any \ndowry or other property or valuable security; or\n(c)\nhas the effect of threatening the aggrieved person or \nany person related to her by any conduct mentioned \nin clause (a) or clause (b); or\n(d)\notherwise injures or causes harm, whether physical \nor mental, to the aggrieved person.\u201d\n21.\nThe expression \u201cdomestic relationship\u201d is defined under \nSection  2(f)1.  The  expressions  \u201cphysical  abuse\u201d,  \u201csexual \nabuse\u201d,  \u201cverbal  and  emotional  abuse\u201d  and  \u201ceconomic \nabuse\u201d are explained in Explanation-1 to Section 3.\n22.\nSection  12  of  the  Act  recognizes  the  right  of  an \n\u201caggrieved person\u201d2 (necessarily a woman by definition) to \npresent application to the Magistrate seeking one or more \nreliefs under the Act.  The reliefs provided under the Act are \ncontained in Sections 17 to 22.  Section 17 creates a right in \n1 Section 2. (f) \u201cdomestic relationship\u201d means a relationship between two persons who live or have, at any \npoint of time, lived together in a shared household, when they are related by consanguinity, marriage, or \nthrough a relationship in the nature of marriage, adoption or are family members living together as a joint \nfamily.\n2. Section 2.(a) \"aggrieved person\" means any woman who is, or has been, in a domestic relationship with \nthe respondent and who alleges to have been subjected to any act of  domestic violence by the respondent; \n10\n\nPage\u00a011\n\nJUDGMENT\nfavour of a woman/aggrieved person to reside in a \u201cshared \nhousehold\u201d defined under Section 2(s)3.\n23.\nSection 18 deals with various orders that can be passed \nby  the  Magistrate  dealing  with  the  application  of  an \naggrieved person under Section 12.  Section 19 provides for \nvarious kinds of residence orders which a Magistrate dealing \nwith an application under Section 12 can pass in favour of a \nwoman.  Section 20 authorizes the Magistrate dealing with \nan application under Section 12 to direct the respondent to \npay monetary relief to the aggrieved person.  Section 20 \nreads as follows:\n\u201cSection 20. Monetary reliefs.\u2014(1) While disposing of \nan  application  under  sub-section  (1)  of  section  12,  the \nMagistrate  may  direct  the  respondent  to  pay  monetary \nrelief to meet the expenses incurred and losses suffered by \nthe  aggrieved  person  and  any  child  of  the  aggrieved \nperson as a result of the domestic violence and such relief \nmay include, but is not limited to,\u2014\n(a)\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\n(b)\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026.\n(c)\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\n3. Section 2(s).\u2014 \"shared household\" means a household where the person aggrieved lives or at any  stage \nhas lived in a domestic relationship either singly or along with the respondent and  includes such a \nhousehold whether owned or tenanted either jointly by the aggrieved person  and the respondent, or owned \nor tenanted by either of them in respect of which either the  aggrieved person or the respondent or both \njointly or singly have any right, title, interest or  equity and includes such a household which may belong to \nthe joint family of which the  respondent is a member, irrespective of whether the respondent or the \naggrieved person has  any right, title or interest in the shared household.  \n11\n\nPage\u00a012\n\nJUDGMENT\n(d)\nthe maintenance for the aggrieved person as \nwell  as  her  children,  if  any,  including  an  order \nunder  or  in  addition  to  an  order  of  maintenance \nunder section 125 of the Code of Criminal Procedure, \n1973 (2 of 1974)  or any other law for the time \nbeing in force. \n(2).\nThe monetary relief granted under this section shall \nbe adequate, fair and reasonable and consistent with the \nstandard  of  living  to  which  the  aggrieved  person  is \naccustomed.\n(3).\nThe  Magistrate  shall  have  the  power  to  order  an \nappropriate lump sum payment or monthly payments of \nmaintenance, as the nature and circumstances of the case \nmay require.\n(4).\nThe  Magistrate shall send a copy of the order for \nmonetary relief made under sub-section (1) to the parties \nto the application and to the in-charge of the police station \nwithin the local limits of whose jurisdiction the respondent \nresides.\n(5).\nThe respondent shall pay the monetary relief granted \nto the aggrieved person within the period specified in the\n\norder under sub-section (1).\n(6).\nUpon the failure on the part of the respondent to \nmake payment in terms of the order under sub-section (1), \nthe Magistrate may direct the employer or a debtor of the \nrespondent, to directly pay to the aggrieved person or to \ndeposit with the court a portion of the wages or salaries or \ndebt due to or accrued to the credit of the respondent, \nwhich  amount  may  be  adjusted  towards  the  monetary \nrelief payable by the respondent.\u201d\n(emphasis supplied)\n24.\nSection 21 deals with the jurisdiction of the Magistrate \nto  pass  orders  relating  to  custody  of  children  of  the \naggrieved  person.   Section  22  deals  with  compensation \n12\n\nPage\u00a013\n\nJUDGMENT\norders  which  authorizes  the  Magistrate  to  pass  an  order \ndirecting the respondent to pay compensation and damages \nfor  the  injuries  including  mental  torture  and  emotional \ndistress caused by the act of domestic violence committed \nby the respondent.  The Magistrate receiving a complaint \nunder Section 12 is authorized under the Act to pass anyone \nof the orders under the various provisions discussed above \nappropriate to the facts of the complaint.\n25.\nSection  29  provides  for  an  appeal  to  the  Court  of \nSession against any order passed by the Magistrate under \nthe Act either at the instance of the aggrieved person or the \nrespondent.\n26.\nOne important factor to be noticed in the context of the \npresent  case  is  that  while  Section  23  expressly  confers \npower on the Magistrate to grant interim orders, there is no \nexpress  provision  conferring  such  power  on  the  Sessions \nCourt in exercise of its appellate jurisdiction.  Section 23 \nreads as follows:\n\u201cSection  23.  Power  to  grant  interim  and  ex  parte \norders.\u2014(1) In any proceeding before him under this Act, \n13\n\nPage\u00a014\n\nJUDGMENT\nthe Magistrate may pass such interim order as he deems \njust and proper. \n(2) If the Magistrate is satisfied that an application prima \nfacie discloses that the respondent is committing, or has \ncommitted an act of domestic violence or that there is a \nlikelihood  that  the  respondent  may  commit  an  act  of \ndomestic violence, he may grant an ex parte order on the \nbasis of the affidavit in such form, as may be prescribed, of \nthe aggrieved person under section 18, section 19, section \n20, section 21 or, as the case may be, section 22 against \nthe respondent.\u201d \n27.\nIt can be seen from the DV Act that no further appeal or \nrevision is provided to the High Court or any other Court \nagainst the order of the Sessions Court under Section 29.  \n28.\nIt is in the background of the abovementioned Scheme \nof the DV Act this case is required to be considered.  The \nappellant made a complaint under Section 12 of the DV Act. \nThe  Magistrate  in  exercise  of  his  jurisdiction  granted \nmaintenance  to  the  appellant.   The  Magistrate\u2019s  legal \nauthority to pass such an order is traceable to Section 20(1)\n(d) of the DV Act.\n29.\nQuestioning the correctness of the Magistrate\u2019s order in \ngranting  the  maintenance  of  Rs.2.5  lakhs  per  month  the \nrespondent carried the matter in appeal under Section 29 to \n14\n\nPage\u00a015\n\nJUDGMENT\nthe Sessions Court and sought stay of the execution of the\n\norder of the Magistrate during the pendency of the appeal. \nWhether  the  Sessions  Court  in  exercise  of  its  jurisdiction \nunder Section 29 of the Act has any power to pass interim \norders staying the execution of the order appealed before it \nis a matter to be examined in an appropriate case.   We only \nnote that there is no express grant of power conferred on \nthe Sessions Court while such power is expressly conferred \non the Magistrate under Section 23.  Apart from that, the \npower to grant interim orders is not always inherent in every \nCourt.   Such  powers  are  either  expressly  conferred  or \nimplied  in  certain  circumstances.   This  Court  in  Super \nCassettes  Industres  Limited\n v.\n Music  Broadcast \nPrivate Limited, (2012) 5 SCC 488, examined this question \nin detail.  At any rate, we do not propose to decide whether \nthe Sessions Court has the power to grant interim order such \nas  the  one  sought  by  the  respondent  herein  during  the \npendency of his appeal, for that issue has not been argued \nbefore us.  \n15\n\nPage\u00a016\n\nJUDGMENT\n30.\nWe presume (we emphasize that we only presume for \nthe purpose of this appeal) that the Sessions Court does \nhave such power.  If such a power exists then it can certainly \nbe  exercised  by  the  Sessions  Court  on  such  terms  and \nconditions which in the opinion of the Sessions Court are \njustified in the facts and circumstances of a given case.  In \nthe  alternative,  if  the  Sessions  Court  does  not  have  the \npower to grant interim orders during the pendency of the \nappeal, the Sessions Court ought not to have stayed the \nexecution  of  the  maintenance  order  passed  by  the \nMagistrate.   Since the respondent did not comply with such \nconditional order, the Sessions Court thought it fit to dismiss \nthe  appeal.   Challenging  the  correctness  of  the  said \ndismissal, the respondent carried the matter before the High \nCourt  invoking  Section  482  of  the  Code  of  Criminal \nProcedure, 1973 and Article 227 of the Constitution.  \n31.\nThe issue before the High Court in Crl. MC. No. 1975 of \n2013 is limited i.e. whether the sessions court could have \ndismissed the respondent\u2019s appeal only on the ground that \nrespondent did not discharge the obligation arising out of \n16\n\nPage\u00a017\n\nJUDGMENT\nthe conditional interim order passed by the sessions court. \nNecessarily the High Court will have to go into the question \nwhether the sessions court has the power to grant interim \nstay of the execution of the order under appeal before it.\n32.\nIn  a  matter  arising  under  a  legislation  meant  for \nprotecting the rights of the women, the High Court should \nhave been slow in granting interim orders, interfering with \nthe orders by which maintenance is granted to the appellant. \nNo  doubt,  such  interim  orders  are  now  vacated.   In  the \nprocess  the  appellant  is  still  awaiting  the  fruits  of \nmaintenance order even after 2 years of the order.\n33.\nWe find it difficult to accept that in a highly contested \nmatter  like  this  the  appellant  would  have  instructed  her \ncounsel not to press her claim for maintenance.   In our view, \nthe High Court ought not to have accepted the statement of \nthe counsel without verification.  The impugned order is set \naside.\n34.\nWe  are  of  the  opinion  that  the  conduct  of  the \nrespondent is a gross abuse of the judicial process.  We do \n17\n\nPage\u00a018\n\nJUDGMENT\nnot see any reason why the respondent\u2019s petition Crl. MC No. \n1975 of 2013 should be kept pending.  Whatever be the \ndecision of the High Court, one of the parties will (we are \nsure)  approach  this  Court  again  thereby  delaying  the \nconclusion of the litigation.  The interests of justice would be \nbetter served if the respondent\u2019s appeal before the Sessions \nCourt is heard and disposed of on merits instead of going \ninto the residuary questions of the authority of the appellate \nCourt to grant interim orders or the legality of the decision of \nthe Sessions Court to dismiss the appeal only on the ground \nof the non-compliance by the respondent with the conditions \nof the interim order. The Criminal Appeal No.23/2012 stands \nrestored to the file of the Sessions Court.\n35.\nWe also direct that the maintenance order passed by \nthe  magistrate  be  executed  forthwith  in  accordance  with \nlaw.    The  executing  court  should  complete  the  process \nwithin 8 weeks and report compliance in the High Court. We \nmake it clear that such hearing by the Sessions Court should \nonly  be  after  the  execution  of  the  order  of  maintenance \npassed by the Magistrate.   \n18\n\nPage\u00a019\n\nJUDGMENT\n36.\nIn the event of the respondent\u2019s success in the appeal, \neither  in  full  or  part,  the  Sessions  Court  can  make \nappropriate orders regarding the payments due to be made \nby the respondent in the execution proceedings.\nThe appeal is disposed off accordingly.\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026.J.\n                                                          (J. Chelameswar)\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026.J.\n \n                            (A.K. Sikri)\nNew Delhi;\nSeptember 18, 2014\n19\n\n\nGiven the context information and not prior knowledge, answer the user's query: What was the final outcome of the dispute between Shalu Ojha and Prashant Ojha regarding the rate of maintenance, and what were the directions given by the Supreme Court of India?"
+  }
+]
+2026-09-06 08:14:41,089 - app.core.rag_engine.engine - INFO - Quality Gate Result: AGENT_FALLBACK (Reason: Tier 2: Context insufficient)
+2026-09-06 08:14:41,089 - app.core.rag_engine.engine - INFO - Falling back to Agentic Tool Loop...

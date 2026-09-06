@@ -39,7 +39,7 @@ class HybridQualityGate:
         # but for this implementation we assume reranker is active as per specs
         if 'rerank_score' not in top_chunk:
             logger.warning("No rerank_score found in top chunk. Defaulting to Entailment Gate.")
-            return await self._evaluate_tier2(query, retrieved_chunks)
+            return await self.evaluate_tier2(query, retrieved_chunks)
 
         logger.info(f"Quality Gate Tier 1: Top reranker score = {top_score:.4f}")
 

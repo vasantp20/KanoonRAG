@@ -234,28 +234,4 @@ async def get_session_history(
         for log in logs
     ]
 
-@router.get("/cases/{case_id}/history", response_model=List[SessionHistoryItem])
-async def get_case_history(
-    case_id: int,
-    current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
-):
-    """Get all queries and responses for a specific case."""
-    q = select(QueryLog).where(
-        QueryLog.case_id == case_id,
-        QueryLog.user_id == current_user.id
-    ).order_by(QueryLog.created_at.asc())
-    
-    result = await db.execute(q)
-    logs = result.scalars().all()
-    
-    return [
-        SessionHistoryItem(
-            id=log.id,
-            query_text=log.query_text,
-            response_text=log.response_text,
-            sources_used=log.sources_used,
-            created_at=log.created_at
-        )
-        for log in logs
-    ]
+

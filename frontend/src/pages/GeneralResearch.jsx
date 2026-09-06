@@ -4,11 +4,20 @@ import { queryService } from '../api/queryService';
 export default function GeneralResearch() {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState([]);
-  const [isAiLoading, setIsAiLoading] = useState(false);
+  const [loadingSessionId, setLoadingSessionId] = useState(null);
   const messagesEndRef = useRef(null);
+  const textareaRef = useRef(null);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [inputValue]);
 
   const [history, setHistory] = useState([]);
   const [sessionId, setSessionId] = useState(crypto.randomUUID());
+  const isAiLoading = loadingSessionId === sessionId;
 
   useEffect(() => {
     loadSessions();
@@ -54,7 +63,20 @@ export default function GeneralResearch() {
       { role: 'user', content: userMessage, timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
     ]);
     setInputValue('');
-    setIsAiLoading(true);
+    const currentSession = sessionId;
+    setLoadingSessionId(currentSession);
+    
+    if (messages.length === 0) {
+      setHistory(prev => [
+        {
+          session_id: currentSession,
+          title: userMessage.length > 30 ? userMessage.substring(0, 30) + '...' : userMessage,
+          desc: userMessage,
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        },
+        ...prev
+      ]);
+    }
 
     try {
       // Send query without a caseId for general research, but with sessionId
@@ -75,7 +97,7 @@ export default function GeneralResearch() {
         { role: 'error', content: 'An error occurred while fetching the response.', timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
       ]);
     } finally {
-      setIsAiLoading(false);
+      setLoadingSessionId(prev => prev === currentSession ? null : prev);
     }
   };
 
@@ -91,10 +113,25 @@ export default function GeneralResearch() {
   }, [messages, isAiLoading]);
 
   return (
-    <div className="flex-1 flex flex-row h-full overflow-hidden relative">
+    <div className="w-screen h-screen flex flex-row overflow-hidden relative">
       {/* CHAT HISTORY SIDEBAR */}
-      <aside className="w-80 h-full bg-surface-container-low border-r border-outline-variant flex flex-col">
-        <div className="px-6 mb-6 mt-6 flex justify-between items-center shrink-0">
+      <aside className="w-80 h-full bg-surface-container-low border-r border-outline-variant flex flex-col z-50">
+        <div className="px-6 py-6 mb-2 flex items-center gap-3">
+          <img src="/logo.jpg" alt="KanoonRAG Logo" className="w-12 h-12 rounded-lg shadow-sm shrink-0" />
+          <div className="flex flex-col items-start min-w-0">
+            <p className="font-bold text-primary leading-tight truncate w-full">KanoonRAG</p>
+            <span className="text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5 font-medium truncate w-full">Legal Intelligence</span>
+          </div>
+        </div>
+        
+        <div className="px-6 mb-4 mt-2">
+          <button onClick={startNewChat} className="w-full py-3 bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            <span className="material-symbols-outlined">add_circle</span>
+            New Chat
+          </button>
+        </div>
+
+        <div className="px-6 mb-4 mt-4 flex justify-between items-center shrink-0">
           <h2 className="font-label-md text-on-surface-variant tracking-widest uppercase">History</h2>
           <button className="text-on-surface-variant hover:text-primary transition-all">
             <span className="material-symbols-outlined text-[18px]">filter_list</span>
@@ -119,28 +156,10 @@ export default function GeneralResearch() {
 
       {/* MAIN CHAT AREA */}
       <main className="flex-1 h-full flex flex-col bg-surface relative overflow-hidden">
-        {/* Header Section */}
-        <div className="px-edge_margin py-4 flex items-center justify-between z-10 border-b border-outline-variant/30 shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-8 bg-primary rounded-full"></div>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface">General Research</h2>
-          </div>
-          <button onClick={startNewChat} className="flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full font-title-md hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/10">
-            <span className="material-symbols-outlined">add</span>
-            New Chat
-          </button>
-        </div>
 
         {/* Chat Content Area */}
         <div className="flex-1 overflow-y-auto custom-scrollbar px-edge_margin py-10 z-10">
           <div className="max-w-4xl mx-auto space-y-8">
-            {messages.length === 0 && !isAiLoading && (
-              <div className="text-center text-on-surface-variant mt-20">
-                <span className="material-symbols-outlined text-4xl mb-4 text-primary">psychology</span>
-                <p>Ask a general legal question to explore KanoonRAG's global knowledge base.</p>
-              </div>
-            )}
-
             {messages.map((msg, idx) => (
               <div key={idx}>
                 {msg.role === 'user' ? (
@@ -222,19 +241,28 @@ export default function GeneralResearch() {
         </div>
 
         {/* Input Area */}
-        <div className="px-edge_margin pb-10 pt-4 z-10 shrink-0">
+        <div className={`px-edge_margin z-10 shrink-0 w-full transition-all duration-500 ease-in-out ${messages.length === 0 && !isAiLoading ? 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' : 'pb-10 pt-4'}`}>
           <div className="max-w-4xl mx-auto">
+            {messages.length === 0 && !isAiLoading && (
+              <div className="text-center text-on-surface-variant mb-8 animate-in fade-in duration-700">
+                <span className="material-symbols-outlined text-5xl mb-4 text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>psychology</span>
+                <h2 className="font-headline-md text-on-surface mb-2">How can I help you today?</h2>
+                <p className="font-body-lg">Ask a general legal question to explore KanoonRAG's global knowledge base.</p>
+              </div>
+            )}
             <div className="bg-surface-container-low/65 backdrop-blur-[20px] border border-outline-variant/30 p-2 rounded-2xl shadow-2xl relative transition-all focus-within:ring-2 focus-within:ring-primary/40 focus-within:border-primary">
+
               <div className="flex items-end gap-2 px-2 py-2">
                 <button className="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-lg hover:bg-primary/10">
                   <span className="material-symbols-outlined">attach_file</span>
                 </button>
                 <textarea 
+                  ref={textareaRef}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
                   disabled={isAiLoading}
-                  className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-lg placeholder:text-on-surface-variant/50 py-2 resize-none custom-scrollbar max-h-40 outline-none" 
+                  className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-lg placeholder:text-on-surface-variant/50 py-2 resize-none custom-scrollbar max-h-[200px] outline-none" 
                   placeholder="Ask about statutes, case laws, or legal analysis..." 
                   rows="1"
                 ></textarea>
@@ -246,66 +274,44 @@ export default function GeneralResearch() {
                   <span className="material-symbols-outlined">bolt</span>
                 </button>
               </div>
-              <div className="flex gap-4 px-4 pb-2">
-                <div className="flex items-center gap-1 text-[10px] text-on-surface-variant font-label-md">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                  AI Engine: V4-Legal-Elite
-                </div>
-                <div className="flex items-center gap-1 text-[10px] text-on-surface-variant font-label-md">
-                  <span className="material-symbols-outlined text-[12px]">verified_user</span>
-                  256-bit Encrypted
-                </div>
-              </div>
+
             </div>
-            <p className="text-center mt-3 text-[11px] text-on-surface-variant/40">
-              KanoonRAG may produce inaccuracies. Always cross-reference with official legal gazettes.
-            </p>
+            <div className="flex items-center justify-center gap-1.5 mt-4 text-[12px] text-on-surface-variant/70">
+              <span className="material-symbols-outlined text-[14px] text-orange-400/80">warning</span>
+              <p>KanoonRAG may produce inaccuracies. Always cross-reference with official legal gazettes.</p>
+            </div>
           </div>
         </div>
       </main>
 
-      {/* Right Side Panel (Context Info) */}
-      <aside className="w-[300px] bg-surface-container-low border-l border-outline-variant px-6 hidden xl:flex flex-col py-6 shrink-0 overflow-y-auto custom-scrollbar">
-        <h3 className="font-label-md text-on-surface-variant tracking-widest uppercase mb-6">General Context</h3>
-        <div className="space-y-6">
-          <div className="p-4 rounded-xl bg-surface-container-highest/50 border border-outline-variant/30">
-            <h4 className="font-title-md text-primary text-sm mb-2">Subject Entities</h4>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] border border-primary/20">IT Act 2024</span>
-              <span className="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] border border-primary/20">Intermediary Liability</span>
-              <span className="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] border border-primary/20">Data Privacy</span>
-            </div>
-          </div>
-
+      {/* Right Side Panel (Suggested Prompts) */}
+      {messages.length === 0 && !isAiLoading && (
+        <aside className="w-[300px] bg-surface-container-lowest/50 border-l border-outline-variant px-6 hidden xl:flex flex-col py-6 shrink-0 overflow-y-auto custom-scrollbar">
+          <h3 className="font-label-md text-on-surface-variant tracking-widest uppercase mb-6">Suggested Prompts</h3>
+          
           <div className="space-y-4">
-            <h4 className="font-label-md text-on-surface-variant uppercase text-[10px]">Suggested Inquiries</h4>
-            <button 
-              onClick={() => setInputValue("Compare Section 79 before and after 2024 amendment")}
-              className="w-full text-left p-3 rounded-lg bg-surface hover:bg-surface-container-highest border border-outline-variant/20 transition-colors group">
-              <p className="text-xs text-on-surface group-hover:text-primary">"Compare Section 79 before and after 2024 amendment"</p>
-            </button>
-            <button 
-              onClick={() => setInputValue("List penalties for non-compliance for SMEs")}
-              className="w-full text-left p-3 rounded-lg bg-surface hover:bg-surface-container-highest border border-outline-variant/20 transition-colors group">
-              <p className="text-xs text-on-surface group-hover:text-primary">"List penalties for non-compliance for SMEs"</p>
-            </button>
-            <button 
-              onClick={() => setInputValue("Draft a summary of safe harbor changes")}
-              className="w-full text-left p-3 rounded-lg bg-surface hover:bg-surface-container-highest border border-outline-variant/20 transition-colors group">
-              <p className="text-xs text-on-surface group-hover:text-primary">"Draft a summary of safe harbor changes"</p>
-            </button>
+            {[
+              { title: "Shalu Ojha vs Prashant Ojha", prompt: "What was the final outcome of the dispute between Shalu Ojha and Prashant Ojha regarding the rate of maintenance, and what were the directions given by the Supreme Court of India?" },
+              { title: "Maintenance in Civil Appeal 5369", prompt: "What was the final amount of maintenance awarded to the respondent-wife in the Supreme Court of India's judgment in Civil Appeal No. 5369 of 2017?" },
+              { title: "State of Rajasthan vs. Teg Bahadur", prompt: "In the case of State of Rajasthan vs. Teg Bahadur & Ors., what were the key arguments presented by the counsel for the appellant and the respondents-accused regarding the reliability of evidence and the application of Section 113-B of the Evidence Act?" },
+              { title: "Jurisdiction for Cruelty", prompt: "Can a woman who has been forced to leave her matrimonial home due to acts of cruelty initiate legal proceedings in the jurisdiction of the courts where she has taken shelter with her parents or other family members?" },
+              { title: "Pramod Kumar Bajaj Retirement", prompt: "What is the basis for the appellant's threefold challenge to the impugned judgment regarding his compulsory retirement in the case of Captain Pramod Kumar Bajaj vs Union of India and Another?" },
+              { title: "Custody Dispute Considerations", prompt: "In a custody dispute between the father and the remarried mother, what are the key considerations for the welfare of the child according to Indian law?" },
+              { title: "Ingredients for Section 304B IPC", prompt: "In the context of the criminal case against Prem Kanwar, what are the essential ingredients that must be proven to attract Section 304B of the Indian Penal Code?" },
+              { title: "Vivek Singh vs. Romani Singh", prompt: "In the case of Vivek Singh vs. Romani Singh, what were the considerations made by the court in deciding the custody of the minor daughter, Saesha Singh, and what was the final decision?" }
+            ].map((item, index) => (
+              <button 
+                key={index}
+                onClick={() => setInputValue(item.prompt)}
+                className="w-full text-left p-3 rounded-xl bg-surface hover:bg-primary/5 border border-outline-variant/30 hover:border-primary/40 transition-all group shadow-sm"
+              >
+                <h4 className="font-title-sm text-on-surface group-hover:text-primary mb-1">{item.title}</h4>
+                <p className="text-[10px] text-on-surface-variant line-clamp-2">{item.prompt}</p>
+              </button>
+            ))}
           </div>
-
-          <div className="mt-8">
-            <img 
-              className="w-full h-40 object-cover rounded-xl border border-outline-variant/40 grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBGfmAXQNcLJeVSNFZ9DoxEt-Zj6SJGaC1fgB8XQ9zdiz3MOC_p1YDhxj_u-990Xen4hfqZAFWLXULeO0dzYBOPibjtDrgGnpYUazhwShHh9LLEOiRWmPPsg5rMtZV8FkMQnm1NK4BnWg8Ougb0tvk1-0-pg0Gmx0uhYzxcP4lCO8yEJ-YexyS9Rqjff5K41XDvaL8K0OSWn_Zp7Lr-GVMI9ljXpGieuSshfHkeC4cHG0gB7n-rNYV" 
-              alt="Decorative conceptual art"
-            />
-            <p className="text-[10px] text-on-surface-variant/60 mt-2 italic">Automated Document Indexing active for 'IT_Laws_Master'</p>
-          </div>
-        </div>
-      </aside>
+        </aside>
+      )}
     </div>
   );
 }

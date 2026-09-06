@@ -66,7 +66,6 @@ const Login = () => {
         </div>
 
         <div className="brand-footer">
-          <span>SECURED BY QUANTUM ENCRYPTION</span>
           <span>© 2024 KANOONRAG</span>
         </div>
       </section>
@@ -140,21 +139,6 @@ const Login = () => {
               {!isLoading && <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>}
             </button>
           </form>
-
-          <div className="divider">
-            <span>OR AUTHORIZE WITH</span>
-          </div>
-
-          <div className="sso-actions">
-            <button className="sso-btn">
-              <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>language</span>
-              Microsoft 365
-            </button>
-            <button className="sso-btn">
-              <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>key</span>
-              SSO Enterprise
-            </button>
-          </div>
 
           <div className="login-bottom-nav">
             Don't have an enterprise account? 
