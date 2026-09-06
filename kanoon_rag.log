@@ -1809,3 +1809,385 @@ September 18, 2014
 ]
 2026-09-06 08:14:41,089 - app.core.rag_engine.engine - INFO - Quality Gate Result: AGENT_FALLBACK (Reason: Tier 2: Context insufficient)
 2026-09-06 08:14:41,089 - app.core.rag_engine.engine - INFO - Falling back to Agentic Tool Loop...
+2026-09-06 08:18:39,607 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 08:18:39,751 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 08:18:39,751 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 08:18:43,334 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 08:18:46,625 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 08:18:46,760 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 08:18:46,760 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 08:18:49,491 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 08:18:57,247 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 08:18:57,384 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 08:18:57,384 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 08:19:00,162 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 08:19:03,359 - app.core.vector_store - INFO - Initializing VectorStore...
+2026-09-06 08:19:03,496 - app.core.vector_store - INFO - Loaded BM25 index from disk.
+2026-09-06 08:19:03,496 - app.core.vector_store - INFO - Loading BAAI/bge-reranker-base...
+2026-09-06 08:19:06,373 - app.core.vector_store - INFO - Reranker loaded successfully!
+2026-09-06 08:29:44,617 - app.core.rag_engine.engine - INFO - Quality Gate Result: PASS (Reason: Tier 2: Context is sufficient)
+2026-09-06 08:29:44,618 - app.core.rag_engine.engine - DEBUG - Retrieved Context:
+--- Document 1 [Case: MAHENDRA PRASAD MEHATA vs PARMILA DEVI . | No Citation | Supreme Court of India, 2019 | File: 14315-2014___supremecourt____2014__2014__Judgement_09-Apr-2019.pdf] ---
+10
+16.
+We, therefore, hold that the courts at the place where the wife takes
+shelter after leaving or driven away from the matrimonial home on account of acts
+of cruelty committed by the husband or his relatives, would, dependent on the
+factual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging
+commission of offences under Section 498A of the Indian Penal Code.
+17.
+All the appeals are disposed of in terms of the above. 
+………………………..…..,CJI
+ [RANJAN GOGOI]
+...……………………..…….,J.
+[L. NAGESWARA RAO]
+………………………..…….,J.
+         [SANJAY KISHAN KAUL]
+NEW DELHI;
+APRIL 09, 2019.
+
+--- Document 2 [Case: AFSAR ALI KHAN vs THE STATE OF MADHYA PRADESH | No Citation | Supreme Court of India, 2019 | File: 21297-2010___supremecourt____2010__2010__Judgement_09-Apr-2019.pdf] ---
+10
+16.
+We, therefore, hold that the courts at the place where the wife takes
+shelter after leaving or driven away from the matrimonial home on account of acts
+of cruelty committed by the husband or his relatives, would, dependent on the
+factual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging
+commission of offences under Section 498A of the Indian Penal Code.
+17.
+All the appeals are disposed of in terms of the above. 
+………………………..…..,CJI
+ [RANJAN GOGOI]
+...……………………..…….,J.
+[L. NAGESWARA RAO]
+………………………..…….,J.
+         [SANJAY KISHAN KAUL]
+NEW DELHI;
+APRIL 09, 2019.
+
+--- Document 3 [Case: BHAGWANSINGH @ BHAGGU vs THE STATE OF MADHYA PRADESH | No Citation | Supreme Court of India, 2019 | File: 28894-2011___supremecourt____2011__2011__Judgement_09-Apr-2019.pdf] ---
+10
+16.
+We, therefore, hold that the courts at the place where the wife takes
+shelter after leaving or driven away from the matrimonial home on account of acts
+of cruelty committed by the husband or his relatives, would, dependent on the
+factual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging
+commission of offences under Section 498A of the Indian Penal Code.
+17.
+All the appeals are disposed of in terms of the above. 
+………………………..…..,CJI
+ [RANJAN GOGOI]
+...……………………..…….,J.
+[L. NAGESWARA RAO]
+………………………..…….,J.
+         [SANJAY KISHAN KAUL]
+NEW DELHI;
+APRIL 09, 2019.
+
+--- Document 4 [Case: GAJRAJ SINGH vs THE STATE OF MADHYA PRADESH | No Citation | Supreme Court of India, 2019 | File: 28903-2011___supremecourt____2011__2011__Judgement_09-Apr-2019.pdf] ---
+10
+16.
+We, therefore, hold that the courts at the place where the wife takes
+shelter after leaving or driven away from the matrimonial home on account of acts
+of cruelty committed by the husband or his relatives, would, dependent on the
+factual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging
+commission of offences under Section 498A of the Indian Penal Code.
+17.
+All the appeals are disposed of in terms of the above. 
+………………………..…..,CJI
+ [RANJAN GOGOI]
+...……………………..…….,J.
+[L. NAGESWARA RAO]
+………………………..…….,J.
+         [SANJAY KISHAN KAUL]
+NEW DELHI;
+APRIL 09, 2019.
+
+--- Document 5 [Case: PRIYA INDORIA vs THE STATE OF KARNATAKA | No Citation | Supreme Court of India, 2023 | File: 7943-2023___supremecourt__2023__7943__7943_2023_14_1501_48299_Judgement_20-Nov-2023.pdf] ---
+83 
+answer to such a situation as the facts of the present case do not involve 
+such a situation. 
+ 
+48. 
+Another issue that calls for reiteration is, whether, the ordinary 
+place of inquiry and trial would include the place where the 
+complainant-wife resides after being separated from her husband. The 
+position of law regarding the ordinary place of investigation and trial as 
+per Section 177 of the CrPC, especially in matrimonial cases alleging 
+cruelty and domestic violence, alleged by the wife, has advanced from 
+the view held in the case of State of Bihar vs. Deokaran Nenshi, 
+(1972) 2 SCC 890; Sujata Mukherjee (Smt.) vs. Prashant Kumar 
+Mukherjee, (1997) 5 SCC 30; Y. Abraham Ajith vs. Inspector of 
+Police, Chennai, (2004) 8 SCC 100, Ramesh vs. State of T.N. (2005) 
+3 SCC 507; Manish Ratan vs. State of M.P., (2007) 1 SCC 262 that 
+if none of the ingredients constituting the offence can be said to have 
+occurred within the local jurisdiction, that jurisdiction cannot be the 
+ordinary place of investigation and trial of a matrimonial offence. A three 
+judge Bench of this Court has however clarified in Rupali Devi vs. State 
+of U.P., (2019) 5 SCC 384 (Rupali Devi) that adverse effects on mental 
+health of the wife even while residing in her parental home on account 
+of the acts committed in the matrimonial home would amount to 
+commission of cruelty within the meaning of Section 498A at the 
+parental home.  It was held that the Courts at the place where the wife 
+takes shelter after leaving or being driven away from the matrimonial
+
+--- Document 6 [Case: MAHENDRA PRASAD MEHTA vs THE STATE OF BIHAR | No Citation | Supreme Court of India, 2019 | File: 16633-2014___supremecourt____2014__2014__Judgement_09-Apr-2019.pdf] ---
+8
+judicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws
+introduced and inserted by the Criminal Laws (second amendment) Act, 1983 more
+efficacious and effective in view of the clear purpose behind the introduction of the
+provisions in question, as already noticed.
+14.
+ “Cruelty” which is the crux of the offence under Section 498A IPC is
+defined in Black’s Law Dictionary to mean “The intentional and malicious infliction
+of mental or physical suffering on a living creature, esp. a human; abusive
+treatment; outrage (Abuse, inhuman treatment, indignity)”.  Cruelty can be both
+physical or mental cruelty.  The impact on the mental health of the wife by overt
+acts on the part of the husband or his relatives; the mental stress and trauma of
+being driven away from the matrimonial home and her helplessness to go back to
+the same home for fear of being illtreated are aspects that cannot be ignored
+while understanding the meaning of the expression “cruelty” appearing in Section
+498A of the Indian Penal Code.  The emotional distress or psychological effect on
+the wife, if not the physical injury, is bound to continue to traumatize the wife even
+after she leaves the matrimonial home and takes shelter at the parental home.
+Even if the acts of physical cruelty committed in the matrimonial house may have
+ceased and such acts do not occur at the parental home,  there can be no doubt
+that the mental trauma and the psychological distress cause by the acts of the
+husband including verbal exchanges, if any, that had compelled the wife to leave
+the matrimonial home and take shelter with her parents would continue to persist
+at the parental home. Mental cruelty borne out of physical cruelty or abusive and
+humiliating verbal exchanges would continue in the parental home even though
+there may not be any overt act of physical cruelty at such place.
+
+--- Document 7 [Case: NEETU ARORA vs VIKRAM ARORA . | No Citation | Supreme Court of India, 2019 | File: 29149-2010___supremecourt____2010__2010__Judgement_09-Apr-2019.pdf] ---
+8
+judicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws
+introduced and inserted by the Criminal Laws (second amendment) Act, 1983 more
+efficacious and effective in view of the clear purpose behind the introduction of the
+provisions in question, as already noticed.
+14.
+ “Cruelty” which is the crux of the offence under Section 498A IPC is
+defined in Black’s Law Dictionary to mean “The intentional and malicious infliction
+of mental or physical suffering on a living creature, esp. a human; abusive
+treatment; outrage (Abuse, inhuman treatment, indignity)”.  Cruelty can be both
+physical or mental cruelty.  The impact on the mental health of the wife by overt
+acts on the part of the husband or his relatives; the mental stress and trauma of
+being driven away from the matrimonial home and her helplessness to go back to
+the same home for fear of being illtreated are aspects that cannot be ignored
+while understanding the meaning of the expression “cruelty” appearing in Section
+498A of the Indian Penal Code.  The emotional distress or psychological effect on
+the wife, if not the physical injury, is bound to continue to traumatize the wife even
+after she leaves the matrimonial home and takes shelter at the parental home.
+Even if the acts of physical cruelty committed in the matrimonial house may have
+ceased and such acts do not occur at the parental home,  there can be no doubt
+that the mental trauma and the psychological distress cause by the acts of the
+husband including verbal exchanges, if any, that had compelled the wife to leave
+the matrimonial home and take shelter with her parents would continue to persist
+at the parental home. Mental cruelty borne out of physical cruelty or abusive and
+humiliating verbal exchanges would continue in the parental home even though
+there may not be any overt act of physical cruelty at such place.
+
+--- Document 8 [Case: BRAJ KISHORE PRASAD @ SURAJ PRASAD vs THE STATE OF BIHAR | No Citation | Supreme Court of India, 2019 | File: 29615-2011___supremecourt____2011__2011__Judgement_09-Apr-2019.pdf] ---
+8
+judicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws
+introduced and inserted by the Criminal Laws (second amendment) Act, 1983 more
+efficacious and effective in view of the clear purpose behind the introduction of the
+provisions in question, as already noticed.
+14.
+ “Cruelty” which is the crux of the offence under Section 498A IPC is
+defined in Black’s Law Dictionary to mean “The intentional and malicious infliction
+of mental or physical suffering on a living creature, esp. a human; abusive
+treatment; outrage (Abuse, inhuman treatment, indignity)”.  Cruelty can be both
+physical or mental cruelty.  The impact on the mental health of the wife by overt
+acts on the part of the husband or his relatives; the mental stress and trauma of
+being driven away from the matrimonial home and her helplessness to go back to
+the same home for fear of being illtreated are aspects that cannot be ignored
+while understanding the meaning of the expression “cruelty” appearing in Section
+498A of the Indian Penal Code.  The emotional distress or psychological effect on
+the wife, if not the physical injury, is bound to continue to traumatize the wife even
+after she leaves the matrimonial home and takes shelter at the parental home.
+Even if the acts of physical cruelty committed in the matrimonial house may have
+ceased and such acts do not occur at the parental home,  there can be no doubt
+that the mental trauma and the psychological distress cause by the acts of the
+husband including verbal exchanges, if any, that had compelled the wife to leave
+the matrimonial home and take shelter with her parents would continue to persist
+at the parental home. Mental cruelty borne out of physical cruelty or abusive and
+humiliating verbal exchanges would continue in the parental home even though
+there may not be any overt act of physical cruelty at such place.
+
+--- Document 9 [Case: RUPALI DEVI vs STATE OF UTTAR PRADESH | No Citation | Supreme Court of India, 2019 | File: 36977-2011___supremecourt__2011__36977__36977_2011_Judgement_09-Apr-2019.pdf] ---
+8
+judicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws
+introduced and inserted by the Criminal Laws (second amendment) Act, 1983 more
+efficacious and effective in view of the clear purpose behind the introduction of the
+provisions in question, as already noticed.
+14.
+ “Cruelty” which is the crux of the offence under Section 498A IPC is
+defined in Black’s Law Dictionary to mean “The intentional and malicious infliction
+of mental or physical suffering on a living creature, esp. a human; abusive
+treatment; outrage (Abuse, inhuman treatment, indignity)”.  Cruelty can be both
+physical or mental cruelty.  The impact on the mental health of the wife by overt
+acts on the part of the husband or his relatives; the mental stress and trauma of
+being driven away from the matrimonial home and her helplessness to go back to
+the same home for fear of being illtreated are aspects that cannot be ignored
+while understanding the meaning of the expression “cruelty” appearing in Section
+498A of the Indian Penal Code.  The emotional distress or psychological effect on
+the wife, if not the physical injury, is bound to continue to traumatize the wife even
+after she leaves the matrimonial home and takes shelter at the parental home.
+Even if the acts of physical cruelty committed in the matrimonial house may have
+ceased and such acts do not occur at the parental home,  there can be no doubt
+that the mental trauma and the psychological distress cause by the acts of the
+husband including verbal exchanges, if any, that had compelled the wife to leave
+the matrimonial home and take shelter with her parents would continue to persist
+at the parental home. Mental cruelty borne out of physical cruelty or abusive and
+humiliating verbal exchanges would continue in the parental home even though
+there may not be any overt act of physical cruelty at such place.
+
+--- Document 10 [Case: S. VANITHA vs THE DEPUTY COMMISSIONER | No Citation | Supreme Court of India, 2020 | File: 44892-2019___supremecourt__2019__44892__44892_2019_36_1501_25104_Judgement_15-Dec-2020.pdf] ---
+PART E  
+29 
+ 
+or the male partner to file a complaint against the wife or the 
+female partner. 
+ (ii) It defines the expression “domestic violence” to include 
+actual abuse or threat or abuse that is physical, sexual, verbal, 
+emotional or economic. Harassment by way of unlawful dowry 
+demands to the woman or her relatives would also be covered 
+under this definition. 
+(iii) It provides for the rights of women to secure housing. It 
+also provides for the right of a woman to reside in her 
+matrimonial home or shared household, whether or not she 
+has any title or rights in such home or household. This right is 
+secured by a residence order, which is passed by the 
+Magistrate. 
+ (iv) It empowers the Magistrate to pass protection orders in 
+favour of the aggrieved person to prevent the respondent from 
+aiding or committing an act of domestic violence or any other 
+specified act, entering a workplace or any other place 
+frequented 
+by 
+the 
+aggrieved 
+person, 
+attempting 
+to 
+communicate with her, isolating any assets used by both the 
+parties and causing violence to the aggrieved person, her 
+relatives or others who provide her assistance from the 
+domestic violence. 
+(v) It provides for appointment of Protection Officers and 
+registration of non-governmental organisations as service 
+providers for providing assistance to the aggrieved person with 
+respect to her medical examination, obtaining legal aid, safe 
+shelter, etc.” 
+ 
+The above extract indicates that a significant object of the legislation is to provide for 
+and recognize the rights of women to secure housing and to recognize the right of a 
+woman to reside in a matrimonial home or a shared household, whether or not she 
+has any title or right in the shared household. Allowing the Senior Citizens Act 2007 
+to have an overriding force and effect in all situations, irrespective of competing 
+entitlements of a woman to a right in a shared household within the meaning of the
+
+--- Document 11 [Case: SAVITRI PANDEY vs PREM CHANDRA PANDEY | No Citation | Supreme Court of India, 2002 | File: 9563-1998___jonew__judis__18201.pdf] ---
+is entitled to for a decree of divorce".  On appreciation of evidence
+led in the case, the Division Bench of the High Court held:
+"We also do not find any evidence that the wife has been
+treated with cruelty by the husband.  We are also of the
+view that there is no evidence that petitioner is deserted."
+        We have heard the learned counsel for the parties and perused the
+record.
+        Treating the petitioner with cruelty is a ground for divorce under
+Section 13(1)(ia) of the Act.  Cruelty has not been defined under the
+Act but in relation to matrimonial matters it is contemplated as a
+conduct of such type which endangers the living of the petitioner with
+the respondent.  Cruelty consists of acts which are dangerous to life,
+limb or health.  Cruelty for the purpose of the Act means where one
+spouse has so treated the other and manifested such feelings towards her
+or him as to have inflicted bodily injury, or to have caused reasonable
+apprehension of bodily injury, suffering or to have injured health.
+Cruelty may be physical or mental.  Mental cruelty is the conduct of
+other spouse which causes mental suffering or fear to the matrimonial
+life of the other.  "Cruelty", therefore, postulates a treatment of the
+petitioner with such cruelty as to cause a reasonable apprehension in
+his or her mind that it would be harmful or injurious for the petitioner
+to live with the other party.  Cruelty, however, has to be distinguished
+from the ordinary wear and tear of family life.  It cannot be decided on
+the basis of the sensitivity of the petitioner and has to be adjudged on
+the basis of the course of conduct which would, in general, be dangerous
+for a spouse to live with the other.  In the instant case both the trial
+court as well as the High Court have found on facts that the wife had
+failed to prove the allegations of cruelty attributed to the respondent.
+Concurrent findings of fact arrived at by the courts cannot be disturbed
+
+--- Document 12 [Case: VAISHALI ABHIMANYU JOSHI vs NANSAHEB GOPAL JOSHI | No Citation | Supreme Court of India, 2017 | File: 26313-2016___supremecourt__2016__26313__26313_2016_Judgement_09-May-2017.pdf] ---
+16
+a  law  keeping  in  view  the  rights
+guaranteed under Articles 14, 15 and 21
+of  the  Constitution  to  provide  for  a
+remedy  under  the  civil  law  which  is
+intended to protect the women from being
+victims  of  domestic  violence  and  to
+prevent  the  occurrence  of  domestic
+violence in the society.
+4.  The  Bill,  inter  alia,  seeks  to
+provide for the following—
+*
+*
+*
+(ii)  It  defines  the  expression
+“domestic  violence”  to  include  actual
+abuse  or  threat  or  abuse  that  is
+physical,  sexual,  verbal,  emotional  or
+economic. Harassment by way of unlawful
+dowry  demands  to  the  woman  or  her
+relatives  would  also  be  covered  under
+this definition.
+(iii)  It  provides  for  the  rights  of
+women to secure housing. It also provides
+for the right of a woman to reside in her
+matrimonial  home  or  shared  household,
+whether  or  not  she  has  any  title  or
+rights  in  such  home  or  household.  This
+right  is  secured  by  a  residence  order,
+which is passed by the Magistrate.
+(iv) It empowers the Magistrate to pass
+protection  orders  in  favour  of  the
+aggrieved  person  to  prevent  the
+respondent from aiding or committing an
+act  of  domestic  violence  or  any  other
+specified  act,  entering  a  workplace  or
+any  other  place  frequented  by  the
+aggrieved
+ 
+person,
+ 
+attempting
+ 
+to
+communicate  with  her,  isolating  any
+assets  used  by  both  the  parties  and
+causing violence to the aggrieved person,
+her relatives or others who provide her
+assistance from the domestic violence.”
+18.
+Section 17 provides for right to reside in a
+
+2026-09-06 08:29:44,618 - app.core.rag_engine.engine - DEBUG - LLM Prompt Messages:
+[
+  {
+    "role": "system",
+    "content": "You are a senior Indian family law expert and legal assistant.\nYour task is to provide accurate, professional, and empathetic legal answers based EXCLUSIVELY on the provided context.\n\nCRITICAL INSTRUCTIONS:\n1. Base your answer ONLY on the provided context. Do NOT use any outside or parametric knowledge to answer the question.\n2. If the provided context does not contain sufficient information to answer the question, you MUST reply exactly with: \"I don't know based on the provided documents.\" Do not attempt to guess or extrapolate.\n3. When you use information from the context, you MUST cite the source precisely as follows:\n   - For Kanoon documents (legal cases): [Case: <Title> | <Citation> | <Court>, <Year>]\n   - For user uploaded documents: [Client File: <filename>, Page <n>]\n4. If multiple cases are present in the context, ALWAYS prioritize and base your primary answer on the most recent judgment (using the Year/Date provided in the document headers). Use older cases only to show historical context if relevant, but clearly state which ruling is the latest.\n"
+  },
+  {
+    "role": "user",
+    "content": "Can a woman who has been forced to leave her matrimonial home due to acts of cruelty initiate legal proceedings in the jurisdiction of the courts where she has taken shelter with her parents or other family members?"
+  },
+  {
+    "role": "assistant",
+    "content": "Context is not sufficient to answer the query."
+  },
+  {
+    "role": "user",
+    "content": "Context information is below.\n\n--- Document 1 [Case: MAHENDRA PRASAD MEHATA vs PARMILA DEVI . | No Citation | Supreme Court of India, 2019 | File: 14315-2014___supremecourt____2014__2014__Judgement_09-Apr-2019.pdf] ---\n10\n16.\nWe, therefore, hold that the courts at the place where the wife takes\nshelter after leaving or driven away from the matrimonial home on account of acts\nof cruelty committed by the husband or his relatives, would, dependent on the\nfactual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging\ncommission of offences under Section 498A of the Indian Penal Code.\n17.\nAll the appeals are disposed of in terms of the above. \n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026..,CJI\n [RANJAN GOGOI]\n...\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n[L. NAGESWARA RAO]\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n         [SANJAY KISHAN KAUL]\nNEW DELHI;\nAPRIL 09, 2019.\n\n--- Document 2 [Case: AFSAR ALI KHAN vs THE STATE OF MADHYA PRADESH | No Citation | Supreme Court of India, 2019 | File: 21297-2010___supremecourt____2010__2010__Judgement_09-Apr-2019.pdf] ---\n10\n16.\nWe, therefore, hold that the courts at the place where the wife takes\nshelter after leaving or driven away from the matrimonial home on account of acts\nof cruelty committed by the husband or his relatives, would, dependent on the\nfactual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging\ncommission of offences under Section 498A of the Indian Penal Code.\n17.\nAll the appeals are disposed of in terms of the above. \n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026..,CJI\n [RANJAN GOGOI]\n...\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n[L. NAGESWARA RAO]\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n         [SANJAY KISHAN KAUL]\nNEW DELHI;\nAPRIL 09, 2019.\n\n--- Document 3 [Case: BHAGWANSINGH @ BHAGGU vs THE STATE OF MADHYA PRADESH | No Citation | Supreme Court of India, 2019 | File: 28894-2011___supremecourt____2011__2011__Judgement_09-Apr-2019.pdf] ---\n10\n16.\nWe, therefore, hold that the courts at the place where the wife takes\nshelter after leaving or driven away from the matrimonial home on account of acts\nof cruelty committed by the husband or his relatives, would, dependent on the\nfactual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging\ncommission of offences under Section 498A of the Indian Penal Code.\n17.\nAll the appeals are disposed of in terms of the above. \n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026..,CJI\n [RANJAN GOGOI]\n...\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n[L. NAGESWARA RAO]\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n         [SANJAY KISHAN KAUL]\nNEW DELHI;\nAPRIL 09, 2019.\n\n--- Document 4 [Case: GAJRAJ SINGH vs THE STATE OF MADHYA PRADESH | No Citation | Supreme Court of India, 2019 | File: 28903-2011___supremecourt____2011__2011__Judgement_09-Apr-2019.pdf] ---\n10\n16.\nWe, therefore, hold that the courts at the place where the wife takes\nshelter after leaving or driven away from the matrimonial home on account of acts\nof cruelty committed by the husband or his relatives, would, dependent on the\nfactual  situation,  also  have  jurisdiction  to  entertain  a  complaint  alleging\ncommission of offences under Section 498A of the Indian Penal Code.\n17.\nAll the appeals are disposed of in terms of the above. \n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026..,CJI\n [RANJAN GOGOI]\n...\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n[L. NAGESWARA RAO]\n\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026..\u2026\u2026.,J.\n         [SANJAY KISHAN KAUL]\nNEW DELHI;\nAPRIL 09, 2019.\n\n--- Document 5 [Case: PRIYA INDORIA vs THE STATE OF KARNATAKA | No Citation | Supreme Court of India, 2023 | File: 7943-2023___supremecourt__2023__7943__7943_2023_14_1501_48299_Judgement_20-Nov-2023.pdf] ---\n83 \nanswer to such a situation as the facts of the present case do not involve \nsuch a situation. \n \n48. \nAnother issue that calls for reiteration is, whether, the ordinary \nplace of inquiry and trial would include the place where the \ncomplainant-wife resides after being separated from her husband. The \nposition of law regarding the ordinary place of investigation and trial as \nper Section 177 of the CrPC, especially in matrimonial cases alleging \ncruelty and domestic violence, alleged by the wife, has advanced from \nthe view held in the case of State of Bihar vs. Deokaran Nenshi, \n(1972) 2 SCC 890; Sujata Mukherjee (Smt.) vs. Prashant Kumar \nMukherjee, (1997) 5 SCC 30; Y. Abraham Ajith vs. Inspector of \nPolice, Chennai, (2004) 8 SCC 100, Ramesh vs. State of T.N. (2005) \n3 SCC 507; Manish Ratan vs. State of M.P., (2007) 1 SCC 262 that \nif none of the ingredients constituting the offence can be said to have \noccurred within the local jurisdiction, that jurisdiction cannot be the \nordinary place of investigation and trial of a matrimonial offence. A three \njudge Bench of this Court has however clarified in Rupali Devi vs. State \nof U.P., (2019) 5 SCC 384 (Rupali Devi) that adverse effects on mental \nhealth of the wife even while residing in her parental home on account \nof the acts committed in the matrimonial home would amount to \ncommission of cruelty within the meaning of Section 498A at the \nparental home.  It was held that the Courts at the place where the wife \ntakes shelter after leaving or being driven away from the matrimonial\n\n--- Document 6 [Case: MAHENDRA PRASAD MEHTA vs THE STATE OF BIHAR | No Citation | Supreme Court of India, 2019 | File: 16633-2014___supremecourt____2014__2014__Judgement_09-Apr-2019.pdf] ---\n8\njudicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws\nintroduced and inserted by the Criminal Laws (second amendment) Act, 1983 more\nefficacious and effective in view of the clear purpose behind the introduction of the\nprovisions in question, as already noticed.\n14.\n \u201cCruelty\u201d which is the crux of the offence under Section 498A IPC is\ndefined in Black\u2019s Law Dictionary to mean \u201cThe intentional and malicious infliction\nof mental or physical suffering on a living creature, esp. a human; abusive\ntreatment; outrage (Abuse, inhuman treatment, indignity)\u201d.  Cruelty can be both\nphysical or mental cruelty.  The impact on the mental health of the wife by overt\nacts on the part of the husband or his relatives; the mental stress and trauma of\nbeing driven away from the matrimonial home and her helplessness to go back to\nthe same home for fear of being illtreated are aspects that cannot be ignored\nwhile understanding the meaning of the expression \u201ccruelty\u201d appearing in Section\n498A of the Indian Penal Code.  The emotional distress or psychological effect on\nthe wife, if not the physical injury, is bound to continue to traumatize the wife even\nafter she leaves the matrimonial home and takes shelter at the parental home.\nEven if the acts of physical cruelty committed in the matrimonial house may have\nceased and such acts do not occur at the parental home,  there can be no doubt\nthat the mental trauma and the psychological distress cause by the acts of the\nhusband including verbal exchanges, if any, that had compelled the wife to leave\nthe matrimonial home and take shelter with her parents would continue to persist\nat the parental home. Mental cruelty borne out of physical cruelty or abusive and\nhumiliating verbal exchanges would continue in the parental home even though\nthere may not be any overt act of physical cruelty at such place.\n\n--- Document 7 [Case: NEETU ARORA vs VIKRAM ARORA . | No Citation | Supreme Court of India, 2019 | File: 29149-2010___supremecourt____2010__2010__Judgement_09-Apr-2019.pdf] ---\n8\njudicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws\nintroduced and inserted by the Criminal Laws (second amendment) Act, 1983 more\nefficacious and effective in view of the clear purpose behind the introduction of the\nprovisions in question, as already noticed.\n14.\n \u201cCruelty\u201d which is the crux of the offence under Section 498A IPC is\ndefined in Black\u2019s Law Dictionary to mean \u201cThe intentional and malicious infliction\nof mental or physical suffering on a living creature, esp. a human; abusive\ntreatment; outrage (Abuse, inhuman treatment, indignity)\u201d.  Cruelty can be both\nphysical or mental cruelty.  The impact on the mental health of the wife by overt\nacts on the part of the husband or his relatives; the mental stress and trauma of\nbeing driven away from the matrimonial home and her helplessness to go back to\nthe same home for fear of being illtreated are aspects that cannot be ignored\nwhile understanding the meaning of the expression \u201ccruelty\u201d appearing in Section\n498A of the Indian Penal Code.  The emotional distress or psychological effect on\nthe wife, if not the physical injury, is bound to continue to traumatize the wife even\nafter she leaves the matrimonial home and takes shelter at the parental home.\nEven if the acts of physical cruelty committed in the matrimonial house may have\nceased and such acts do not occur at the parental home,  there can be no doubt\nthat the mental trauma and the psychological distress cause by the acts of the\nhusband including verbal exchanges, if any, that had compelled the wife to leave\nthe matrimonial home and take shelter with her parents would continue to persist\nat the parental home. Mental cruelty borne out of physical cruelty or abusive and\nhumiliating verbal exchanges would continue in the parental home even though\nthere may not be any overt act of physical cruelty at such place.\n\n--- Document 8 [Case: BRAJ KISHORE PRASAD @ SURAJ PRASAD vs THE STATE OF BIHAR | No Citation | Supreme Court of India, 2019 | File: 29615-2011___supremecourt____2011__2011__Judgement_09-Apr-2019.pdf] ---\n8\njudicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws\nintroduced and inserted by the Criminal Laws (second amendment) Act, 1983 more\nefficacious and effective in view of the clear purpose behind the introduction of the\nprovisions in question, as already noticed.\n14.\n \u201cCruelty\u201d which is the crux of the offence under Section 498A IPC is\ndefined in Black\u2019s Law Dictionary to mean \u201cThe intentional and malicious infliction\nof mental or physical suffering on a living creature, esp. a human; abusive\ntreatment; outrage (Abuse, inhuman treatment, indignity)\u201d.  Cruelty can be both\nphysical or mental cruelty.  The impact on the mental health of the wife by overt\nacts on the part of the husband or his relatives; the mental stress and trauma of\nbeing driven away from the matrimonial home and her helplessness to go back to\nthe same home for fear of being illtreated are aspects that cannot be ignored\nwhile understanding the meaning of the expression \u201ccruelty\u201d appearing in Section\n498A of the Indian Penal Code.  The emotional distress or psychological effect on\nthe wife, if not the physical injury, is bound to continue to traumatize the wife even\nafter she leaves the matrimonial home and takes shelter at the parental home.\nEven if the acts of physical cruelty committed in the matrimonial house may have\nceased and such acts do not occur at the parental home,  there can be no doubt\nthat the mental trauma and the psychological distress cause by the acts of the\nhusband including verbal exchanges, if any, that had compelled the wife to leave\nthe matrimonial home and take shelter with her parents would continue to persist\nat the parental home. Mental cruelty borne out of physical cruelty or abusive and\nhumiliating verbal exchanges would continue in the parental home even though\nthere may not be any overt act of physical cruelty at such place.\n\n--- Document 9 [Case: RUPALI DEVI vs STATE OF UTTAR PRADESH | No Citation | Supreme Court of India, 2019 | File: 36977-2011___supremecourt__2011__36977__36977_2011_Judgement_09-Apr-2019.pdf] ---\n8\njudicial  endeavour  must,  therefore,  always  be  to  make  the  provision  of  the  laws\nintroduced and inserted by the Criminal Laws (second amendment) Act, 1983 more\nefficacious and effective in view of the clear purpose behind the introduction of the\nprovisions in question, as already noticed.\n14.\n \u201cCruelty\u201d which is the crux of the offence under Section 498A IPC is\ndefined in Black\u2019s Law Dictionary to mean \u201cThe intentional and malicious infliction\nof mental or physical suffering on a living creature, esp. a human; abusive\ntreatment; outrage (Abuse, inhuman treatment, indignity)\u201d.  Cruelty can be both\nphysical or mental cruelty.  The impact on the mental health of the wife by overt\nacts on the part of the husband or his relatives; the mental stress and trauma of\nbeing driven away from the matrimonial home and her helplessness to go back to\nthe same home for fear of being illtreated are aspects that cannot be ignored\nwhile understanding the meaning of the expression \u201ccruelty\u201d appearing in Section\n498A of the Indian Penal Code.  The emotional distress or psychological effect on\nthe wife, if not the physical injury, is bound to continue to traumatize the wife even\nafter she leaves the matrimonial home and takes shelter at the parental home.\nEven if the acts of physical cruelty committed in the matrimonial house may have\nceased and such acts do not occur at the parental home,  there can be no doubt\nthat the mental trauma and the psychological distress cause by the acts of the\nhusband including verbal exchanges, if any, that had compelled the wife to leave\nthe matrimonial home and take shelter with her parents would continue to persist\nat the parental home. Mental cruelty borne out of physical cruelty or abusive and\nhumiliating verbal exchanges would continue in the parental home even though\nthere may not be any overt act of physical cruelty at such place.\n\n--- Document 10 [Case: S. VANITHA vs THE DEPUTY COMMISSIONER | No Citation | Supreme Court of India, 2020 | File: 44892-2019___supremecourt__2019__44892__44892_2019_36_1501_25104_Judgement_15-Dec-2020.pdf] ---\nPART E  \n29 \n \nor the male partner to file a complaint against the wife or the \nfemale partner. \n (ii) It defines the expression \u201cdomestic violence\u201d to include \nactual abuse or threat or abuse that is physical, sexual, verbal, \nemotional or economic. Harassment by way of unlawful dowry \ndemands to the woman or her relatives would also be covered \nunder this definition. \n(iii) It provides for the rights of women to secure housing. It \nalso provides for the right of a woman to reside in her \nmatrimonial home or shared household, whether or not she \nhas any title or rights in such home or household. This right is \nsecured by a residence order, which is passed by the \nMagistrate. \n (iv) It empowers the Magistrate to pass protection orders in \nfavour of the aggrieved person to prevent the respondent from \naiding or committing an act of domestic violence or any other \nspecified act, entering a workplace or any other place \nfrequented \nby \nthe \naggrieved \nperson, \nattempting \nto \ncommunicate with her, isolating any assets used by both the \nparties and causing violence to the aggrieved person, her \nrelatives or others who provide her assistance from the \ndomestic violence. \n(v) It provides for appointment of Protection Officers and \nregistration of non-governmental organisations as service \nproviders for providing assistance to the aggrieved person with \nrespect to her medical examination, obtaining legal aid, safe \nshelter, etc.\u201d \n \nThe above extract indicates that a significant object of the legislation is to provide for \nand recognize the rights of women to secure housing and to recognize the right of a \nwoman to reside in a matrimonial home or a shared household, whether or not she \nhas any title or right in the shared household. Allowing the Senior Citizens Act 2007 \nto have an overriding force and effect in all situations, irrespective of competing \nentitlements of a woman to a right in a shared household within the meaning of the\n\n--- Document 11 [Case: SAVITRI PANDEY vs PREM CHANDRA PANDEY | No Citation | Supreme Court of India, 2002 | File: 9563-1998___jonew__judis__18201.pdf] ---\nis entitled to for a decree of divorce\".  On appreciation of evidence\nled in the case, the Division Bench of the High Court held:\n\"We also do not find any evidence that the wife has been\ntreated with cruelty by the husband.  We are also of the\nview that there is no evidence that petitioner is deserted.\"\n        We have heard the learned counsel for the parties and perused the\nrecord.\n        Treating the petitioner with cruelty is a ground for divorce under\nSection 13(1)(ia) of the Act.  Cruelty has not been defined under the\nAct but in relation to matrimonial matters it is contemplated as a\nconduct of such type which endangers the living of the petitioner with\nthe respondent.  Cruelty consists of acts which are dangerous to life,\nlimb or health.  Cruelty for the purpose of the Act means where one\nspouse has so treated the other and manifested such feelings towards her\nor him as to have inflicted bodily injury, or to have caused reasonable\napprehension of bodily injury, suffering or to have injured health.\nCruelty may be physical or mental.  Mental cruelty is the conduct of\nother spouse which causes mental suffering or fear to the matrimonial\nlife of the other.  \"Cruelty\", therefore, postulates a treatment of the\npetitioner with such cruelty as to cause a reasonable apprehension in\nhis or her mind that it would be harmful or injurious for the petitioner\nto live with the other party.  Cruelty, however, has to be distinguished\nfrom the ordinary wear and tear of family life.  It cannot be decided on\nthe basis of the sensitivity of the petitioner and has to be adjudged on\nthe basis of the course of conduct which would, in general, be dangerous\nfor a spouse to live with the other.  In the instant case both the trial\ncourt as well as the High Court have found on facts that the wife had\nfailed to prove the allegations of cruelty attributed to the respondent.\nConcurrent findings of fact arrived at by the courts cannot be disturbed\n\n--- Document 12 [Case: VAISHALI ABHIMANYU JOSHI vs NANSAHEB GOPAL JOSHI | No Citation | Supreme Court of India, 2017 | File: 26313-2016___supremecourt__2016__26313__26313_2016_Judgement_09-May-2017.pdf] ---\n16\na  law  keeping  in  view  the  rights\nguaranteed under Articles 14, 15 and 21\nof  the  Constitution  to  provide  for  a\nremedy  under  the  civil  law  which  is\nintended to protect the women from being\nvictims  of  domestic  violence  and  to\nprevent  the  occurrence  of  domestic\nviolence in the society.\n4.  The  Bill,  inter  alia,  seeks  to\nprovide for the following\u2014\n*\n*\n*\n(ii)  It  defines  the  expression\n\u201cdomestic  violence\u201d  to  include  actual\nabuse  or  threat  or  abuse  that  is\nphysical,  sexual,  verbal,  emotional  or\neconomic. Harassment by way of unlawful\ndowry  demands  to  the  woman  or  her\nrelatives  would  also  be  covered  under\nthis definition.\n(iii)  It  provides  for  the  rights  of\nwomen to secure housing. It also provides\nfor the right of a woman to reside in her\nmatrimonial  home  or  shared  household,\nwhether  or  not  she  has  any  title  or\nrights  in  such  home  or  household.  This\nright  is  secured  by  a  residence  order,\nwhich is passed by the Magistrate.\n(iv) It empowers the Magistrate to pass\nprotection  orders  in  favour  of  the\naggrieved  person  to  prevent  the\nrespondent from aiding or committing an\nact  of  domestic  violence  or  any  other\nspecified  act,  entering  a  workplace  or\nany  other  place  frequented  by  the\naggrieved\n \nperson,\n \nattempting\n \nto\ncommunicate  with  her,  isolating  any\nassets  used  by  both  the  parties  and\ncausing violence to the aggrieved person,\nher relatives or others who provide her\nassistance from the domestic violence.\u201d\n18.\nSection\u00a017\u00a0provides\u00a0for\u00a0right\u00a0to\u00a0reside\u00a0in\u00a0a\n\n\nGiven the context information and not prior knowledge, answer the user's query: Can a woman who has been forced to leave her matrimonial home due to acts of cruelty initiate legal proceedings in the jurisdiction of the courts where she has taken shelter with her parents or other family members?"
+  }
+]

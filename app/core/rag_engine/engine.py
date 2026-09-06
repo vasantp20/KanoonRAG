@@ -62,18 +62,6 @@ class RAGEngine:
                 "query_uuid": query_uuid
             }
             
-        if gate_status == "AGENT_FALLBACK":
-            logger.info("Falling back to Agentic Tool Loop...")
-            from .agent_loop import AgentRunner
-            agent = AgentRunner(self.vector_store, self.llm_provider, self.intent_llm)
-            agent_result = await agent.run_tool_loop(user_query, retrieved_chunks)
-            if agent_result.get("status") == "REFUSAL":
-                return {
-                    "answer": "Context is not sufficient to answer the query.",
-                    "sources": [],
-                    "query_uuid": query_uuid
-                }
-            retrieved_chunks = agent_result.get("chunks", retrieved_chunks)
 
         # Step 4: Assemble context
         context = format_context(retrieved_chunks)

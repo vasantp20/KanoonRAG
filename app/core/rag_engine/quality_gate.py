@@ -26,7 +26,7 @@ class HybridQualityGate:
         """
         Evaluate retrieved chunks against the query.
         Returns: (is_sufficient: bool, reason: str, status: str)
-        status can be "REFUSAL", "PASS", or "AGENT_FALLBACK"
+        status can be "REFUSAL" or "PASS"
         """
         if not retrieved_chunks:
             return False, "No chunks retrieved", "REFUSAL"
@@ -81,8 +81,7 @@ Output a JSON object with a single boolean field "is_sufficient" set to true or 
             if is_sufficient:
                 return True, "Tier 2: Context is sufficient", "PASS"
             else:
-                return False, "Tier 2: Context insufficient", "AGENT_FALLBACK"
+                return False, "Tier 2: Context insufficient", "REFUSAL"
         except Exception as e:
             logger.error(f"Error in Tier 2 Entailment: {e}")
-            # Fallback to agent if validation fails
-            return False, "Tier 2: Error evaluating", "AGENT_FALLBACK"
+            return False, "Tier 2: Error evaluating", "REFUSAL"
